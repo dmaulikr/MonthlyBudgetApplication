@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		15DF0C881EDD60E8006B6945 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DF0C871EDD60E8006B6945 /* main.m */; };
+		15DF0C8B1EDD60E8006B6945 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DF0C8A1EDD60E8006B6945 /* AppDelegate.m */; };
+		15DF0C911EDD60E8006B6945 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15DF0C8F1EDD60E8006B6945 /* Main.storyboard */; };
+		15DF0C941EDD60E8006B6945 /* MonthlyBudgetApplication.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15DF0C921EDD60E8006B6945 /* MonthlyBudgetApplication.xcdatamodeld */; };
+		15DF0C961EDD60E8006B6945 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15DF0C951EDD60E8006B6945 /* Assets.xcassets */; };
+		15DF0C991EDD60E8006B6945 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15DF0C971EDD60E8006B6945 /* LaunchScreen.storyboard */; };
+		15DF0CAD1EDD6594006B6945 /* MBHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DF0CAC1EDD6594006B6945 /* MBHomeTableViewController.m */; };
+		15DF0CAF1EDD6651006B6945 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15DF0CAE1EDD6651006B6945 /* Localizable.strings */; };
+		15DF0CB21EDD6934006B6945 /* AddNewMonthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DF0CB11EDD6934006B6945 /* AddNewMonthView.xib */; };
+		15DF0CB51EDD730F006B6945 /* MBTextFiled.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DF0CB41EDD730F006B6945 /* MBTextFiled.m */; };
+		15DF0CB91EDD787B006B6945 /* MBUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DF0CB81EDD787B006B6945 /* MBUtility.m */; };
+		15DF0CBD1EDD7C6B006B6945 /* MBCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DF0CBC1EDD7C6B006B6945 /* MBCoreDataManager.m */; };
+		15DF0CC51EDD7DCC006B6945 /* NSDictionary+MonthlyBudget.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DF0CC41EDD7DCC006B6945 /* NSDictionary+MonthlyBudget.m */; };
+		15DF0CC81EDD8A1B006B6945 /* MBMonth.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DF0CC71EDD8A1B006B6945 /* MBMonth.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		15DF0C831EDD60E8006B6945 /* MonthlyBudgetApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonthlyBudgetApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15DF0C871EDD60E8006B6945 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		15DF0C891EDD60E8006B6945 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		15DF0C8A1EDD60E8006B6945 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		15DF0C901EDD60E8006B6945 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		15DF0C931EDD60E8006B6945 /* MonthlyBudgetApplication.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MonthlyBudgetApplication.xcdatamodel; sourceTree = "<group>"; };
+		15DF0C951EDD60E8006B6945 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		15DF0C981EDD60E8006B6945 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		15DF0C9A1EDD60E8006B6945 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15DF0CA81EDD62E4006B6945 /* MBDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDefine.h; sourceTree = "<group>"; };
+		15DF0CAB1EDD6594006B6945 /* MBHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBHomeTableViewController.h; sourceTree = "<group>"; };
+		15DF0CAC1EDD6594006B6945 /* MBHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBHomeTableViewController.m; sourceTree = "<group>"; };
+		15DF0CAE1EDD6651006B6945 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		15DF0CB11EDD6934006B6945 /* AddNewMonthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNewMonthView.xib; sourceTree = "<group>"; };
+		15DF0CB31EDD730F006B6945 /* MBTextFiled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTextFiled.h; sourceTree = "<group>"; };
+		15DF0CB41EDD730F006B6945 /* MBTextFiled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTextFiled.m; sourceTree = "<group>"; };
+		15DF0CB71EDD787B006B6945 /* MBUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBUtility.h; sourceTree = "<group>"; };
+		15DF0CB81EDD787B006B6945 /* MBUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBUtility.m; sourceTree = "<group>"; };
+		15DF0CBB1EDD7C6B006B6945 /* MBCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCoreDataManager.h; sourceTree = "<group>"; };
+		15DF0CBC1EDD7C6B006B6945 /* MBCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCoreDataManager.m; sourceTree = "<group>"; };
+		15DF0CC31EDD7DCC006B6945 /* NSDictionary+MonthlyBudget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MonthlyBudget.h"; sourceTree = "<group>"; };
+		15DF0CC41EDD7DCC006B6945 /* NSDictionary+MonthlyBudget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MonthlyBudget.m"; sourceTree = "<group>"; };
+		15DF0CC61EDD8A1B006B6945 /* MBMonth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMonth.h; sourceTree = "<group>"; };
+		15DF0CC71EDD8A1B006B6945 /* MBMonth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMonth.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		15DF0C801EDD60E8006B6945 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		15DF0C7A1EDD60E8006B6945 = {
+			isa = PBXGroup;
+			children = (
+				15DF0C851EDD60E8006B6945 /* MonthlyBudgetApplication */,
+				15DF0C841EDD60E8006B6945 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		15DF0C841EDD60E8006B6945 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				15DF0C831EDD60E8006B6945 /* MonthlyBudgetApplication.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		15DF0C851EDD60E8006B6945 /* MonthlyBudgetApplication */ = {
+			isa = PBXGroup;
+			children = (
+				15DF0CA01EDD620A006B6945 /* Classes */,
+				15DF0CA11EDD6229006B6945 /* Resources */,
+				15DF0C861EDD60E8006B6945 /* Supporting Files */,
+			);
+			path = MonthlyBudgetApplication;
+			sourceTree = "<group>";
+		};
+		15DF0C861EDD60E8006B6945 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				15DF0C871EDD60E8006B6945 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		15DF0CA01EDD620A006B6945 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				15DF0CBA1EDD7C49006B6945 /* DataManager */,
+				15DF0CA61EDD62A6006B6945 /* AppDelegateClasses */,
+				15DF0CA71EDD62C0006B6945 /* Utility */,
+				15DF0CA51EDD6295006B6945 /* ViewControllers */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		15DF0CA11EDD6229006B6945 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				15DF0CA21EDD6248006B6945 /* StoryBoard */,
+				15DF0CB01EDD6780006B6945 /* XIB */,
+				15DF0CA41EDD6274006B6945 /* DataSource */,
+				15DF0CA31EDD625C006B6945 /* Others */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		15DF0CA21EDD6248006B6945 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				15DF0C8F1EDD60E8006B6945 /* Main.storyboard */,
+				15DF0C971EDD60E8006B6945 /* LaunchScreen.storyboard */,
+			);
+			name = StoryBoard;
+			sourceTree = "<group>";
+		};
+		15DF0CA31EDD625C006B6945 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				15DF0C951EDD60E8006B6945 /* Assets.xcassets */,
+				15DF0C9A1EDD60E8006B6945 /* Info.plist */,
+				15DF0CAE1EDD6651006B6945 /* Localizable.strings */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
+		15DF0CA41EDD6274006B6945 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				15DF0C921EDD60E8006B6945 /* MonthlyBudgetApplication.xcdatamodeld */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		15DF0CA51EDD6295006B6945 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				15DF0CAB1EDD6594006B6945 /* MBHomeTableViewController.h */,
+				15DF0CAC1EDD6594006B6945 /* MBHomeTableViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		15DF0CA61EDD62A6006B6945 /* AppDelegateClasses */ = {
+			isa = PBXGroup;
+			children = (
+				15DF0C891EDD60E8006B6945 /* AppDelegate.h */,
+				15DF0C8A1EDD60E8006B6945 /* AppDelegate.m */,
+			);
+			name = AppDelegateClasses;
+			sourceTree = "<group>";
+		};
+		15DF0CA71EDD62C0006B6945 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				15DF0CC21EDD7DA8006B6945 /* Category */,
+				15DF0CB61EDD7316006B6945 /* MBTextField */,
+				15DF0CA81EDD62E4006B6945 /* MBDefine.h */,
+				15DF0CB71EDD787B006B6945 /* MBUtility.h */,
+				15DF0CB81EDD787B006B6945 /* MBUtility.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		15DF0CB01EDD6780006B6945 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				15DF0CB11EDD6934006B6945 /* AddNewMonthView.xib */,
+			);
+			name = XIB;
+			sourceTree = "<group>";
+		};
+		15DF0CB61EDD7316006B6945 /* MBTextField */ = {
+			isa = PBXGroup;
+			children = (
+				15DF0CB31EDD730F006B6945 /* MBTextFiled.h */,
+				15DF0CB41EDD730F006B6945 /* MBTextFiled.m */,
+			);
+			name = MBTextField;
+			sourceTree = "<group>";
+		};
+		15DF0CBA1EDD7C49006B6945 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				15DF0CBE1EDD7C77006B6945 /* Models */,
+				15DF0CBB1EDD7C6B006B6945 /* MBCoreDataManager.h */,
+				15DF0CBC1EDD7C6B006B6945 /* MBCoreDataManager.m */,
+			);
+			name = DataManager;
+			sourceTree = "<group>";
+		};
+		15DF0CBE1EDD7C77006B6945 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				15DF0CC61EDD8A1B006B6945 /* MBMonth.h */,
+				15DF0CC71EDD8A1B006B6945 /* MBMonth.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		15DF0CC21EDD7DA8006B6945 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				15DF0CC31EDD7DCC006B6945 /* NSDictionary+MonthlyBudget.h */,
+				15DF0CC41EDD7DCC006B6945 /* NSDictionary+MonthlyBudget.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		15DF0C821EDD60E8006B6945 /* MonthlyBudgetApplication */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15DF0C9D1EDD60E8006B6945 /* Build configuration list for PBXNativeTarget "MonthlyBudgetApplication" */;
+			buildPhases = (
+				15DF0C7F1EDD60E8006B6945 /* Sources */,
+				15DF0C801EDD60E8006B6945 /* Frameworks */,
+				15DF0C811EDD60E8006B6945 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MonthlyBudgetApplication;
+			productName = MonthlyBudgetApplication;
+			productReference = 15DF0C831EDD60E8006B6945 /* MonthlyBudgetApplication.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		15DF0C7B1EDD60E8006B6945 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Mohini Sindhu ";
+				TargetAttributes = {
+					15DF0C821EDD60E8006B6945 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 15DF0C7E1EDD60E8006B6945 /* Build configuration list for PBXProject "MonthlyBudgetApplication" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 15DF0C7A1EDD60E8006B6945;
+			productRefGroup = 15DF0C841EDD60E8006B6945 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				15DF0C821EDD60E8006B6945 /* MonthlyBudgetApplication */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		15DF0C811EDD60E8006B6945 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15DF0C991EDD60E8006B6945 /* LaunchScreen.storyboard in Resources */,
+				15DF0CAF1EDD6651006B6945 /* Localizable.strings in Resources */,
+				15DF0C961EDD60E8006B6945 /* Assets.xcassets in Resources */,
+				15DF0CB21EDD6934006B6945 /* AddNewMonthView.xib in Resources */,
+				15DF0C911EDD60E8006B6945 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		15DF0C7F1EDD60E8006B6945 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15DF0C8B1EDD60E8006B6945 /* AppDelegate.m in Sources */,
+				15DF0CAD1EDD6594006B6945 /* MBHomeTableViewController.m in Sources */,
+				15DF0C881EDD60E8006B6945 /* main.m in Sources */,
+				15DF0CC81EDD8A1B006B6945 /* MBMonth.m in Sources */,
+				15DF0C941EDD60E8006B6945 /* MonthlyBudgetApplication.xcdatamodeld in Sources */,
+				15DF0CBD1EDD7C6B006B6945 /* MBCoreDataManager.m in Sources */,
+				15DF0CB91EDD787B006B6945 /* MBUtility.m in Sources */,
+				15DF0CB51EDD730F006B6945 /* MBTextFiled.m in Sources */,
+				15DF0CC51EDD7DCC006B6945 /* NSDictionary+MonthlyBudget.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		15DF0C8F1EDD60E8006B6945 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				15DF0C901EDD60E8006B6945 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		15DF0C971EDD60E8006B6945 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				15DF0C981EDD60E8006B6945 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		15DF0C9B1EDD60E8006B6945 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		15DF0C9C1EDD60E8006B6945 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		15DF0C9E1EDD60E8006B6945 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MonthlyBudgetApplication/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mohini.MonthlyBudgetApplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		15DF0C9F1EDD60E8006B6945 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MonthlyBudgetApplication/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mohini.MonthlyBudgetApplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		15DF0C7E1EDD60E8006B6945 /* Build configuration list for PBXProject "MonthlyBudgetApplication" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15DF0C9B1EDD60E8006B6945 /* Debug */,
+				15DF0C9C1EDD60E8006B6945 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15DF0C9D1EDD60E8006B6945 /* Build configuration list for PBXNativeTarget "MonthlyBudgetApplication" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15DF0C9E1EDD60E8006B6945 /* Debug */,
+				15DF0C9F1EDD60E8006B6945 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		15DF0C921EDD60E8006B6945 /* MonthlyBudgetApplication.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				15DF0C931EDD60E8006B6945 /* MonthlyBudgetApplication.xcdatamodel */,
+			);
+			currentVersion = 15DF0C931EDD60E8006B6945 /* MonthlyBudgetApplication.xcdatamodel */;
+			path = MonthlyBudgetApplication.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 15DF0C7B1EDD60E8006B6945 /* Project object */;
+}
