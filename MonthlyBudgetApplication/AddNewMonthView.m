@@ -22,12 +22,12 @@
         // Add to the view hierarchy
         [self.monthSuggestionTableView setHidden:YES];
         [vc.view addSubview:self];
-    
+        [vc setUserActivity:nil];
         [UIView animateWithDuration:0.5
                          animations:
          ^{
              self.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
-             
+             [vc.view setUserInteractionEnabled:NO];
          }
          ];
     }
