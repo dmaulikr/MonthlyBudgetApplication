@@ -9,6 +9,10 @@
 #import "MBHomeTableViewController.h"
 #import "MBUtility.h"
 #import "MBCoreDataManager.h"
+#import "MonthListTableViewCell.h"
+#import "AddNewMonthView.h"
+
+#define kMonthListTableViewCellIdentifier @"MonthListTableCell"
 
 @interface MBHomeTableViewController ()
 
@@ -19,6 +23,9 @@
 	NSArray* _searchSuggestionArray;
 	NSArray* _validMonths;
 	NSString* _monthInputedByUser;
+    NSArray* _monthArray;
+    NSArray* _monthSuggestionArray;
+    UITableView* _autoCompleteTableView;
 }
 
 #pragma mark - View life cycle methods
@@ -38,30 +45,50 @@
 #pragma mark - InitialViewControllerSetup
 -(void) initialTableVcSetup
 {
+    self.month = [[MBMonth alloc]init];
 	_validMonths = [[NSArray alloc]initWithObjects:@"january",@"febuary",@"march",@"april",@"may",@"june",@"july",@"august",@"september",@"october",@"november",@"december" ,nil];
 
 	UIBarButtonItem* rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightBarButtonPressedForAddingNewMonth)];
 	
 	self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-	
+   NSString* currentMonth =  [self getCurrentMonthForUserSuggestion];
+    _monthSuggestionArray = [[NSArray alloc]initWithObjects:currentMonth, nil];
+    [self populateData];
+}
+-(void) setUpAutoCompleteTableView
+{
+    _autoCompleteTableView.delegate = self;
+    _autoCompleteTableView.dataSource = self;
+    _autoCompleteTableView.frame = CGRectMake(0, 0, 30, 50);
+    
+}
+-(void) populateData
+{
+    _monthArray = [[NSArray alloc]init];
+    MBCoreDataManager* obj = [[MBCoreDataManager alloc]init];
+    _monthArray = [obj fetchMonthListFromCoreData];
+    [self.tableView reloadData];
 }
 
 -(void) rightBarButtonPressedForAddingNewMonth
 {
-	__weak typeof(self) weakSelf = self;
-
-	[self showPopUpWithTextField:@"Add Month" forView:self withBlock:^(NSString* month)
-	{
-		if([weakSelf checkForValidMonthEntry:month])
-		{
-			_monthInputedByUser = month;
-			[weakSelf saveMonthToDatabase];
-			
-		}
-		else
-			[MBUtility promptMessageOnScreen:@"Please enter valid month" sender:weakSelf];
-		
-	}];
+//	__weak typeof(self) weakSelf = self;
+//
+//	[self showPopUpWithTextField:@"Add Month" forView:self withBlock:^(NSString* month)
+//	{
+//		if([weakSelf checkForValidMonthEntry:month])
+//		{
+//			_monthInputedByUser = month;
+//			[weakSelf saveMonthToDatabase];
+//			
+//		}
+//		else
+//			[MBUtility promptMessageOnScreen:@"Please enter valid month" sender:weakSelf];
+//		
+//	}];
+    
+    AddNewMonthView* addNewMonthView = [[AddNewMonthView alloc]initWithAddNewMonthView:self];
+   
 }
 
 -(void) saveMonthToDatabase
@@ -115,8 +142,37 @@
 	[viewController presentViewController:alert animated:YES completion:nil];
 }
 
-
+-(NSString* ) getCurrentMonthForUserSuggestion
+{
+    NSDate *currentDate = [NSDate date];
+    NSCalendar* calender = [NSCalendar currentCalendar];
+//    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:currentDate];
+    
+    NSInteger intMonth = [calender component:NSCalendarUnitMonth fromDate:currentDate];
+    NSString* currentMonth = _validMonths[intMonth - 1];
+    return currentMonth;
+}
 #pragma mark - Table view data source
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _monthArray.count;
+ 
+}
+
+-(UITableViewCell* )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+            MonthListTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kMonthListTableViewCellIdentifier];
+//    if(cell == nil)
+//    {
+//        cell = [[[NSBundle mainBundle]loadNibNamed:kWishListtabelCellXibName owner:nil options:nil] firstObject];
+//    }
+        [cell setUpCellAttributes:_monthArray[indexPath.row]];
+        return cell;
+
+    
+    
+}
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 //{
@@ -182,5 +238,38 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - UITextField Delegate
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSArray* autoCompleteFilterArray;
+    NSLog(@"Range:%@",NSStringFromRange(range));
+    NSLog(@"%@",textField.text);
+    
+    NSString *passcode = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    NSLog(@"%@",passcode);
+    
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"SELF CONTAINS %@",passcode];
+    autoCompleteFilterArray = [_monthSuggestionArray filteredArrayUsingPredicate:predicate];
+    NSLog(@"%@", autoCompleteFilterArray);
+    
+    if ([autoCompleteFilterArray count]==0)
+    {
+        _autoCompleteTableView.hidden = TRUE;
+    }else
+    {
+        _autoCompleteTableView.hidden = FALSE;
+    }
+    
+    [_autoCompleteTableView reloadData];
+    
+    
+    return TRUE;
+    
+}
+
 
 @end

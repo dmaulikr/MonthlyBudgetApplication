@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "MBMonth.h"
+#import "AppDelegate.h"
 
 @interface MBCoreDataManager : NSObject
 
 - (void)saveMonthToCoreData:(MBMonth* )month;
--(void) fetchMonthListFromCoreData;
+-(NSArray*)fetchMonthListFromCoreData;
+@property (nonatomic,strong) NSManagedObject* Month;
 
 @end
