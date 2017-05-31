@@ -100,22 +100,12 @@
     return false;
 }
 
--(NSString* ) getCurrentMonthForUserSuggestion
-{
-    NSDate *currentDate = [NSDate date];
-    NSCalendar* calender = [NSCalendar currentCalendar];
-    //    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:currentDate];
-    
-    NSInteger intMonth = [calender component:NSCalendarUnitMonth fromDate:currentDate];
-    NSString* currentMonth = _validMonths[intMonth - 1];
-    return currentMonth;
-}
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     _monthSuggestionArray = [[NSMutableArray alloc]init];
     [self.monthSuggestionTableView setHidden:NO];
-    NSArray* array = [[NSArray alloc]initWithObjects:[self getCurrentMonthForUserSuggestion], nil];
+    NSArray* array = [[NSArray alloc]initWithObjects:[MBUtility getCurrentMonthForUserSuggestion], nil];
 
     for(NSString* obj in array)
     {

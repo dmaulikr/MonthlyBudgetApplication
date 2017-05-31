@@ -117,5 +117,14 @@
 	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 	[[UINavigationBar appearance] setTranslucent:FALSE];
 	[[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance] setBarTintColor:kAppMainColor];
+    [[UITabBar appearance] setTranslucent:false];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{
+                                                        NSFontAttributeName:[UIFont fontWithName:@"AmericanTypewriter" size:20.0f]
+                                                        } forState:UIControlStateNormal];
+  
+
+    
 }
 @end

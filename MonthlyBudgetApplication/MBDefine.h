@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface MBDefine : NSObject
 
 //UIColors in application
@@ -23,4 +24,10 @@
 //Application Constants
 #define kAppNAmeConstant @"MonthlyBudgetApplication"
 
+//record Type
+#define kExpenditureRecordType @"Debit"
+#define kIncomeRecordType     @"Credit"
+
+// General
+#define kTextColorKey       @"textColor"
 @end

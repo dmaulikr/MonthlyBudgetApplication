@@ -12,4 +12,5 @@
 @interface MBUtility : NSObject
 
 + (void)promptMessageOnScreen:(NSString *)message sender:(UIViewController*)sender;
++(NSString* ) getCurrentMonthForUserSuggestion;
 @end

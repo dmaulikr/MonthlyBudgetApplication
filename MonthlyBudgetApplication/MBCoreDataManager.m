@@ -40,7 +40,10 @@
 //    NSManagedObject* newMonth = [NSEntityDescription insertNewObjectForEntityForName:kMonthEntityKey inManagedObjectContext:context];
 
     [newMonth setValue:monthInputedByUser.monthName forKey:kMonthNameKey];
-	
+    NSPersistentContainer* container = [[NSPersistentContainer alloc]initWithName:kAppNAmeConstant];
+    NSLog(@"***********************************************************");
+    NSLog(@"%@",[container.persistentStoreDescriptions firstObject].URL);
+
 	NSError *error = nil;
 	// Save the object to persistent store
 	if (![context save:&error])
