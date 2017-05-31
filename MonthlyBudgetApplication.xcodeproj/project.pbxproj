@@ -24,6 +24,7 @@
 		1529AB1F1EDEDBF000259FDC /* TransactionTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1529AB1E1EDEDBF000259FDC /* TransactionTableCell.xib */; };
 		1529AB221EDEE63200259FDC /* MBTransactionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1529AB211EDEE63200259FDC /* MBTransactionTableCell.m */; };
 		1529AB251EDEE74F00259FDC /* MBTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1529AB241EDEE74F00259FDC /* MBTransaction.m */; };
+		154823DC1EDF4BB8000DCAE1 /* MonthAppLaunchScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 154823DB1EDF4BB7000DCAE1 /* MonthAppLaunchScreen.jpg */; };
 		15DF0C881EDD60E8006B6945 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DF0C871EDD60E8006B6945 /* main.m */; };
 		15DF0C8B1EDD60E8006B6945 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DF0C8A1EDD60E8006B6945 /* AppDelegate.m */; };
 		15DF0C911EDD60E8006B6945 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15DF0C8F1EDD60E8006B6945 /* Main.storyboard */; };
@@ -67,6 +68,7 @@
 		1529AB231EDEE74F00259FDC /* MBTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTransaction.h; sourceTree = "<group>"; };
 		1529AB241EDEE74F00259FDC /* MBTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTransaction.m; sourceTree = "<group>"; };
 		154823DA1EDEF97B000DCAE1 /* MBDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDatePickerView.h; sourceTree = "<group>"; };
+		154823DB1EDF4BB7000DCAE1 /* MonthAppLaunchScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MonthAppLaunchScreen.jpg; sourceTree = "<group>"; };
 		15DF0C831EDD60E8006B6945 /* MonthlyBudgetApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonthlyBudgetApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15DF0C871EDD60E8006B6945 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		15DF0C891EDD60E8006B6945 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		1529AB071EDEA51D00259FDC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				154823DB1EDF4BB7000DCAE1 /* MonthAppLaunchScreen.jpg */,
 				1529AB081EDEA53000259FDC /* IncomeIcon.png */,
 				1529AB091EDEA53000259FDC /* ExpenditureIcon.png */,
 			);
@@ -366,6 +369,7 @@
 				15DF0C991EDD60E8006B6945 /* LaunchScreen.storyboard in Resources */,
 				15DF0CAF1EDD6651006B6945 /* Localizable.strings in Resources */,
 				15DF0C961EDD60E8006B6945 /* Assets.xcassets in Resources */,
+				154823DC1EDF4BB8000DCAE1 /* MonthAppLaunchScreen.jpg in Resources */,
 				1529AB1F1EDEDBF000259FDC /* TransactionTableCell.xib in Resources */,
 				1529AB031EDDFF6400259FDC /* MonthTableCell.xib in Resources */,
 				1529AB0B1EDEA53000259FDC /* ExpenditureIcon.png in Resources */,

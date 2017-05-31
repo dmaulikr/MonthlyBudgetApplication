@@ -20,7 +20,16 @@
 
 //Entity Keys
 #define kMonthEntityKey @"Month"
+#define kTransactionEntityKey @"Transaction"
 
+// Attribute Keys
+#define kTransactionDateKey  @"date"
+#define kTransactionDetailKey @"details"
+#define kTransactionTypeKey   @"transactionType"
+#define kTransactionAmountKey @"amount"
+#define kMonthNameKey        @"monthName"
+#define kExpenseKey          @"expense"
+#define kIncomeKey           @"income"
 //Application Constants
 #define kAppNAmeConstant @"MonthlyBudgetApplication"
 

@@ -8,12 +8,15 @@
 
 #import "NewTransactionView.h"
 #import "MBDefine.h"
+#import "MBUtility.h"
+#import "MBTransaction.h"
 
 #define kNewTransactionViewXIBName  @"NewTransactionView"
 
 @implementation NewTransactionView
 {
     UIViewController*  _onSuperView;
+    NSString* _transactionType;
 }
 
 -(instancetype ) initWithNewTransactionView:(UIViewController* )vc forRecordType:(NSString* )recordType
@@ -27,6 +30,7 @@
                                   vc.view.frame.size.height / 2);
         self.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.3];
         [vc.tabBarController.navigationItem.rightBarButtonItem setEnabled:NO];
+        _transactionType = recordType;
         [vc.view addSubview:self];
         _onSuperView = vc;
         // to add ANIMATION
@@ -50,7 +54,20 @@
 }
 - (IBAction)saveButtonPressed:(id)sender
 {
-    
+    [_onSuperView.tabBarController.navigationItem.rightBarButtonItem setEnabled:YES];
+
+    if([self validateTextFields])
+    {
+
+        MBTransaction* transaction = [[MBTransaction alloc]init];
+        transaction.date = self.recordDateTextField.text;
+        transaction.transactionType = _transactionType;
+        transaction.amount = self.recordAmountTextField.text.doubleValue;
+        transaction.details = self.modeOfRecordTextField.text;
+         [self removeFromSuperview];
+        if(self.onPressingSaveButton)
+            self.onPressingSaveButton(transaction);
+    }
     
 }
 
@@ -66,4 +83,26 @@
     
 }
 
+-(BOOL) validateTextFields
+{
+    if(!self.modeOfRecordTextField.text.length)
+    {
+        [self removeFromSuperview];
+        [MBUtility promptMessageOnScreen:@"please enter transaction details" sender:_onSuperView];
+        return false;
+    }
+    if(!self.recordDateTextField.text.length)
+    {
+        [self removeFromSuperview];
+        [MBUtility promptMessageOnScreen:@"please enter transaction date" sender:_onSuperView];
+        return false;
+    }
+    if(!self.recordAmountTextField.text.length)
+    {
+        [self removeFromSuperview];
+        [MBUtility promptMessageOnScreen:@"please enter transaction amount" sender:_onSuperView];
+        return false;
+    }
+    return true;
+}
 @end

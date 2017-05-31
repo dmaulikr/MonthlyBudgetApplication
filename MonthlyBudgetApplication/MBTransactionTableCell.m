@@ -25,7 +25,7 @@
 {
     self.detailsLabel.text = transactionDetails.details;
     self.dateLabel.text = transactionDetails.date;
-    self.amountLabel.text = transactionDetails.amount;
+    self.amountLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:transactionDetails.amount]];
 }
 
 @end

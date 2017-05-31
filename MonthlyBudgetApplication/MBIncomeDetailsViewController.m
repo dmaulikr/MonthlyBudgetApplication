@@ -11,9 +11,11 @@
 #import "MBDefine.h"
 #import "MBTransactionTableCell.h"
 #import "MBTransaction.h"
+#import "MBCoreDataManager.h"
 
-#define kTransactionTableCellIdentifierName  @"TransactionCell"
-#define kTransactionTableCellXIBName         @"TransactionTableCell"
+
+#define kTransactiontableCellIdentifier @"TransactionCell"
+#define ktransactionTableCellXIBName    @"TransactionTableCell"
 
 
 @interface MBIncomeDetailsViewController ()
@@ -23,11 +25,16 @@
 @implementation MBIncomeDetailsViewController
 {
     NSArray<MBTransaction* >* _creditDetailsArray;
+    NSString* _transactionType;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _transactionType = kIncomeRecordType;
+    [self setUpSummaryView];
+    
+    [self populateData];
     [self initialVCSetUp];
     // Do any additional setup after loading the view.
 }
@@ -36,6 +43,29 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) setUpSummaryView
+{
+    self.incomeLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.month.totalIncome]];
+    self.expenditureLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.month.totalExpenditure]];
+    double balance = self.month.totalIncome - self.month.totalExpenditure;
+    if(balance < 0)
+        self.balanceLabel.textColor = [UIColor redColor];
+   
+    self.balanceLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:balance]];
+}
+-(void) populateData
+{
+    MBCoreDataManager* coreDataManager = [[MBCoreDataManager alloc]init];
+    MBTransaction* transaction = [[MBTransaction alloc]init];
+    transaction.monthName = self.month.monthName;
+    transaction.transactionType = _transactionType;
+    
+    _creditDetailsArray = [coreDataManager fetchTransactionListFromCoreData:transaction];
+    [self.month setTotalIncome:[self calculateTotalIncome]];
+    [self setUpSummaryView];
+    [self.incomeTableView reloadData];
 }
 
 -(void) initialVCSetUp
@@ -47,18 +77,27 @@
 
 -(void) rightBarButtonPressedForAddingNewIncome
 {
-    NewTransactionView* recordView = [[NewTransactionView alloc]initWithNewTransactionView:self forRecordType:kIncomeRecordType];
+    NewTransactionView* newTransactionView = [[NewTransactionView alloc]initWithNewTransactionView:self forRecordType:_transactionType];
+    newTransactionView.onPressingSaveButton = ^(MBTransaction* transaction)
+    {
+        transaction.monthName = self.month.monthName;
+        [self saveNewTransactionRecordToDataBase:transaction];
+    };
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void) saveNewTransactionRecordToDataBase:(MBTransaction* )transaction
+{
+    MBCoreDataManager* coreDataManager = [[MBCoreDataManager alloc]init];
+    [coreDataManager saveTransactionDetailsToCoreData:transaction];
+    [self populateData];
+    
+    [self.month setTotalIncome:[self calculateTotalIncome]];
+    [coreDataManager updateMonthRecord:self.month];
+    [self setUpSummaryView];
 }
-*/
 
+
+#pragma mark - TableView Data source and Dalegates
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _creditDetailsArray.count;
@@ -66,12 +105,31 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MBTransactionTableCell* cell = [tableView dequeueReusableCellWithIdentifier:kTransactionTableCellIdentifierName];
-    
+    MBTransactionTableCell* cell = [tableView dequeueReusableCellWithIdentifier:kTransactiontableCellIdentifier];
     if(cell == nil)
-        cell = [[[NSBundle mainBundle]loadNibNamed:kTransactionTableCellXIBName owner:nil options:nil] firstObject];
+        cell = [[[NSBundle mainBundle] loadNibNamed:ktransactionTableCellXIBName owner:nil options:nil]firstObject];
+    
     [cell setUpCellAttribiute:_creditDetailsArray[indexPath.row]];
     return cell;
+    
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 200;
+}
+
+
+-(double) calculateTotalIncome
+{
+    double income = 0.0;
+    if(_creditDetailsArray.count > 0)
+    {
+        for(MBTransaction* obj in _creditDetailsArray)
+        {
+            income = income + obj.amount;
+        }
+    }
+    return income;
 }
 
 @end

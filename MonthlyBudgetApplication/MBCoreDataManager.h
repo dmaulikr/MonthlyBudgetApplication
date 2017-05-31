@@ -9,11 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "MBMonth.h"
 #import "AppDelegate.h"
+#import "MBTransaction.h"
 
 @interface MBCoreDataManager : NSObject
 
 - (void)saveMonthToCoreData:(MBMonth* )month;
 
 -(NSArray*)fetchMonthListFromCoreData;
+-(void) saveTransactionDetailsToCoreData:(MBTransaction* )transaction;
+-(NSArray* ) fetchTransactionListFromCoreData:(MBTransaction* )transaction;
+-(void ) updateMonthRecord : (MBMonth * )monthToBeUpdated;
 
 @end

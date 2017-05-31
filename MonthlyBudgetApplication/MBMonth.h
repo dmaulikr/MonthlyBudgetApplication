@@ -13,5 +13,9 @@
 @interface MBMonth : NSObject
 
 @property (strong,nonatomic) NSString* monthName;
+@property (assign) double totalIncome;
+@property (assign) double totalExpenditure;
+
 -(MBMonth *) initWithMonth:(NSString* )month;
+
 @end

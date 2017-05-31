@@ -12,6 +12,7 @@
 #import "MonthListTableViewCell.h"
 #import "AddNewMonthView.h"
 #import "MBExpenditureDetailsViewController.h"
+#import "MBIncomeDetailsViewController.h"
 
 #define kMonthListTableViewCellIdentifier @"MonthTableCell"
 #define kMonthListTableXIBName           @"MonthTableCell"
@@ -132,14 +133,15 @@
 //        UITabBarController *tabBarController = [segue destinationViewController]; // the destination of the segue is your `UITabBarController`
 //        UINavigationController *navigationController = tabBarController.viewControllers[1]; // gets the first of the view controllers contained in your UITabBarController
 //        MBExpenditureDetailsViewController *controller = (MBExpenditureDetailsViewController *)[[navigationController viewControllers] objectAtIndex:1];
-        MBExpenditureDetailsViewController* p = ((UITabBarController*)segue.destinationViewController).viewControllers[0];
+        MBExpenditureDetailsViewController* expenditureVc = ((UITabBarController*)segue.destinationViewController).viewControllers[0];
+        MBIncomeDetailsViewController* incomeVC = ((UITabBarController*)segue.destinationViewController).viewControllers[1];
+        
 
         if(_monthArray.count>0 && _monthArray[indexpath.row])
         {
-         NSString* temp = _monthArray[indexpath.row].monthName;
-        p.monthName = temp;
-        
-    }
+         expenditureVc.month = _monthArray[indexpath.row];
+            incomeVC.month = _monthArray[indexpath.row];
+}
     }
     
 }
