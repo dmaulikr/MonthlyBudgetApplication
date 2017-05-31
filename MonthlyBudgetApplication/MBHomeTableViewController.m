@@ -13,7 +13,8 @@
 #import "AddNewMonthView.h"
 #import "MBExpenditureDetailsViewController.h"
 
-#define kMonthListTableViewCellIdentifier @"MonthListTableCell"
+#define kMonthListTableViewCellIdentifier @"MonthTableCell"
+#define kMonthListTableXIBName           @"MonthTableCell"
 #define kSegueHomeToMonthDetailsVC   @"HomeToMonthDetailsVC"
 
 @interface MBHomeTableViewController ()
@@ -56,6 +57,7 @@
 {
     MBCoreDataManager* obj = [[MBCoreDataManager alloc]init];
     _monthArray = [obj fetchMonthListFromCoreData];
+    
     [self.tableView reloadData];
 }
 
@@ -107,10 +109,10 @@
 -(UITableViewCell* )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
             MonthListTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kMonthListTableViewCellIdentifier];
-//    if(cell == nil)
-//    {
-//        cell = [[[NSBundle mainBundle]loadNibNamed:kWishListtabelCellXibName owner:nil options:nil] firstObject];
-//    }
+    if(cell == nil)
+    {
+        cell = [[[NSBundle mainBundle]loadNibNamed:kMonthListTableXIBName owner:nil options:nil] firstObject];
+    }
         [cell setUpCellAttributes:_monthArray[indexPath.row]];
         return cell;
 
@@ -122,17 +124,25 @@
     [self performSegueWithIdentifier:kSegueHomeToMonthDetailsVC sender:indexPath];
 }
 
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    NSIndexPath* indexpath = (NSIndexPath* )sender;
-////    if([segue.identifier isEqualToString:kSegueHomeToMonthDetailsVC])
-////    {
-////        MBExpenditureDetailsViewController* destVC = [segue destinationViewController];
-////        if(_monthArray[indexpath.row].monthName.length)
-////        destVC.monthName = _monthArray[indexpath.row].monthName;
-////        
-////    }
-//}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath* indexpath = (NSIndexPath* )sender;
+    if([segue.identifier isEqualToString:kSegueHomeToMonthDetailsVC])
+    {
+//        UITabBarController *tabBarController = [segue destinationViewController]; // the destination of the segue is your `UITabBarController`
+//        UINavigationController *navigationController = tabBarController.viewControllers[1]; // gets the first of the view controllers contained in your UITabBarController
+//        MBExpenditureDetailsViewController *controller = (MBExpenditureDetailsViewController *)[[navigationController viewControllers] objectAtIndex:1];
+        MBExpenditureDetailsViewController* p = ((UITabBarController*)segue.destinationViewController).viewControllers[0];
+
+        if(_monthArray.count>0 && _monthArray[indexpath.row])
+        {
+         NSString* temp = _monthArray[indexpath.row].monthName;
+        p.monthName = temp;
+        
+    }
+    }
+    
+}
 
 
 @end

@@ -12,12 +12,12 @@
 
 @implementation MBMonth
 
--(instancetype) initWithMonthDictionary:(NSDictionary* )monthDict
+-(MBMonth *) initWithMonth:(NSString* )month
 {
 	self = [super init];
 	if(self)
 	{
-		self.monthName = [monthDict stringForKey:kMonthNameKey];
+		self.monthName = month;
 	}
 	
 	return self;

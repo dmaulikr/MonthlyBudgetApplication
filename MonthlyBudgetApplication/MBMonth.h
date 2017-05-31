@@ -13,4 +13,5 @@
 @interface MBMonth : NSObject
 
 @property (strong,nonatomic) NSString* monthName;
+-(MBMonth *) initWithMonth:(NSString* )month;
 @end

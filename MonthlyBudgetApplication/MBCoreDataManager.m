@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "MBDefine.h"
 #import "MBMonth.h"
+#import "Month+CoreDataProperties.h"
 
 @implementation MBCoreDataManager
 
@@ -61,8 +62,17 @@
 	NSArray* array = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     if(array.count > 0)
     {
-	NSLog(@"%@",array[kConstIntZero]);
-    return  array;
+        Month * month = (Month *)array[0];
+        NSMutableArray <MBMonth *>*arr = [[NSMutableArray alloc]init];
+        
+        for(int i = 0 ; i < array.count ; i++){
+            Month *m = (Month *)array[i];
+            NSLog(@"Current month is %@",m.monthName);
+            MBMonth *mnt = [[MBMonth alloc]initWithMonth:m.monthName];
+            [arr addObject:mnt];
+        }
+        return arr;
+        
     }
     return  nil;
 }
