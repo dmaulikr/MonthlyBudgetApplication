@@ -90,6 +90,7 @@
     [self.month setMonthName:monthInputedByUser];
     MBCoreDataManager* obj = [[MBCoreDataManager alloc]init];
     [obj saveMonthToCoreData:self.month];
+        [self populateData];
     }
 }
 

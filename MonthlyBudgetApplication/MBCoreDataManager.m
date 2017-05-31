@@ -34,9 +34,10 @@
 - (void)saveMonthToCoreData:(MBMonth* )monthInputedByUser
 {
 	NSManagedObjectContext *context = [self managedObjectContext];
-	
-	// Create a new managed object
-    NSManagedObject* newMonth = [NSEntityDescription insertNewObjectForEntityForName:kMonthEntityKey inManagedObjectContext:context];
+    NSEntityDescription *monthEntityDescription = [NSEntityDescription entityForName:kMonthEntityKey inManagedObjectContext:context];
+    NSManagedObject *newMonth = [[NSManagedObject alloc] initWithEntity:monthEntityDescription insertIntoManagedObjectContext:context];
+//	// Create a new managed object
+//    NSManagedObject* newMonth = [NSEntityDescription insertNewObjectForEntityForName:kMonthEntityKey inManagedObjectContext:context];
 
     [newMonth setValue:monthInputedByUser.monthName forKey:kMonthNameKey];
 	
@@ -55,8 +56,12 @@
 	
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:kMonthEntityKey];
 	NSArray* array = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    if(array.count > 0)
+    {
 	NSLog(@"%@",array[kConstIntZero]);
     return  array;
+    }
+    return  nil;
 }
 
 @end
