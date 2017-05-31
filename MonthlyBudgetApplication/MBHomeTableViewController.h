@@ -12,6 +12,7 @@
 @interface MBHomeTableViewController : UITableViewController<UITextFieldDelegate>
 
 @property (strong,nonatomic) MBMonth* month;
+
 @property (strong, nonatomic) IBOutlet UITableView *monthListTableView;
 
 @end

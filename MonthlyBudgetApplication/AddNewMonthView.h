@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddNewMonthView : UIView
+@interface AddNewMonthView : UIView<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UITextField *monthTextField;
 @property (weak, nonatomic) IBOutlet UITableView *monthSuggestionTableView;
 
 @property (strong,nonatomic) void (^onPressingSaveButton)(NSString* text);
-@property (strong,nonatomic) void (^onPressingCancelButton)();
-
 
 - (IBAction)saveButtonPressed:(id)sender;
 - (IBAction)cancelButtonPressed:(id)sender;

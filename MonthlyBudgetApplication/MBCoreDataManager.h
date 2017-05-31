@@ -13,7 +13,7 @@
 @interface MBCoreDataManager : NSObject
 
 - (void)saveMonthToCoreData:(MBMonth* )month;
+
 -(NSArray*)fetchMonthListFromCoreData;
-@property (nonatomic,strong) NSManagedObject* Month;
 
 @end
