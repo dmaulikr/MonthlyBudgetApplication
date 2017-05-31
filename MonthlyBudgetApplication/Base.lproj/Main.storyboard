@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7aB-aU-ReM" id="4lJ-HY-GEI">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Month name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrn-1A-sfE">
@@ -44,6 +44,8 @@
                     <navigationItem key="navigationItem" id="hcY-Wi-C2C">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PPr-1w-rK3"/>
                     </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="monthListTableView" destination="r7L-Xs-5rP" id="ctP-CK-OTs"/>
                         <segue destination="NH5-Og-SnK" kind="show" identifier="HomeToMonthDetailsVC" id="InN-Sj-KbY"/>

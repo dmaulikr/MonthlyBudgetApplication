@@ -19,7 +19,7 @@
 {
     NSArray* _validMonths;
     UIViewController* _ownSuperView;
-    NSMutableArray<MBMonth*>* _monthSuggestionArray;
+    NSMutableArray<NSString*>* _monthSuggestionArray;
 }
 
 -(instancetype) initWithAddNewMonthView:(UIViewController* )vc
@@ -30,11 +30,19 @@
         
         self = [[[NSBundle mainBundle] loadNibNamed:kAddNewMonthViewXIBName owner:self options:nil]firstObject];
         self.transform = CGAffineTransformMakeScale(0.01f, 0.01f);
-        self.center = vc.view.center;
-        // Add to the view hierarchy
+        self.center = CGPointMake(vc.view.frame.size.width  / 2,
+                                         vc.view.frame.size.height / 2);
+        self.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.3];
+        [vc.navigationItem.rightBarButtonItem setEnabled:NO];
         [self.monthSuggestionTableView setHidden:YES];
+        [self.monthTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+        // make screen unresponsive
+      
         [vc.view addSubview:self];
         _ownSuperView = vc;
+       
+        [self setUserInteractionEnabled:YES];
+
 
         self.monthTextField.delegate  = self;
         self.monthSuggestionTableView.delegate = self;
@@ -54,10 +62,12 @@
 
 - (IBAction)saveButtonPressed:(id)sender
 {
+     [_ownSuperView.navigationItem.rightBarButtonItem setEnabled:YES];
     if([self checkForValidMonthEntry:self.monthTextField.text])
     {
         if(self.onPressingSaveButton)
             self.onPressingSaveButton(self.monthTextField.text);
+        [self removeFromSuperview];
 
     }
     else
@@ -70,7 +80,7 @@
 
 - (IBAction)cancelButtonPressed:(id)sender
 {
-    
+     [_ownSuperView.navigationItem.rightBarButtonItem setEnabled:YES];
     [self removeFromSuperview];
 }
 
@@ -111,12 +121,32 @@
     {
         MBMonth* month = [[MBMonth alloc]init];
         [month setMonthName:obj];
-        [_monthSuggestionArray addObject:month];
+        [_monthSuggestionArray addObject:month.monthName];
     }
     [self.monthSuggestionTableView reloadData];
-    
+
 }
 
+-(void)textFieldDidChange:(id)textFieldDidChange
+{
+    NSLog(@"%@", self.monthTextField.text);
+    NSString *prefix = [self.monthTextField.text lowercaseString];
+    if (prefix.length>0) {
+        
+        [_monthSuggestionArray removeAllObjects];
+        for (int i = 0; i < _validMonths.count ; ++i) {
+            if ([_validMonths[i] hasPrefix:prefix])
+                [_monthSuggestionArray addObject:_validMonths[i]];
+        }
+        if (_monthSuggestionArray.count == 0){
+            [self.monthSuggestionTableView setHidden:YES];
+        } else{
+            [self.monthSuggestionTableView setHidden:NO];
+            [self.monthSuggestionTableView reloadData];
+        }
+    }
+    
+}
 
 #pragma  mark - Table view Delegates
 
@@ -130,7 +160,9 @@
     MonthListTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kMonthTableCellXIBIdentifier];
     if(cell == nil)
         cell = [[[NSBundle mainBundle]loadNibNamed:kMonthTableCellXIBName owner:nil options:nil]firstObject];
-    [cell setUpCellAttributes:_monthSuggestionArray[indexPath.row]];
+    MBMonth* month = [[MBMonth alloc]init];
+    month.monthName = _monthSuggestionArray[indexPath.row];
+    [cell setUpCellAttributes:month];
     return cell;
     
     
@@ -138,7 +170,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.monthTextField.text = _monthSuggestionArray[indexPath.row].monthName;
+    self.monthTextField.text = _monthSuggestionArray[indexPath.row];
 }
 
 @end

@@ -73,9 +73,24 @@
 
 -(void) saveMonthToDatabase:(NSString* )monthInputedByUser
 {
-	[self.month setMonthName:monthInputedByUser];
-	MBCoreDataManager* obj = [[MBCoreDataManager alloc]init];
-	[obj saveMonthToCoreData:self.month];
+    BOOL monthAlreadyPresent = NO;
+    for(MBMonth* obj in _monthArray)
+    {
+        [monthInputedByUser lowercaseString];
+        [obj.monthName lowercaseString];
+        if([monthInputedByUser isEqualToString:obj.monthName])
+        {
+            [MBUtility promptMessageOnScreen:@"Month already added by you,try and edit its details" sender:self];
+            monthAlreadyPresent = YES;
+            break;
+        }
+    }
+    if(!monthAlreadyPresent)
+    {
+    [self.month setMonthName:monthInputedByUser];
+    MBCoreDataManager* obj = [[MBCoreDataManager alloc]init];
+    [obj saveMonthToCoreData:self.month];
+    }
 }
 
 
