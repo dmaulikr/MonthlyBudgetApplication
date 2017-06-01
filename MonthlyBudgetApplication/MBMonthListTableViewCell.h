@@ -14,5 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *monthNameLabel;
 
 -(void) setUpCellAttributes:(MBMonth* )month;
+@property (strong, nonatomic) IBOutlet UILabel *totalIncomeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *totalExpenditureLabel;
 
 @end
