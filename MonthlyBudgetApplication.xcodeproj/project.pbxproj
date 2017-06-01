@@ -146,6 +146,13 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		1548244C1EE0888B000DCAE1 /* CoreDataDefaultFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CoreDataDefaultFiles;
+			sourceTree = "<group>";
+		};
 		15DF0C7A1EDD60E8006B6945 = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +284,7 @@
 		15DF0CBA1EDD7C49006B6945 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
+				1548244C1EE0888B000DCAE1 /* CoreDataDefaultFiles */,
 				154823DD1EDFC199000DCAE1 /* CoreDataManager */,
 				15DF0CBE1EDD7C77006B6945 /* Models */,
 			);
