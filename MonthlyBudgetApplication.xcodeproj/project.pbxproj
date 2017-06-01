@@ -32,6 +32,7 @@
 		154824491EE086CC000DCAE1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 154824461EE086CC000DCAE1 /* Info.plist */; };
 		1548244B1EE08716000DCAE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548244A1EE08716000DCAE1 /* main.m */; };
 		154824551EE08A05000DCAE1 /* MonthlyBudgetApplication.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 154824531EE08A05000DCAE1 /* MonthlyBudgetApplication.xcdatamodeld */; };
+		C04D4FD28A5802B70A918C33 /* TransactionAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C04D46C19D05067E74A1C088 /* TransactionAbstractViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,8 @@
 		1548244A1EE08716000DCAE1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		154824541EE08A05000DCAE1 /* MonthlyBudgetApplication.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MonthlyBudgetApplication.xcdatamodel; sourceTree = "<group>"; };
 		15DF0C831EDD60E8006B6945 /* MonthlyBudgetApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonthlyBudgetApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C04D46C19D05067E74A1C088 /* TransactionAbstractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionAbstractViewController.m; sourceTree = "<group>"; };
+		C04D4825FE3C8808EC9B6C36 /* TransactionAbstractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionAbstractViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,13 +147,6 @@
 				154824191EE0838B000DCAE1 /* MBDefine.h */,
 			);
 			name = Utils;
-			sourceTree = "<group>";
-		};
-		1548244C1EE0888B000DCAE1 /* CoreDataDefaultFiles */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = CoreDataDefaultFiles;
 			sourceTree = "<group>";
 		};
 		15DF0C7A1EDD60E8006B6945 = {
@@ -248,6 +244,8 @@
 				1548240E1EE0830A000DCAE1 /* MBHomeTableViewController.m */,
 				1548240F1EE0830A000DCAE1 /* MBIncomeDetailsViewController.h */,
 				154824101EE0830A000DCAE1 /* MBHomeTableViewController.h */,
+				C04D46C19D05067E74A1C088 /* TransactionAbstractViewController.m */,
+				C04D4825FE3C8808EC9B6C36 /* TransactionAbstractViewController.h */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -284,7 +282,6 @@
 		15DF0CBA1EDD7C49006B6945 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
-				1548244C1EE0888B000DCAE1 /* CoreDataDefaultFiles */,
 				154823DD1EDFC199000DCAE1 /* CoreDataManager */,
 				15DF0CBE1EDD7C77006B6945 /* Models */,
 			);
@@ -395,6 +392,7 @@
 				154824201EE08420000DCAE1 /* MBTransaction.m in Sources */,
 				154824131EE0830A000DCAE1 /* MBHomeTableViewController.m in Sources */,
 				154824321EE0851B000DCAE1 /* AppDelegate.m in Sources */,
+				C04D4FD28A5802B70A918C33 /* TransactionAbstractViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

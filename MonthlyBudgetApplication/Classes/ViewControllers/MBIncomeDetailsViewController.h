@@ -8,14 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MBMonth.h"
-@interface MBIncomeDetailsViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+#import "TransactionAbstractViewController.h"
 
-@property (weak, nonatomic) IBOutlet UILabel *incomeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *expenditureLabel;
-@property (weak, nonatomic) IBOutlet UITableView *incomeTableView;
-@property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *monthNameLabel;
-
-@property (strong,nonatomic) MBMonth* month;
+@interface MBIncomeDetailsViewController : TransactionAbstractViewController
 
 @end

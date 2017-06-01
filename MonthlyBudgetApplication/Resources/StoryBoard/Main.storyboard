@@ -181,7 +181,7 @@
                         <outlet property="balanceLabel" destination="kLc-kV-6mx" id="rJ2-4v-7hy"/>
                         <outlet property="expenditureLabel" destination="Ffe-nf-KWh" id="txc-5h-gVQ"/>
                         <outlet property="incomeLabel" destination="5Dw-4z-jM7" id="HBd-Yb-iM8"/>
-                        <outlet property="incomeTableView" destination="FfQ-bf-44V" id="IAb-dS-Kyh"/>
+                        <outlet property="transactionTableView" destination="FfQ-bf-44V" id="IAb-dS-Kyh"/>
                         <outlet property="monthNameLabel" destination="dD8-8B-PAs" id="B2a-2V-tgg"/>
                     </connections>
                 </viewController>
@@ -335,7 +335,7 @@
                     <connections>
                         <outlet property="balanceLabel" destination="XAY-uV-1DI" id="WNO-qG-5Yu"/>
                         <outlet property="expenditureLabel" destination="Ok9-Wq-pOd" id="Pyd-tw-yM3"/>
-                        <outlet property="expenditureListTableView" destination="IfM-XL-wrt" id="0q3-mi-O9x"/>
+                        <outlet property="transactionTableView" destination="IfM-XL-wrt" id="0q3-mi-O9x"/>
                         <outlet property="incomeLabel" destination="Fjl-nz-AbH" id="cSH-b6-2Rm"/>
                         <outlet property="monthNameLabel" destination="doA-ns-WZ4" id="GtP-EA-Dgf"/>
                     </connections>
