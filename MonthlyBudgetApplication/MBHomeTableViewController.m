@@ -151,8 +151,9 @@
         
         if(_monthArray.count> kConstIntZero && _monthArray[indexpath.row])
         {
-            expenditureVc.month = _monthArray[indexpath.row];
-            incomeVC.month = _monthArray[indexpath.row];
+            MBMonth *month = _monthArray[indexpath.row];
+            expenditureVc.month = month;
+            incomeVC.month = month;
         }
     }
 }

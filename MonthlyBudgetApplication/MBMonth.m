@@ -17,6 +17,8 @@
 	if(self)
 	{
 		self.monthName = month.monthName;
+        self.totalExpenditure = month.expense;
+        self.totalIncome = month.income;
 	}
 	return self;
 }
