@@ -14,3 +14,9 @@
 "please enter transaction details" = "please enter transaction details";
 "please enter transaction amount" = "please enter transaction amount";
 "please enter transaction date" = "please enter transaction date";
+
+//App NAme on Alert Message
+"Monthly Budget" = "Monthly Budget";
+
+//MOnth VC Alert messages
+"Month already added by you,try and edit its details" = "Month already added by you,try and edit its details";

@@ -18,32 +18,34 @@
 #define kConstIntZero 0
 #define kConstDoubleZero 0.0
 #define kDevideByTwoConstant 2
+#define kOneConstant        1
 
 //Entity Keys
-#define kMonthEntityKey @"Month"
-#define kTransactionEntityKey @"Transaction"
+#define kMonthEntityKey         @"Month"
+#define kTransactionEntityKey   @"Transaction"
 
 // Attribute Keys
-#define kTransactionDateKey  @"date"
+#define kTransactionDateKey   @"date"
 #define kTransactionDetailKey @"details"
 #define kTransactionTypeKey   @"transactionType"
 #define kTransactionAmountKey @"amount"
-#define kMonthNameKey        @"monthName"
-#define kExpenseKey          @"expense"
-#define kIncomeKey           @"income"
+#define kMonthNameKey         @"monthName"
+#define kExpenseKey           @"expense"
+#define kIncomeKey            @"income"
+
 //Application Constants
-#define kAppNAmeConstant @"MonthlyBudgetApplication"
+#define kAppNAmeConstant       @"MonthlyBudgetApplication"
 
 //record Type
 #define kExpenditureRecordType @"Debit"
-#define kIncomeRecordType     @"Credit"
+#define kIncomeRecordType      @"Credit"
 
 // General
 #define kTextColorKey       @"textColor"
 
 //month Name
 #define kMonthJanuary   @"january"
-#define kMonthFebuary   @"febuary"
+#define kMonthFebuary   @"february"
 #define kMonthMarch     @"march"
 #define kMonthApril     @"april"
 #define kMonthMay       @"may"
@@ -55,8 +57,12 @@
 #define kMonthNovember  @"november"
 #define kMonthDecember  @"december"
 
-//custom view
+//custom view constants
 #define  kAnimationTransformationConstant 1.0f
 #define kAnimationDurationConstant        0.5
 #define kViewBackgroundAlphaConstant      0.3
+
+// valid months arrray
+#define kValidMonthArray  @[kMonthJanuary,kMonthFebuary,kMonthMarch,kMonthApril,kMonthMay,kMonthJune,kMonthJuly,kMonthAugust,kMonthSepetmber,kMonthOctober,kMonthNovember,kMonthDecember];
+
 @end

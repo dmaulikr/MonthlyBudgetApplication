@@ -7,19 +7,17 @@
 //
 
 #import "MBMonth.h"
-#import "NSDictionary+MonthlyBudget.h"
 #import "MBDefine.h"
 
 @implementation MBMonth
 
--(MBMonth *) initWithMonth:(NSString* )month
+-(MBMonth *) initWithMonth:(Month* )month
 {
 	self = [super init];
 	if(self)
 	{
-		self.monthName = month;
+		self.monthName = month.monthName;
 	}
-	
 	return self;
 }
 @end

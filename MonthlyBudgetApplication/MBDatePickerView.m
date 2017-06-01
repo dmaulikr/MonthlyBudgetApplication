@@ -8,82 +8,88 @@
 
 #import "MBDatePickerView.h"
 #import "MBUtility.h"
-#define kDateFormat @"dd"
+#import "MBDefine.h"
+
+#define kDateFormat         @"dd MMMM yyyy"
+#define kCurrentYear        @"2017"
+#define kFirstDateOfMonth   @"1"
+#define k31LastDateConstant @"31"
+#define k30LastDateConstant @"30"
+#define k28LastDateConstant @"28"
 
 @implementation MBDatePickerView
 {
     UITextField* _textField;
 }
 
+#pragma mark - Initial Date picker Setup
 // method gets instance of Date picker
--(MBDatePickerView*) initWithDatePicker:(UITextField* )textFieldToEdit
+-(MBDatePickerView*) initWithDatePicker:(UITextField* )textFieldToEdit forMonthName:(NSString* )monthName
 {
     self = [super init];
     if(self)
     {
-        
-        
-        
         _textField = textFieldToEdit;
-//        self = [[MBDatePickerView alloc]init];
-        [self setDate:[NSDate date]]; //this returns today's date
-        
-        // theMinimumDate (which signifies the oldest a person can be) and theMaximumDate (defines the youngest a person can be) are the dates you need to define according to your requirements, declare them:
-        
-        // the date string for the minimum age required (change according to your needs)
-        NSString *maxDateString = [NSString stringWithFormat:@"%@,%@,%@",[self maximumDateForMonth],[MBUtility getCurrentMonthForUserSuggestion],@"2017"];
-        NSString* minDateString = [NSString stringWithFormat:@"%@,%@,%@",@"1",[MBUtility getCurrentMonthForUserSuggestion],@"2017"];
-        // the date formatter used to convert string to date
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        // the specific format to use
-        dateFormatter.dateFormat = kDateFormat;
-        // converting string to date
-        NSDate *theMaximumDate = [dateFormatter dateFromString: maxDateString];
-        NSDate* theMinimumDate = [dateFormatter dateFromString:minDateString];
-        
-        // repeat the same logic for theMinimumDate if needed
-        
-        // here you can assign the max and min dates to your datePicker
-        [self setMaximumDate:theMaximumDate]; //the min age restriction
-        [self setMinimumDate:theMinimumDate]; //the max age restriction (if needed, or else dont use this line)
-        
-        // set the mode
-//        [self setDatePickerMode:UIDatePickerModeDate];
-
-//        [self setLocale:[NSLocale systemLocale]]; // for 24 hour format
-        
+        [self setInitialSetUps];
+        [self setRangeForPickerView:monthName];
         [self addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     }
     return self;
 }
 
+// method does initial set up of UIDatePicker view
+-(void) setInitialSetUps
+{
+    [self setDate:[NSDate date]]; //this returns today's date
+    self.datePickerMode = UIDatePickerModeDate; // this lets picker view show only dates
+}
+
+// method sets Range of picker view for which date needs to be displayed
+-(void) setRangeForPickerView:(NSString* )monthName
+{
+    //set maximum and minimum dates of the date pickerview
+    NSString *maxDateString = [NSString stringWithFormat:@"%@ %@ %@",[self maximumDateForMonth:monthName],monthName,kCurrentYear];
+    
+    NSString* minDateString = [NSString stringWithFormat:@"%@ %@ %@",kFirstDateOfMonth,monthName,kCurrentYear];
+    
+    // the date formatter used to convert string to date
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    // the specific format to use
+    dateFormatter.dateFormat = kDateFormat;
+    
+    // converting string to date
+    NSDate *theMaximumDate = [dateFormatter dateFromString: maxDateString];
+    NSDate* theMinimumDate = [dateFormatter dateFromString:minDateString];
+    
+    [self setMaximumDate:theMaximumDate];
+    [self setMinimumDate:theMinimumDate];
+}
+
+#pragma mark - Actions on UIDatePicker
 -(void) datePickerValueChanged:(UIDatePicker*) sender
 {
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setDateFormat:kDateFormat]; // format in which we want time to be dispalyed
-    NSString* date = [outputFormatter stringFromDate:self.date];
-    _textField.text = date;
-    
-    // update the textfield with the date everytime it changes with selector defined below
-//    [self addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
-    
-    // and finally set the datePicker as the input mode of your textfield
-
+    _textField.text = [outputFormatter stringFromDate:self.date];
 }
 
--(NSString* ) maximumDateForMonth
+#pragma mark - Method to retrieve dates for a month
+// method gets the maximum date of a given month
+-(NSString* ) maximumDateForMonth:(NSString* )currentMonth
 {
-    NSString* currentMonth = [MBUtility getCurrentMonthForUserSuggestion];
-    if([currentMonth isEqualToString:@"january"] || [currentMonth isEqualToString:@"march"] || [currentMonth isEqualToString:@"may"] || [currentMonth isEqualToString:@"july"] || [currentMonth isEqualToString:@"august"] || [currentMonth isEqualToString:@"october"] || [currentMonth isEqualToString:@"december"] )
-    {
-        return @"31";
-    }
+    [currentMonth lowercaseString];
     
-    else if ([currentMonth isEqualToString:@"febuary"])
-    {
-        return @"28";
-    }
-    return @"30";
+    // case : month have last date 31
+    if([currentMonth isEqualToString:kMonthJanuary] || [currentMonth isEqualToString:kMonthMarch] || [currentMonth isEqualToString:kMonthMay] || [currentMonth isEqualToString:kMonthJuly] || [currentMonth isEqualToString:kMonthAugust] || [currentMonth isEqualToString:kMonthOctober] || [currentMonth isEqualToString:kMonthDecember] )
+        return k31LastDateConstant;
+    
+    //case : exceptional case feb
+    if ([currentMonth isEqualToString:kMonthFebuary])
+        return k28LastDateConstant;
+    
+    //case : month have last date 30
+    return k30LastDateConstant;
 }
 
 @end

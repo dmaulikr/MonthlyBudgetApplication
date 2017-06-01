@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#define kMonthNameKey @"monthName"
+#import "Month+CoreDataProperties.h"
 
 @interface MBMonth : NSObject
 
@@ -16,6 +15,6 @@
 @property (assign) double totalIncome;
 @property (assign) double totalExpenditure;
 
--(MBMonth *) initWithMonth:(NSString* )month;
+-(MBMonth *) initWithMonth:(Month* )month;
 
 @end

@@ -16,10 +16,11 @@
 {
     UIViewController*  _onSuperView;
     NSString*          _transactionType;
+    NSString*          _monthName;
 }
 
 #pragma mark - Initial NIB setup
--(instancetype ) initWithNewTransactionView:(UIViewController* )vc forRecordType:(NSString* )recordType
+-(instancetype ) initWithNewTransactionView:(UIViewController* )vc forRecordType:(NSString* )recordType forMonthName:(NSString* )monthName
 {
     self = [super init];
     if(self)
@@ -27,6 +28,7 @@
         self = [[[NSBundle mainBundle] loadNibNamed:kNewTransactionViewXIBName owner:self options:nil]firstObject];
         _onSuperView = vc;
         _transactionType = recordType;
+        _monthName = monthName;
 
          [self setUpClassElemnets];
         // method sets up frame of view on view controller
@@ -52,8 +54,9 @@
     }
     
     // date text field input view
-    MBDatePickerView* datePickerView = [[MBDatePickerView  alloc]initWithDatePicker:self.recordDateTextField];
-    self.recordDateTextField.inputView =datePickerView;
+    MBDatePickerView* datePickerView = [[MBDatePickerView  alloc]initWithDatePicker:self.recordDateTextField forMonthName:_monthName];
+                                        
+    self.recordDateTextField.inputView = datePickerView;
 }
 
 #pragma mark - Actions on NIB
@@ -88,7 +91,7 @@
 // tap gesture associated method
 -(IBAction)dismissPopUpView:(id)sender
 {
-    [self endEditing:YES];
+    [self removeFromSuperview];
     
 }
 

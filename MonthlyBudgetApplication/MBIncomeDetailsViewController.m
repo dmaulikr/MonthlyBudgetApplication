@@ -17,6 +17,7 @@
 #define kTransactiontableCellIdentifier @"TransactionCell"
 #define ktransactionTableCellXIBName    @"TransactionTableCell"
 
+#define kIncomeTableViewHieghtConstant 100
 
 @interface MBIncomeDetailsViewController ()
 
@@ -25,17 +26,14 @@
 @implementation MBIncomeDetailsViewController
 {
     NSArray<MBTransaction* >* _creditDetailsArray;
-    NSString* _transactionType;
+    NSString*                 _transactionType;
 }
 
+#pragma mark - View Lifecycle Methods
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _transactionType = kIncomeRecordType;
-    [self setUpSummaryView];
-    
-    [self populateData];
-    [self initialVCSetUp];
+   
     // Do any additional setup after loading the view.
 }
 
@@ -45,16 +43,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self initialVCSetUp];
+}
+
+#pragma mark - Initial VC Setups
 -(void) setUpSummaryView
 {
     self.incomeLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.month.totalIncome]];
     self.expenditureLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.month.totalExpenditure]];
+    
     double balance = self.month.totalIncome - self.month.totalExpenditure;
-    if(balance < 0)
+    if(balance < kConstIntZero)
         self.balanceLabel.textColor = [UIColor redColor];
    
     self.balanceLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:balance]];
 }
+
+// method populates data into Income table view
 -(void) populateData
 {
     MBCoreDataManager* coreDataManager = [[MBCoreDataManager alloc]init];
@@ -63,6 +71,7 @@
     transaction.transactionType = _transactionType;
     
     _creditDetailsArray = [coreDataManager fetchTransactionListFromCoreData:transaction];
+    
     [self.month setTotalIncome:[self calculateTotalIncome]];
     [self setUpSummaryView];
     [self.incomeTableView reloadData];
@@ -70,32 +79,30 @@
 
 -(void) initialVCSetUp
 {
+    _transactionType = kIncomeRecordType;
+    [self setUpSummaryView];
+    [self populateData];
+    
+    //Navigation bar with right bar button item
     UIBarButtonItem* rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightBarButtonPressedForAddingNewIncome)];
     
     self.tabBarController.navigationItem.rightBarButtonItem = rightBarButtonItem;
 }
 
+#pragma mark - Actions on VC
+// action : Navigation right bar button item
 -(void) rightBarButtonPressedForAddingNewIncome
 {
-    MBNewTransactionView* newTransactionView = [[MBNewTransactionView alloc]initWithNewTransactionView:self forRecordType:_transactionType];
+    __weak typeof(self) weakSelf = self;
+
+    MBNewTransactionView* newTransactionView = [[MBNewTransactionView alloc]initWithNewTransactionView:self forRecordType:_transactionType forMonthName:self.month.monthName];
+    
     newTransactionView.onPressingSaveButton = ^(MBTransaction* transaction)
     {
-        transaction.monthName = self.month.monthName;
-        [self saveNewTransactionRecordToDataBase:transaction];
+        transaction.monthName = weakSelf.month.monthName;
+        [weakSelf saveNewTransactionRecordToDataBase:transaction];
     };
 }
-
--(void) saveNewTransactionRecordToDataBase:(MBTransaction* )transaction
-{
-    MBCoreDataManager* coreDataManager = [[MBCoreDataManager alloc]init];
-    [coreDataManager saveTransactionDetailsToCoreData:transaction];
-    [self populateData];
-    
-    [self.month setTotalIncome:[self calculateTotalIncome]];
-    [coreDataManager updateMonthRecord:self.month];
-    [self setUpSummaryView];
-}
-
 
 #pragma mark - TableView Data source and Dalegates
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -115,14 +122,16 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 200;
+    return kIncomeTableViewHieghtConstant;
 }
 
 
+#pragma mark - Helper Methods
+// method calculates total income
 -(double) calculateTotalIncome
 {
-    double income = 0.0;
-    if(_creditDetailsArray.count > 0)
+    double income = kConstDoubleZero;
+    if(_creditDetailsArray.count > kConstIntZero)
     {
         for(MBTransaction* obj in _creditDetailsArray)
         {
@@ -130,6 +139,18 @@
         }
     }
     return income;
+}
+
+// method saves new Income record to Database
+-(void) saveNewTransactionRecordToDataBase:(MBTransaction* )transaction
+{
+    MBCoreDataManager* coreDataManager = [[MBCoreDataManager alloc]init];
+    [coreDataManager saveTransactionDetailsToCoreData:transaction];
+    [self populateData];
+    
+    [self.month setTotalIncome:[self calculateTotalIncome]];
+    [coreDataManager updateMonthRecord:self.month];
+    [self setUpSummaryView];
 }
 
 @end

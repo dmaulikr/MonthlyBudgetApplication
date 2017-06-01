@@ -12,7 +12,10 @@
 @interface MBUtility : NSObject
 
 + (void)promptMessageOnScreen:(NSString *)message sender:(UIViewController*)sender;
+
 +(NSString* ) getCurrentMonthForUserSuggestion;
+
 +(void) setUpAnimationOnViewPopUp:(UIView* )view;
 +(void) setViewFrameonViewController:(UIView* )view onVieController:(UIViewController* )vc;
+
 @end

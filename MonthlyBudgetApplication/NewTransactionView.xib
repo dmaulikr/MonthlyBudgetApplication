@@ -155,5 +155,10 @@
             </connections>
             <point key="canvasLocation" x="105" y="132"/>
         </view>
+        <tapGestureRecognizer id="Ie4-Er-1b8">
+            <connections>
+                <action selector="dismissPopUpView:" destination="zST-ra-vJi" id="hMi-Ka-Uki"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

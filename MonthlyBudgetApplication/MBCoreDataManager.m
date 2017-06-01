@@ -56,7 +56,7 @@
         for(MBMonth* obj in array)// iterating over array to get list of all months
         {
             Month* mnth = (Month*)obj;
-            MBMonth* monthModel = [[MBMonth alloc]initWithMonth:mnth.monthName];
+            MBMonth* monthModel = [[MBMonth alloc]initWithMonth:mnth];
             [arr addObject:monthModel];
         }
         return arr;

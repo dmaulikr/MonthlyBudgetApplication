@@ -12,6 +12,7 @@
 #import "MBDefine.h"
 
 @interface MBDatePickerView : UIDatePicker
--(MBDatePickerView*) initWithDatePicker:(UITextField* )textFieldToEdit;
+
+-(MBDatePickerView*) initWithDatePicker:(UITextField* )textFieldToEdit forMonthName:(NSString* )monthName;
 
 @end

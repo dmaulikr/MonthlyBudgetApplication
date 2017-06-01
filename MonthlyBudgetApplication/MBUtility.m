@@ -10,41 +10,40 @@
 #import "MBDefine.h"
 
 @implementation MBUtility
-{
-  
-}
 
+// method prompts alert message for user information
 + (void)promptMessageOnScreen:(NSString *)message sender:(UIViewController*)sender
 {
-	UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Monthly Budget" message:message
-															preferredStyle:UIAlertControllerStyleAlert];
-	UIAlertAction* ok = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil];
-	[alert addAction:ok];
-	[sender presentViewController:alert animated:YES completion:nil];
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Monthly Budget",nil) message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil];
+    
+    [alert addAction:ok];
+    [sender presentViewController:alert animated:YES completion:nil];
 }
 
+// method tells about the current month
 +(NSString* ) getCurrentMonthForUserSuggestion
 {
-   NSArray*  _validMonths = [[NSArray alloc]initWithObjects:@"january",@"febuary",@"march",@"april",@"may",@"june",@"july",@"august",@"september",@"october",@"november",@"december" ,nil];
+    NSArray* _validMonths = kValidMonthArray;
+    
     NSDate *currentDate = [NSDate date];
     NSCalendar* calender = [NSCalendar currentCalendar];
-    //    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:currentDate];
     
     NSInteger intMonth = [calender component:NSCalendarUnitMonth fromDate:currentDate];
-    NSString* currentMonth = _validMonths[intMonth - 1];
-    return currentMonth;
+   return  _validMonths[intMonth - kOneConstant];
 }
 
+// method sets the animation on pop up on view
 +(void) setUpAnimationOnViewPopUp:(UIView* )view
 {
-    [UIView animateWithDuration:kAnimationDurationConstant
-                     animations:
+    [UIView animateWithDuration:kAnimationDurationConstant animations:
      ^{
          view.transform = CGAffineTransformMakeScale(kAnimationTransformationConstant,kAnimationTransformationConstant);
      }
      ];
 }
 
+// method sets frame of view on View controller
 +(void) setViewFrameonViewController:(UIView* )view onVieController:(UIViewController* )vc
 {
     view.transform = CGAffineTransformMakeScale(kAnimationTransformationConstant,kAnimationTransformationConstant);
@@ -52,4 +51,5 @@
                               vc.view.frame.size.height/kDevideByTwoConstant);
     view.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:kViewBackgroundAlphaConstant];
 }
+
 @end

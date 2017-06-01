@@ -23,7 +23,6 @@
         self.transactionType = transaction.transactionType;
         self.amount = transaction.amount;
     }
-    
     return self;
 }
 @end

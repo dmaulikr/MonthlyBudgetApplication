@@ -12,9 +12,9 @@
 #import "MBMonth.h"
 #import "MBDefine.h"
 
-#define kAddNewMonthViewXIBName @"AddNewMonthView"
+#define kAddNewMonthViewXIBName      @"AddNewMonthView"
 #define kMonthTableCellXIBIdentifier @"MonthTableCell"
-#define kMonthTableCellXIBName     @"MonthTableCell"
+#define kMonthTableCellXIBName       @"MonthTableCell"
 
 
 
@@ -53,7 +53,7 @@
     
     [_ownSuperView.view addSubview:self];
     
-     _validMonths = [[NSArray alloc]initWithObjects:kMonthJanuary,kMonthFebuary,kMonthMarch,kMonthApril,kMonthMay,kMonthJune,kMonthJuly,kMonthAugust,kMonthSepetmber,kMonthOctober,kMonthNovember,kMonthDecember ,nil];
+    _validMonths = kValidMonthArray;
     
     self.monthTextField.delegate  = self;
     self.monthSuggestionTableView.delegate = self;

@@ -15,25 +15,30 @@
 
 #define kTransactiontableCellIdentifier @"TransactionCell"
 #define ktransactionTableCellXIBName    @"TransactionTableCell"
+
+#define kExpenditureTableViewHieghtConstant 100
+
 @interface MBExpenditureDetailsViewController ()
 
 @end
 
 @implementation MBExpenditureDetailsViewController
 {
-    NSString* _transactionType;
+    NSString*                 _transactionType;
     NSArray<MBTransaction* >* _expenditureListArray;
 }
 
+#pragma mark - View life cycle methods
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _transactionType = kExpenditureRecordType;
-    [self setUpSummaryView];
-
-    [self populateData];
-    [self initialVCSetUp];
     // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self initialVCSetUp];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,57 +47,66 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Initial vc setups
 -(void) setUpSummaryView
 {
     self.incomeLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.month.totalIncome]];
     self.expenditureLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.month.totalExpenditure]];
+    
+    //calculate balance
     double balance = self.month.totalIncome - self.month.totalExpenditure;
-    if(balance < 0)
+    if(balance < kConstIntZero)
         self.balanceLabel.textColor = [UIColor redColor];
     
     self.balanceLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:balance]];
 }
+
+// method populates data in expenditure table view
 -(void) populateData
 {
     MBCoreDataManager* coreDataManager = [[MBCoreDataManager alloc]init];
+    
     MBTransaction* transaction = [[MBTransaction alloc]init];
     transaction.monthName = self.month.monthName;
     transaction.transactionType = _transactionType;
     
+    // fetch list of all expenditure for given month
     _expenditureListArray = [coreDataManager fetchTransactionListFromCoreData:transaction];
+    
     [self.month setTotalExpenditure:[self calculateTotalExpenditure]];
+    
     [self setUpSummaryView];
     [self.expenditureListTableView reloadData];
 }
 
 -(void) initialVCSetUp
 {
+    _transactionType = kExpenditureRecordType;
+    
+    [self populateData];
+    [self setUpSummaryView];
+    
+    
+    // adds right bar button to navigation bar
     UIBarButtonItem* rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightBarButtonPressedForAddingNewIncome)];
     
     self.tabBarController.navigationItem.rightBarButtonItem = rightBarButtonItem;
 }
 
+#pragma mark - Actions on VC
+// Action on Navigation right bar button item
 -(void) rightBarButtonPressedForAddingNewIncome
 {
-    MBNewTransactionView* newTransactionView = [[MBNewTransactionView alloc]initWithNewTransactionView:self forRecordType:kExpenditureRecordType];
+    __weak typeof(self) weakSelf = self;
+    
+    MBNewTransactionView* newTransactionView = [[MBNewTransactionView alloc]initWithNewTransactionView:self forRecordType:kExpenditureRecordType forMonthName:self.month.monthName];
+    
     newTransactionView.onPressingSaveButton = ^(MBTransaction* transaction)
     {
-        transaction.monthName = self.month.monthName;
-        [self saveNewTransactionRecordToDataBase:transaction];
+        transaction.monthName = weakSelf.month.monthName;
+        [weakSelf saveNewTransactionRecordToDataBase:transaction];
     };
 }
-
--(void) saveNewTransactionRecordToDataBase:(MBTransaction* )transaction
-{
-    MBCoreDataManager* coreDataManager = [[MBCoreDataManager alloc]init];
-    [coreDataManager saveTransactionDetailsToCoreData:transaction];
-    [self populateData];
-    
-    [self.month setTotalExpenditure:[self calculateTotalExpenditure]];
-    [coreDataManager updateMonthRecord:self.month];
-    [self setUpSummaryView];
-}
-
 
 #pragma mark - TableView Data source and Dalegates
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -103,23 +117,26 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MBTransactionTableCell* cell = [tableView dequeueReusableCellWithIdentifier:kTransactiontableCellIdentifier];
+    
     if(cell == nil)
         cell = [[[NSBundle mainBundle] loadNibNamed:ktransactionTableCellXIBName owner:nil options:nil]firstObject];
     
     [cell setUpCellAttribiute:_expenditureListArray[indexPath.row]];
+    
     return cell;
-
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 200;
+    return kExpenditureTableViewHieghtConstant;
 }
 
-
+#pragma mark - Helper Methods
+// Method calculates totalExpenditure
 -(double) calculateTotalExpenditure
 {
-    double expenditure = 0.0;
-    if(_expenditureListArray.count > 0)
+    double expenditure = kConstDoubleZero;
+    if(_expenditureListArray.count > kConstIntZero)
     {
         for(MBTransaction* obj in _expenditureListArray)
         {
@@ -127,5 +144,20 @@
         }
     }
     return expenditure;
+}
+
+// save new expenditure record to database
+-(void) saveNewTransactionRecordToDataBase:(MBTransaction* )transaction
+{
+    MBCoreDataManager* coreDataManager = [[MBCoreDataManager alloc]init];
+    [coreDataManager saveTransactionDetailsToCoreData:transaction];
+    
+    [self populateData];
+    
+    // updated MONTH entity
+    [self.month setTotalExpenditure:[self calculateTotalExpenditure]];
+    [coreDataManager updateMonthRecord:self.month];
+    
+    [self setUpSummaryView];
 }
 @end
