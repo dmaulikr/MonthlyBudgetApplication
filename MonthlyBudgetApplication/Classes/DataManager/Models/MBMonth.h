@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "Month+CoreDataProperties.h"
+#import "MBInterval.h"
 
-@interface MBMonth : NSObject
+@interface MBMonth : MBInterval
 
-@property (strong,nonatomic) NSString* monthName;
 @property (assign) double totalIncome;
 @property (assign) double totalExpenditure;
+@property(nonatomic, strong) NSString *uuid;
 
--(MBMonth *) initWithMonth:(Month* )month;
+-(MBMonth *)initWithMonth:(Month* )month;
 
 @end

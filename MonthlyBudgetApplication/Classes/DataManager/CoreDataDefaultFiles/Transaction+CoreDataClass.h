@@ -1,5 +1,5 @@
 //
-//  Month+CoreDataClass.h
+//  Transaction+CoreDataClass.h
 //  MonthlyBudgetApplication
 //
 //  Created by Anas MD on 6/2/17.
@@ -12,10 +12,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Month : NSManagedObject
+@interface Transaction : NSManagedObject
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-#import "Month+CoreDataProperties.h"
+#import "Transaction+CoreDataProperties.h"

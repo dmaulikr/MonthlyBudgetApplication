@@ -18,9 +18,9 @@
 
 @implementation MBAddNewMonthView
 {
-    NSArray*					_validMonths;
+    NSArray <NSString*>*	_validMonths;
     UIViewController*			_ownSuperView;
-    NSMutableArray<NSString*>*  _monthSuggestionArray;
+    NSArray<MBInterval*>*  _monthSuggestionArray;
 }
 
 #pragma mark - Initial NIB setUps
@@ -78,7 +78,7 @@
     {
         // sending textfield text on main screen
         if(self.onPressingSaveButton)
-            self.onPressingSaveButton(self.monthTextField.text);
+            self.onPressingSaveButton([MBUtility getIntervalFromText:self.monthTextField.text]);
 	}
     else
     {
@@ -103,32 +103,26 @@
 -(BOOL) checkForValidMonthEntered:(NSString* )month
 {
     // checking for validity of user month input
-    if(month.length)
-    {
-        month =  [month lowercaseString];
-        for(NSString* obj in _validMonths)
-        {
-            if([obj isEqualToString:month])
-                return true;
-        }
-    }
-    return false;
+    MBInterval *interval = [MBUtility getIntervalFromText:month];
+    int currentYear = (int)[MBUtility getCurrentYear];
+
+    if ([_validMonths containsObject:interval.monthName] && interval.year.integerValue>= currentYear && interval.year.integerValue < currentYear+kTimeRange)
+        return true;
+    else
+        return false;
+
+
+
 }
 
 #pragma mark - Text Field Delegate
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     // for giving first suggestion of current month when user taps on the textfield
-    _monthSuggestionArray = [[NSMutableArray alloc]init];
     [self.monthSuggestionTableView setHidden:NO];
-    NSArray* array = [[NSArray alloc]initWithObjects:[MBUtility getCurrentMonthForUserSuggestion], nil];
-
-    for(NSString* obj in array)
-    {
-        MBMonth* month = [[MBMonth alloc]init];
-        [month setMonthName:obj];
-        [_monthSuggestionArray addObject:month.monthName];
-    }
+    NSString *currentMonth = [MBUtility getCurrentMonthForUserSuggestion];
+    MBInterval *interval = [MBUtility getIntervalFromText:currentMonth];
+    _monthSuggestionArray = @[interval];
     [self.monthSuggestionTableView reloadData];
 }
 
@@ -138,12 +132,7 @@
     NSString *prefix = [self.monthTextField.text lowercaseString];
     if (prefix.length>kConstIntZero)
     {
-        [_monthSuggestionArray removeAllObjects];
-        for (int i = kConstIntZero; i < _validMonths.count ; ++i)
-        {
-            if ([_validMonths[i] hasPrefix:prefix])
-                [_monthSuggestionArray addObject:_validMonths[i]];
-        }
+        _monthSuggestionArray = [MBUtility userSuggestionIntervalWithPrefix:prefix];
         if (_monthSuggestionArray.count == kConstIntZero)
             [self.monthSuggestionTableView setHidden:YES];
         else
@@ -166,15 +155,15 @@
     if(cell == nil)
         cell = [[[NSBundle mainBundle]loadNibNamed:kMonthTableCellXIBName owner:nil options:nil]firstObject];
     
-    MBMonth* month = [[MBMonth alloc]init];
-    month.monthName = _monthSuggestionArray[indexPath.row];
-    [cell setUpCellAttributes:month];
+
+    MBInterval *interval = _monthSuggestionArray[indexPath.row];
+    [cell setUpCellAttributesWithInterval:interval];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.monthTextField.text = _monthSuggestionArray[indexPath.row];
+    self.monthTextField.text = _monthSuggestionArray[indexPath.row].description;
 }
 
 @end

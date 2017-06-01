@@ -26,13 +26,16 @@
 
 #pragma mark - CRUD Operations on MONTH Entity
 // method saves month details to the database
-- (void)saveMonthToCoreData:(MBMonth* )monthInputedByUser
+- (void)saveMonthToCoreData:(MBInterval* )interval
 {
     NSManagedObjectContext *context = [self managedObjectContext];
     NSEntityDescription *monthEntityDescription = [NSEntityDescription entityForName:kMonthEntityKey inManagedObjectContext:context];
     NSManagedObject *newMonth = [[NSManagedObject alloc] initWithEntity:monthEntityDescription insertIntoManagedObjectContext:context];
-    
-    [newMonth setValue:monthInputedByUser.monthName forKey:kMonthNameKey];
+
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    [newMonth setValue:interval.monthName forKey:kMonthNameKey];
+    [newMonth setValue:interval.year forKey:kYearKey];
+    [newMonth setValue:uuid forKey:kUUIDKey];
     
     NSError *error = nil;
     // Save the object to persistent store
@@ -59,7 +62,11 @@
             MBMonth* monthModel = [[MBMonth alloc]initWithMonth:mnth];
             [arr addObject:monthModel];
         }
-        return arr;
+
+        // sort months bases on month + year first
+        return [arr sortedArrayUsingComparator:^(MBMonth *m1, MBMonth *m2){
+            return [m1 compare:m2];
+        }];
     }
     return  nil;
 }
@@ -70,7 +77,8 @@
     NSFetchRequest *fetchRequest=[NSFetchRequest fetchRequestWithEntityName:kMonthEntityKey];
     
     // updating value of the MONTH entity
-    NSPredicate *predicate=[NSPredicate predicateWithFormat:@"monthName==%@",monthToBeUpdated.monthName];     fetchRequest.predicate=predicate;
+    NSPredicate *predicate=[NSPredicate predicateWithFormat:@"uuid==%@",monthToBeUpdated.uuid];
+    fetchRequest.predicate=predicate;
     MBMonth* newMonthdetails =[[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
     
     // setting new values of MONTH entity
@@ -89,12 +97,16 @@
     NSManagedObject *newTransaction = [[NSManagedObject alloc] initWithEntity:transactionEntityDescription insertIntoManagedObjectContext:context];
     
     // setting attributes of TRANSATION entity
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+
     [newTransaction setValue:transaction.date forKey:kTransactionDateKey];
     [newTransaction setValue:transaction.details forKey:kTransactionDetailKey];
-    [newTransaction setValue:[NSNumber numberWithDouble:transaction.amount] forKey:kTransactionAmountKey];
+    [newTransaction setValue:@(transaction.amount) forKey:kTransactionAmountKey];
     [newTransaction setValue:transaction.transactionType forKey:kTransactionTypeKey];
-    [newTransaction setValue:transaction.monthName forKey:kMonthNameKey];
-    
+    [newTransaction setValue:uuid forKey:kUUIDKey];
+    [newTransaction setValue:transaction.month_uuid forKey:kMonthUUIDKey];
+
+
     NSError *error = nil;
     // Save the object to persistent store
     if (![context save:&error])
@@ -104,15 +116,14 @@
 }
 
 // fetch list of all transactions from databsae based on transaction type
--(NSArray* ) fetchTransactionListFromCoreData:(MBTransaction* )transaction
+-(NSArray<MBTransaction*>* ) fetchTransactionListFromCoreDataForMonth:(MBMonth* )month andType:(NSString*) transactionType
 {
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:kTransactionEntityKey];
     
     // fetching transation for a particular month depending upon transaction type
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"monthName == %@ AND transactionType == %@", transaction.monthName,transaction.transactionType];
-    
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"month_uuid==%@ AND transactionType=%@", month.uuid, transactionType];
     NSArray* array = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
     
@@ -125,8 +136,12 @@
             MBTransaction* transModel = [[MBTransaction alloc]initWithTransaction:trans];
             [arr addObject:transModel];
         }
-        return arr;
+        // sort transactions by date
+        return [arr sortedArrayUsingComparator:^(MBTransaction *t1, MBTransaction *t2){
+            return [t1.date compare:t2.date];
+        }];
     }
+
     return  nil;
 }
 

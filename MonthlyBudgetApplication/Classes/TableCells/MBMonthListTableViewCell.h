@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *totalIncomeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *totalExpenditureLabel;
 
--(void) setUpCellAttributes:(MBMonth* )month;
+-(void)setUpCellAttributesWithMonth:(MBMonth* )month;
 
+- (void)setUpCellAttributesWithInterval:(MBInterval *)interval;
 @end

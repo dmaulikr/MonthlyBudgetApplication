@@ -14,6 +14,8 @@
 #import "MBExpenditureDetailsViewController.h"
 #import "MBIncomeDetailsViewController.h"
 #import "MBDefine.h"
+#import "NSString+Utils.h"
+#import "MBInterval.h"
 
 #define kMonthListTableViewCellIdentifier @"MonthTableCell"
 #define kMonthListTableXIBName           @"MonthTableCell"
@@ -25,7 +27,7 @@
 
 @implementation MBHomeTableViewController
 {
-    NSArray<MBMonth* >* _monthArray;
+    NSArray<MBMonth *>* _monthArray;
 }
 
 #pragma mark - View life cycle methods
@@ -75,39 +77,34 @@
     
     MBAddNewMonthView* addNewMonthView = [[MBAddNewMonthView alloc]initWithAddNewMonthView:self];
     
-    addNewMonthView.onPressingSaveButton = ^(NSString* string)
+    addNewMonthView.onPressingSaveButton = ^(MBInterval* interval)
     {
-        [weakSelf saveMonthToDatabase:string];
+        [weakSelf saveMonthToDatabase:interval];
     };
 }
 
 // method saves new month to database
--(void) saveMonthToDatabase:(NSString* )monthInputedByUser
+-(void) saveMonthToDatabase:(MBInterval* )interval
 {
-    if([self validateMonthInputedByUser:monthInputedByUser])
+    if([self validateMonthInputedByUser:interval])
     {
-        [self.month setMonthName:monthInputedByUser];
-        
         // save valid month to data base
         MBCoreDataManager* obj = [[MBCoreDataManager alloc]init];
-        [obj saveMonthToCoreData:self.month];
-        
+        [obj saveMonthToCoreData:interval];
         [self populateData];
     }
 }
 
 #pragma mark - Validation Method
 // method validates month Inputed by user
--(BOOL) validateMonthInputedByUser:(NSString* )monthInputedByUser
+-(BOOL) validateMonthInputedByUser:(MBInterval* )interval
 {
-    for(MBMonth* obj in _monthArray)
+    for(MBMonth* month in _monthArray)
     {
-        [monthInputedByUser lowercaseString];
-        [obj.monthName lowercaseString];
         
-        if([monthInputedByUser isEqualToString:obj.monthName])
+        if([interval.monthName isEqualToString:month.monthName ] && [interval.year isEqualToString:month.year])
         {
-            [MBUtility promptMessageOnScreen:NSLocalizedString(@"Month already added by you,try and edit its details",nil) sender:self];
+            [MBUtility promptMessageOnScreen:[interval.description add:NSLocalizedString(@" already added by you,try and edit its details",nil)] sender:self];
             return false;
         }
     }
@@ -126,8 +123,8 @@
     
     if(cell == nil)
         cell = [[[NSBundle mainBundle]loadNibNamed:kMonthListTableXIBName owner:nil options:nil] firstObject];
-        
-    [cell setUpCellAttributes:_monthArray[indexPath.row]];
+
+    [cell setUpCellAttributesWithMonth:_monthArray[indexPath.row]];
     return cell;
 }
 

@@ -20,6 +20,7 @@
 
 //TRANSACTION Entity methods
 -(void) saveTransactionDetailsToCoreData:(MBTransaction* )transaction;
--(NSArray* ) fetchTransactionListFromCoreData:(MBTransaction* )transaction;
+
+- (NSArray<MBTransaction *> *)fetchTransactionListFromCoreDataForMonth:(MBMonth *)month andType:(NSString *)transactionType;
 
 @end

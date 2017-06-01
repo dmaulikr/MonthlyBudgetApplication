@@ -25,8 +25,8 @@
 
 @implementation MBIncomeDetailsViewController
 {
-    NSArray<MBTransaction* >* _creditDetailsArray;
-    NSString*                 _transactionType;
+    NSArray<MBTransaction* >* _transactions;
+
 }
 
 - (NSString *)getNavigationControllerTitle {

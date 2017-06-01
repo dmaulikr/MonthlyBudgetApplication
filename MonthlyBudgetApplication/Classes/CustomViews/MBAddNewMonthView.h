@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBInterval.h"
 
 @interface MBAddNewMonthView : UIView<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -14,7 +15,7 @@
 @property (weak,nonatomic) IBOutlet UITableView *monthSuggestionTableView;
 @property (strong,nonatomic) IBOutlet UITapGestureRecognizer *tapGestureOnView;
 
-@property (strong,nonatomic) void (^onPressingSaveButton)(NSString* text);
+@property (strong,nonatomic) void (^onPressingSaveButton)(MBInterval* text);
 
 - (IBAction)saveButtonPressed:(id)sender;
 - (IBAction)cancelButtonPressed:(id)sender;

@@ -19,6 +19,8 @@
 		self.monthName = month.monthName;
         self.totalExpenditure = month.expense;
         self.totalIncome = month.income;
+		self.year = month.year;
+		self.uuid = month.uuid;
 	}
 	return self;
 }

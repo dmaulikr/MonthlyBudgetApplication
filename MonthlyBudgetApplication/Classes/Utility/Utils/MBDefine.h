@@ -32,6 +32,9 @@
 #define kMonthNameKey         @"monthName"
 #define kExpenseKey           @"expense"
 #define kIncomeKey            @"income"
+#define kUUIDKey              @"uuid"
+#define kMonthUUIDKey         @"month_uuid"
+#define kYearKey              @"year"
 
 //Application Constants
 #define kAppNAmeConstant       @"MonthlyBudgetApplication"
@@ -57,6 +60,8 @@
 #define kMonthNovember  @"november"
 #define kMonthDecember  @"december"
 
+#define kTimeRange 3
+
 //custom view constants
 #define  kAnimationTransformationConstant 1.0f
 #define kAnimationDurationConstant        0.5
@@ -64,6 +69,6 @@
 #define kTransactionViewTag				  105
 
 // valid months arrray
-#define kValidMonthArray  @[kMonthJanuary,kMonthFebuary,kMonthMarch,kMonthApril,kMonthMay,kMonthJune,kMonthJuly,kMonthAugust,kMonthSepetmber,kMonthOctober,kMonthNovember,kMonthDecember];
+#define kValidMonthArray  @[kMonthJanuary,kMonthFebuary,kMonthMarch,kMonthApril,kMonthMay,kMonthJune,kMonthJuly,kMonthAugust,kMonthSepetmber,kMonthOctober,kMonthNovember,kMonthDecember]
 
 @end

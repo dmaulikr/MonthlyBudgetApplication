@@ -22,7 +22,10 @@
 
 @end
 
-@implementation MBExpenditureDetailsViewController
+@implementation MBExpenditureDetailsViewController{
+    NSArray<MBTransaction* >* _transactions;
+
+}
 
 
 - (NSString *)getNavigationControllerTitle {

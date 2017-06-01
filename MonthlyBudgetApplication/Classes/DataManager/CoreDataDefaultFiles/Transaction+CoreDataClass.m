@@ -1,5 +1,5 @@
 //
-//  Month+CoreDataClass.m
+//  Transaction+CoreDataClass.m
 //  MonthlyBudgetApplication
 //
 //  Created by Anas MD on 6/2/17.
@@ -7,8 +7,8 @@
 //  This file was automatically generated and should not be edited.
 //
 
-#import "Month+CoreDataClass.h"
+#import "Transaction+CoreDataClass.h"
 
-@implementation Month
+@implementation Transaction
 
 @end

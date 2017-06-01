@@ -25,12 +25,17 @@
 }
 
 #pragma mark - setup cell UI elements
--(void) setUpCellAttributes:(MBMonth* )month
+-(void)setUpCellAttributesWithMonth:(MBMonth* )month
 {
-    self.monthNameLabel.text = 	[NSString stringWithFormat:@"%@ %@",month.monthName,[NSNumber numberWithInteger:[MBUtility getCurrentYear]]];
+    self.monthNameLabel.text = 	month.description;
 	
     self.totalIncomeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Total Income : %.02lf",nil), month.totalIncome ];
     self.totalExpenditureLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Total Expenditure : %.02lf",nil), month.totalExpenditure ];
+}
+
+-(void) setUpCellAttributesWithInterval:(MBInterval* )interval
+{
+    self.monthNameLabel.text = 	interval.description;
 }
 
 @end

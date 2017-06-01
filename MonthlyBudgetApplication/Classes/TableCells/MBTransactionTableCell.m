@@ -29,7 +29,7 @@
 -(void) setUpCellAttribiute:(MBTransaction*) transactionDetails
 {
     self.detailsLabel.text = transactionDetails.details;
-    self.dateLabel.text = transactionDetails.date;
+    self.dateLabel.text = transactionDetails.formattedDate;
     self.amountLabel.text = [NSString stringWithFormat:@"%@%@",NSLocalizedString(@"Rs. ",nil),[NSNumber numberWithDouble:transactionDetails.amount]];
 	
 	// set up amount label color for expenditure as red

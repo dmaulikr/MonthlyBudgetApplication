@@ -70,12 +70,8 @@
 {
     MBCoreDataManager* coreDataManager = [[MBCoreDataManager alloc]init];
 
-    MBTransaction* transaction = [[MBTransaction alloc]init];
-    transaction.monthName = self.month.monthName;
-    transaction.transactionType = [self getTransactionTypeForVC];
-
     // fetch list of all expenditure for given month
-    _transactions = [coreDataManager fetchTransactionListFromCoreData:transaction];
+    _transactions = [coreDataManager fetchTransactionListFromCoreDataForMonth:self.month andType:[self getTransactionTypeForVC]];
     [self updateTransactionData];
 
     [self setUpSummaryView];
@@ -104,7 +100,7 @@
 
     newTransactionView.onPressingSaveButton = ^(MBTransaction* transaction)
     {
-        transaction.monthName = weakSelf.month.monthName;
+        transaction.month_uuid = weakSelf.month.uuid;
         [weakSelf saveNewTransactionRecordToDataBase:transaction];
     };
 }

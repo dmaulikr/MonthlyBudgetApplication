@@ -8,6 +8,8 @@
 
 #import "MBUtility.h"
 #import "MBDefine.h"
+#import "MBInterval.h"
+#import "NSString+Utils.h"
 
 @implementation MBUtility
 
@@ -61,4 +63,33 @@
     view.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:kViewBackgroundAlphaConstant];
 }
 
++(MBInterval *)getIntervalFromText:(NSString *)text
+{
+    NSArray<NSString *>*arr = [text componentsSeparatedByString:@" "];
+    MBInterval *interval = [[MBInterval alloc] init];
+    interval.monthName = arr[0];
+    if (arr.count > 1)
+        interval.year = arr[1];
+    else interval.year = [NSString stringWithFormat:@"%d", (int)[MBUtility getCurrentYear]];
+    return interval;
+
+}
+
++ (NSArray<MBInterval *> *)userSuggestionIntervalWithPrefix:(NSString *)prefix {
+    NSMutableArray<MBInterval *>*array = [[NSMutableArray alloc] init];
+    prefix = [prefix componentsSeparatedByString:@" "][0];
+    for(NSString *month in kValidMonthArray)
+    {
+        if ([month hasPrefix:prefix])
+        {
+            for (int i = (int)[MBUtility getCurrentYear]; i < ([MBUtility getCurrentYear] + kTimeRange); i++)
+                [array addObject:[[MBInterval alloc] initWithMonthName:month andYear:[NSString stringWithFormat:@"%d", i]]];
+        }
+    }
+
+    NSArray <MBInterval *>*sortedArray = [array sortedArrayUsingComparator:^(MBInterval *interval1, MBInterval *interval2){
+        return [interval1 compare:interval2];
+    }];
+    return sortedArray;
+}
 @end

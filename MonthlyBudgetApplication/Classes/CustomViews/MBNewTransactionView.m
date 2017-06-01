@@ -69,7 +69,7 @@
         MBTransaction* transaction = [[MBTransaction alloc]init];
         
         // fetching text fields text
-        transaction.date = self.recordDateTextField.text;
+        [transaction setDateFromString:self.recordDateTextField.text];
         transaction.transactionType = _transactionType;
         transaction.amount = self.recordAmountTextField.text.doubleValue;
         transaction.details = self.transactionDetailsTextField.text;
