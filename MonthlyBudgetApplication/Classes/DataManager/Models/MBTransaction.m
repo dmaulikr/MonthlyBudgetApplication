@@ -7,7 +7,6 @@
 //
 
 #import "MBTransaction.h"
-#import "NSDictionary+MonthlyBudget.h"
 #import "MBDefine.h"
 
 @implementation MBTransaction
