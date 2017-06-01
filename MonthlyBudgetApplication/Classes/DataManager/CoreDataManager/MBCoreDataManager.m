@@ -70,7 +70,7 @@
     NSFetchRequest *fetchRequest=[NSFetchRequest fetchRequestWithEntityName:kMonthEntityKey];
     
     // updating value of the MONTH entity
-    NSPredicate *predicate=[NSPredicate predicateWithFormat:@"monthName==%@",monthToBeUpdated.monthName];     fetchRequest.predicate=predicate;
+    NSPredicate *predicate=[NSPredicate predicateWithFormat:@"monthName==%@ AND year==%@",monthToBeUpdated.monthName, monthToBeUpdated.year];     fetchRequest.predicate=predicate;
     MBMonth* newMonthdetails =[[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
     
     // setting new values of MONTH entity
@@ -94,6 +94,7 @@
     [newTransaction setValue:[NSNumber numberWithDouble:transaction.amount] forKey:kTransactionAmountKey];
     [newTransaction setValue:transaction.transactionType forKey:kTransactionTypeKey];
     [newTransaction setValue:transaction.monthName forKey:kMonthNameKey];
+    [newTransaction setValue:transaction.year forKey:kYearKey];
     
     NSError *error = nil;
     // Save the object to persistent store
@@ -111,7 +112,7 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:kTransactionEntityKey];
     
     // fetching transation for a particular month depending upon transaction type
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"monthName == %@ AND transactionType == %@", transaction.monthName,transaction.transactionType];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"monthName == %@ AND transactionType == %@ AND year==%@", transaction.monthName,transaction.transactionType, transaction.year];
     
     NSArray* array = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     

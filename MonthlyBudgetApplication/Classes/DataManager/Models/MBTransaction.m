@@ -21,6 +21,7 @@
         self.details = transaction.details;
         self.transactionType = transaction.transactionType;
         self.amount = transaction.amount;
+        self.year = transaction.year;
     }
     return self;
 }

@@ -24,13 +24,13 @@
 // method tells about the current month
 +(NSString* ) getCurrentMonthForUserSuggestion
 {
-    NSArray* _validMonths = kValidMonthArray;
+    NSArray* validMonths = kValidMonthArray;
 	
     NSDate *currentDate = [NSDate date];
     NSCalendar* calender = [NSCalendar currentCalendar];
     
     NSInteger intMonth = [calender component:NSCalendarUnitMonth fromDate:currentDate];
-    return  _validMonths[intMonth - kOneConstant];
+    return  validMonths[intMonth - kOneConstant];
 }
 
 +(NSInteger ) getCurrentYear
@@ -60,5 +60,28 @@
                               vc.view.frame.size.height/kDevideByTwoConstant);
     view.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:kViewBackgroundAlphaConstant];
 }
+
++(NSArray <NSString*>*)getMonthsSuggestionFromYear:(NSInteger) yearNum withPrefix:(NSString *)prefix{
+    NSArray *monthsArray = kValidMonthArray;
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
+    for (int year = yearNum; year <  (yearNum+3); ++year) {
+
+        for (NSString *str in monthsArray) {
+            if ([str hasPrefix:prefix]) {
+                NSString *monthName = [NSString stringWithFormat:@"%@ %d", str, year];
+                [arr addObject:monthName];
+            }
+        }
+    }
+
+    return arr;
+
+
+}
+
++ (NSArray<NSString *> *)splitMonthsAndYear:(NSString *)month {
+    return [month componentsSeparatedByString:@" "];
+}
+
 
 @end

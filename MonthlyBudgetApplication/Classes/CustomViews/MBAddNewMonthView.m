@@ -103,6 +103,7 @@
 -(BOOL) checkForValidMonthEntered:(NSString* )month
 {
     // checking for validity of user month input
+    month = [month componentsSeparatedByString:@" "][0];
     if(month.length)
     {
         month =  [month lowercaseString];
@@ -127,7 +128,8 @@
     {
         MBMonth* month = [[MBMonth alloc]init];
         [month setMonthName:obj];
-        [_monthSuggestionArray addObject:month.monthName];
+        [month setYear:[NSString stringWithFormat:@"%d", [MBUtility getCurrentYear]]];
+        [_monthSuggestionArray addObject:[NSString stringWithFormat:@"%@ %@", month.monthName, month.year]];
     }
     [self.monthSuggestionTableView reloadData];
 }
@@ -138,12 +140,7 @@
     NSString *prefix = [self.monthTextField.text lowercaseString];
     if (prefix.length>kConstIntZero)
     {
-        [_monthSuggestionArray removeAllObjects];
-        for (int i = kConstIntZero; i < _validMonths.count ; ++i)
-        {
-            if ([_validMonths[i] hasPrefix:prefix])
-                [_monthSuggestionArray addObject:_validMonths[i]];
-        }
+        _monthSuggestionArray = [MBUtility getMonthsSuggestionFromYear:[MBUtility getCurrentYear] withPrefix:prefix];
         if (_monthSuggestionArray.count == kConstIntZero)
             [self.monthSuggestionTableView setHidden:YES];
         else
@@ -167,7 +164,9 @@
         cell = [[[NSBundle mainBundle]loadNibNamed:kMonthTableCellXIBName owner:nil options:nil]firstObject];
     
     MBMonth* month = [[MBMonth alloc]init];
-    month.monthName = _monthSuggestionArray[indexPath.row];
+    NSArray *array = [_monthSuggestionArray[indexPath.row] componentsSeparatedByString:@" "];
+    month.monthName = array[0] ;
+    month.year = array[1];
     [cell setUpCellAttributes:month];
     return cell;
 }

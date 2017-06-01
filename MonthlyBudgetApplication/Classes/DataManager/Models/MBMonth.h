@@ -14,6 +14,7 @@
 @property (strong,nonatomic) NSString* monthName;
 @property (assign) double totalIncome;
 @property (assign) double totalExpenditure;
+@property (strong, nonatomic) NSString* year;
 
 -(MBMonth *) initWithMonth:(Month* )month;
 

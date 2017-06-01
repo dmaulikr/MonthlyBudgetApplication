@@ -19,4 +19,6 @@
 +(void) setUpAnimationOnViewPopUp:(UIView* )view;
 +(void) setViewFrameonViewController:(UIView* )view onVieController:(UIViewController* )vc;
 
++ (NSArray <NSString *> *)getMonthsSuggestionFromYear:(NSInteger )year withPrefix:(NSString *)prefix;
++(NSArray<NSString*>*)splitMonthsAndYear:(NSString *)month;
 @end

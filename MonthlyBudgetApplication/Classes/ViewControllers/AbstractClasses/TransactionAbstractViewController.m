@@ -73,6 +73,7 @@
     MBTransaction* transaction = [[MBTransaction alloc]init];
     transaction.monthName = self.month.monthName;
     transaction.transactionType = [self getTransactionTypeForVC];
+    transaction.year = self.month.year;
 
     // fetch list of all expenditure for given month
     _transactions = [coreDataManager fetchTransactionListFromCoreData:transaction];
@@ -105,6 +106,7 @@
     newTransactionView.onPressingSaveButton = ^(MBTransaction* transaction)
     {
         transaction.monthName = weakSelf.month.monthName;
+        transaction.year = weakSelf.month.year;
         [weakSelf saveNewTransactionRecordToDataBase:transaction];
     };
 }

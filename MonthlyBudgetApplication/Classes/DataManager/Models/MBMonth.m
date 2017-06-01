@@ -19,6 +19,7 @@
 		self.monthName = month.monthName;
         self.totalExpenditure = month.expense;
         self.totalIncome = month.income;
+        self.year = month.year;
 	}
 	return self;
 }

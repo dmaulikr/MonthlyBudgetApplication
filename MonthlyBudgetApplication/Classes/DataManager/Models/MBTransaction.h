@@ -16,6 +16,7 @@
 @property (nonatomic,strong) NSString* transactionType;
 @property (nonatomic,strong) NSString* monthName;
 @property (assign) double amount;
+@property (nonatomic, strong) NSString* year;
 
 -(MBTransaction *) initWithTransaction:(Transaction* )transaction;
 
