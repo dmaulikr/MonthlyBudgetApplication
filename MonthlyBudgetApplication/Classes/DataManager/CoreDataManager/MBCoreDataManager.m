@@ -9,9 +9,9 @@
 #import "MBCoreDataManager.h"
 #import "AppDelegate.h"
 #import "MBDefine.h"
-#import "MBMonth.h"
 #import "Month+CoreDataProperties.h"
-#import "MBTransaction.h"
+#import "Transaction+CoreDataProperties.h"
+
 #import "Transaction+CoreDataProperties.h"
 
 @implementation MBCoreDataManager
@@ -26,7 +26,7 @@
 
 #pragma mark - CRUD Operations on MONTH Entity
 // method saves month details to the database
-- (void)saveMonthToCoreData:(MBMonth* )monthInputedByUser
+- (void)saveMonthToCoreData:(Month* )monthInputedByUser
 {
     NSManagedObjectContext *context = [self managedObjectContext];
     NSEntityDescription *monthEntityDescription = [NSEntityDescription entityForName:kMonthEntityKey inManagedObjectContext:context];
@@ -51,13 +51,12 @@
     NSArray* array = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     if(array.count > kConstIntZero)
     {
-        NSMutableArray <MBMonth *>*arr = [[NSMutableArray alloc]init];
+        NSMutableArray <Month *>*arr = [[NSMutableArray alloc]init];
         
-        for(MBMonth* obj in array)// iterating over array to get list of all months
+        for(Month* obj in array)// iterating over array to get list of all months
         {
             Month* mnth = (Month*)obj;
-            MBMonth* monthModel = [[MBMonth alloc]initWithMonth:mnth];
-            [arr addObject:monthModel];
+            [arr addObject:mnth];
         }
         return arr;
     }
@@ -65,24 +64,24 @@
 }
 
 // update record of month entity
--(void ) updateMonthRecord : (MBMonth * )monthToBeUpdated
+-(void ) updateMonthRecord : (Month * )monthToBeUpdated
 {
     NSFetchRequest *fetchRequest=[NSFetchRequest fetchRequestWithEntityName:kMonthEntityKey];
     
     // updating value of the MONTH entity
     NSPredicate *predicate=[NSPredicate predicateWithFormat:@"monthName==%@",monthToBeUpdated.monthName];     fetchRequest.predicate=predicate;
-    MBMonth* newMonthdetails =[[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
+    Month* newMonthdetails =[[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
     
     // setting new values of MONTH entity
-    [newMonthdetails setValue: [NSNumber numberWithDouble: monthToBeUpdated.totalIncome] forKey:kIncomeKey];
-    [newMonthdetails setValue:[NSNumber numberWithDouble:monthToBeUpdated.totalExpenditure] forKey:kExpenseKey];
+    [newMonthdetails setValue: [NSNumber numberWithDouble: monthToBeUpdated.income] forKey:kIncomeKey];
+    [newMonthdetails setValue:[NSNumber numberWithDouble:monthToBeUpdated.expense] forKey:kExpenseKey];
     
     [self.managedObjectContext save:nil];
 }
 
 #pragma mark - CRUD Operations on TRANSACTION entity
 // save new transaction details to database
--(void) saveTransactionDetailsToCoreData:(MBTransaction* )transaction
+-(void) saveTransactionDetailsToCoreData:(Transaction* )transaction
 {
     NSManagedObjectContext *context = [self managedObjectContext];
     NSEntityDescription *transactionEntityDescription = [NSEntityDescription entityForName:kTransactionEntityKey inManagedObjectContext:context];
@@ -104,7 +103,7 @@
 }
 
 // fetch list of all transactions from databsae based on transaction type
--(NSArray* ) fetchTransactionListFromCoreData:(MBTransaction* )transaction
+-(NSArray* ) fetchTransactionListFromCoreData:(Transaction* )transaction
 {
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     
@@ -118,12 +117,11 @@
     
     if(array.count > kConstIntZero)
     {
-        NSMutableArray <MBTransaction *>*arr = [[NSMutableArray alloc]init];
-        for(MBTransaction* obj in array)// iterating over array to get list of all transactions
+        NSMutableArray <Transaction *>*arr = [[NSMutableArray alloc]init];
+        for(Transaction* obj in array)// iterating over array to get list of all transactions
         {
             Transaction* trans = (Transaction*)obj;
-            MBTransaction* transModel = [[MBTransaction alloc]initWithTransaction:trans];
-            [arr addObject:transModel];
+            [arr addObject:trans];
         }
         return arr;
     }

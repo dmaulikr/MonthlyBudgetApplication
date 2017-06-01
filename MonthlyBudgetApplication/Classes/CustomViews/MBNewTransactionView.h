@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MBDatePickerView.h"
-#import "MBTransaction.h"
+#import "Transaction+CoreDataProperties.h"
 
 @interface MBNewTransactionView : UIView
 
@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *recordDateTextField;
 @property (weak, nonatomic) IBOutlet UITextField *recordAmountTextField;
 
-@property (strong,nonatomic) void (^onPressingSaveButton) (MBTransaction* transaction);
+@property (strong,nonatomic) void (^onPressingSaveButton) (Transaction* transaction);
 
 - (IBAction)saveButtonPressed:(id)sender;
 - (IBAction)cancelButtonPressed:(id)sender;

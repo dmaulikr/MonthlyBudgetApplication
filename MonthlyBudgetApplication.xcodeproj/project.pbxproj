@@ -12,8 +12,6 @@
 		154824131EE0830A000DCAE1 /* MBHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548240E1EE0830A000DCAE1 /* MBHomeTableViewController.m */; };
 		154824161EE08379000DCAE1 /* MBDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 154824151EE08379000DCAE1 /* MBDatePickerView.m */; };
 		1548241A1EE0838B000DCAE1 /* MBUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 154824181EE0838B000DCAE1 /* MBUtility.m */; };
-		1548241F1EE08420000DCAE1 /* MBMonth.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548241B1EE08420000DCAE1 /* MBMonth.m */; };
-		154824201EE08420000DCAE1 /* MBTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548241E1EE08420000DCAE1 /* MBTransaction.m */; };
 		154824231EE0842D000DCAE1 /* MBCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 154824221EE0842D000DCAE1 /* MBCoreDataManager.m */; };
 		154824281EE08467000DCAE1 /* MBMonthListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 154824251EE08467000DCAE1 /* MBMonthListTableViewCell.m */; };
 		154824291EE08467000DCAE1 /* MBTransactionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 154824261EE08467000DCAE1 /* MBTransactionTableCell.m */; };
@@ -32,6 +30,8 @@
 		154824491EE086CC000DCAE1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 154824461EE086CC000DCAE1 /* Info.plist */; };
 		1548244B1EE08716000DCAE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548244A1EE08716000DCAE1 /* main.m */; };
 		154824551EE08A05000DCAE1 /* MonthlyBudgetApplication.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 154824531EE08A05000DCAE1 /* MonthlyBudgetApplication.xcdatamodeld */; };
+		154824581EE08D8E000DCAE1 /* Month+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 154824571EE08D8E000DCAE1 /* Month+CoreDataProperties.m */; };
+		1548245E1EE08E5F000DCAE1 /* Transaction+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548245C1EE08E5F000DCAE1 /* Transaction+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,10 +46,6 @@
 		154824171EE0838B000DCAE1 /* MBUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBUtility.h; path = Classes/Utility/Utils/MBUtility.h; sourceTree = "<group>"; };
 		154824181EE0838B000DCAE1 /* MBUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBUtility.m; path = Classes/Utility/Utils/MBUtility.m; sourceTree = "<group>"; };
 		154824191EE0838B000DCAE1 /* MBDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBDefine.h; path = Classes/Utility/Utils/MBDefine.h; sourceTree = "<group>"; };
-		1548241B1EE08420000DCAE1 /* MBMonth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBMonth.m; path = Classes/DataManager/Models/MBMonth.m; sourceTree = "<group>"; };
-		1548241C1EE08420000DCAE1 /* MBTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBTransaction.h; path = Classes/DataManager/Models/MBTransaction.h; sourceTree = "<group>"; };
-		1548241D1EE08420000DCAE1 /* MBMonth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBMonth.h; path = Classes/DataManager/Models/MBMonth.h; sourceTree = "<group>"; };
-		1548241E1EE08420000DCAE1 /* MBTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBTransaction.m; path = Classes/DataManager/Models/MBTransaction.m; sourceTree = "<group>"; };
 		154824211EE0842D000DCAE1 /* MBCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBCoreDataManager.h; path = Classes/DataManager/CoreDataManager/MBCoreDataManager.h; sourceTree = "<group>"; };
 		154824221EE0842D000DCAE1 /* MBCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBCoreDataManager.m; path = Classes/DataManager/CoreDataManager/MBCoreDataManager.m; sourceTree = "<group>"; };
 		154824241EE08467000DCAE1 /* MBMonthListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBMonthListTableViewCell.h; path = Classes/TableCells/MBMonthListTableViewCell.h; sourceTree = "<group>"; };
@@ -74,6 +70,10 @@
 		154824461EE086CC000DCAE1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Others/Info.plist; sourceTree = "<group>"; };
 		1548244A1EE08716000DCAE1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		154824541EE08A05000DCAE1 /* MonthlyBudgetApplication.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MonthlyBudgetApplication.xcdatamodel; sourceTree = "<group>"; };
+		154824561EE08D8E000DCAE1 /* Month+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Month+CoreDataProperties.h"; path = "Classes/DataManager/CoreDataDefaultFiles/Month+CoreDataProperties.h"; sourceTree = "<group>"; };
+		154824571EE08D8E000DCAE1 /* Month+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Month+CoreDataProperties.m"; path = "Classes/DataManager/CoreDataDefaultFiles/Month+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1548245B1EE08E5F000DCAE1 /* Transaction+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Transaction+CoreDataProperties.h"; path = "Classes/DataManager/CoreDataDefaultFiles/Transaction+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1548245C1EE08E5F000DCAE1 /* Transaction+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Transaction+CoreDataProperties.m"; path = "Classes/DataManager/CoreDataDefaultFiles/Transaction+CoreDataProperties.m"; sourceTree = "<group>"; };
 		15DF0C831EDD60E8006B6945 /* MonthlyBudgetApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonthlyBudgetApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -149,6 +149,10 @@
 		1548244C1EE0888B000DCAE1 /* CoreDataDefaultFiles */ = {
 			isa = PBXGroup;
 			children = (
+				1548245B1EE08E5F000DCAE1 /* Transaction+CoreDataProperties.h */,
+				1548245C1EE08E5F000DCAE1 /* Transaction+CoreDataProperties.m */,
+				154824561EE08D8E000DCAE1 /* Month+CoreDataProperties.h */,
+				154824571EE08D8E000DCAE1 /* Month+CoreDataProperties.m */,
 			);
 			name = CoreDataDefaultFiles;
 			sourceTree = "<group>";
@@ -286,20 +290,8 @@
 			children = (
 				1548244C1EE0888B000DCAE1 /* CoreDataDefaultFiles */,
 				154823DD1EDFC199000DCAE1 /* CoreDataManager */,
-				15DF0CBE1EDD7C77006B6945 /* Models */,
 			);
 			name = DataManager;
-			sourceTree = "<group>";
-		};
-		15DF0CBE1EDD7C77006B6945 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				1548241B1EE08420000DCAE1 /* MBMonth.m */,
-				1548241C1EE08420000DCAE1 /* MBTransaction.h */,
-				1548241D1EE08420000DCAE1 /* MBMonth.h */,
-				1548241E1EE08420000DCAE1 /* MBTransaction.m */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,19 +372,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1548245E1EE08E5F000DCAE1 /* Transaction+CoreDataProperties.m in Sources */,
 				154824291EE08467000DCAE1 /* MBTransactionTableCell.m in Sources */,
 				154824121EE0830A000DCAE1 /* MBIncomeDetailsViewController.m in Sources */,
 				154824231EE0842D000DCAE1 /* MBCoreDataManager.m in Sources */,
+				154824581EE08D8E000DCAE1 /* Month+CoreDataProperties.m in Sources */,
 				154824551EE08A05000DCAE1 /* MonthlyBudgetApplication.xcdatamodeld in Sources */,
 				154824111EE0830A000DCAE1 /* MBExpenditureDetailsViewController.m in Sources */,
 				154824281EE08467000DCAE1 /* MBMonthListTableViewCell.m in Sources */,
-				1548241F1EE08420000DCAE1 /* MBMonth.m in Sources */,
 				154824161EE08379000DCAE1 /* MBDatePickerView.m in Sources */,
 				1548242E1EE084E8000DCAE1 /* MBAddNewMonthView.m in Sources */,
 				1548242F1EE084E8000DCAE1 /* MBNewTransactionView.m in Sources */,
 				1548244B1EE08716000DCAE1 /* main.m in Sources */,
 				1548241A1EE0838B000DCAE1 /* MBUtility.m in Sources */,
-				154824201EE08420000DCAE1 /* MBTransaction.m in Sources */,
 				154824131EE0830A000DCAE1 /* MBHomeTableViewController.m in Sources */,
 				154824321EE0851B000DCAE1 /* AppDelegate.m in Sources */,
 			);

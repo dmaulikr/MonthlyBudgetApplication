@@ -7,19 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MBMonth.h"
+#import "Month+CoreDataClass.h"
 #import "AppDelegate.h"
-#import "MBTransaction.h"
+#import "Transaction+CoreDataProperties.h"
+
 
 @interface MBCoreDataManager : NSObject
 
 // MONTH entity methods
 -(NSArray*)fetchMonthListFromCoreData;
-- (void)saveMonthToCoreData:(MBMonth* )month;
--(void ) updateMonthRecord : (MBMonth * )monthToBeUpdated;
+- (void)saveMonthToCoreData:(Month* )month;
+-(void ) updateMonthRecord : (Month * )monthToBeUpdated;
 
 //TRANSACTION Entity methods
--(void) saveTransactionDetailsToCoreData:(MBTransaction* )transaction;
--(NSArray* ) fetchTransactionListFromCoreData:(MBTransaction* )transaction;
+-(void) saveTransactionDetailsToCoreData:(Transaction* )transaction;
+-(NSArray* ) fetchTransactionListFromCoreData:(Transaction* )transaction;
 
 @end

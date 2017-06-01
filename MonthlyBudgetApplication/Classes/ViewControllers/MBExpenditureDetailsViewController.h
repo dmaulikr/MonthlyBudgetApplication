@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MBMonth.h"
+#import "Month+CoreDataClass.h"
 
 @interface MBExpenditureDetailsViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
@@ -17,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *monthNameLabel;
 
-@property (strong,nonatomic) MBMonth* month;
+@property (strong,nonatomic) Month* month;
 
 @end

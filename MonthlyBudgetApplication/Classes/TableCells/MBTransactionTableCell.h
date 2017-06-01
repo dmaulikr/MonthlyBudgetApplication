@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MBTransaction.h"
+#import "Transaction+CoreDataProperties.h"
+
 
 
 @interface MBTransactionTableCell : UITableViewCell
@@ -16,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 
--(void) setUpCellAttribiute:(MBTransaction*) transactionDetails;
+-(void) setUpCellAttribiute:(Transaction*) transactionDetails;
 
 @end

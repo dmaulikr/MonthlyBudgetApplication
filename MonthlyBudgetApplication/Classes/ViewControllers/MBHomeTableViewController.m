@@ -25,7 +25,7 @@
 
 @implementation MBHomeTableViewController
 {
-    NSArray<MBMonth* >* _monthArray;
+    NSArray<Month* >* _monthArray;
 }
 
 #pragma mark - View life cycle methods
@@ -48,7 +48,7 @@
 #pragma mark - InitialViewControllerSetup
 -(void) initialTableVcSetup
 {
-    self.month = [[MBMonth alloc]init];
+    self.month = [[Month alloc]init];
 	
     // add right button at Navigation Bar
     UIBarButtonItem* rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightBarButtonPressedForAddingNewMonth)];
@@ -100,7 +100,7 @@
 // method validates month Inputed by user
 -(BOOL) validateMonthInputedByUser:(NSString* )monthInputedByUser
 {
-    for(MBMonth* obj in _monthArray)
+    for(Month* obj in _monthArray)
     {
         [monthInputedByUser lowercaseString];
         [obj.monthName lowercaseString];
@@ -150,7 +150,7 @@
         
         if(_monthArray.count> kConstIntZero && _monthArray[indexpath.row])
         {
-            MBMonth *month = _monthArray[indexpath.row];
+            Month *month = (Month *) _monthArray[indexpath.row];
             expenditureVc.month = month;
             incomeVC.month = month;
         }

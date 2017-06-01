@@ -9,7 +9,8 @@
 #import "MBExpenditureDetailsViewController.h"
 #import "MBNewTransactionView.h"
 #import "MBDefine.h"
-#import "MBTransaction.h"
+#import "Transaction+CoreDataProperties.h"
+
 #import "MBCoreDataManager.h"
 #import "MBTransactionTableCell.h"
 
@@ -25,7 +26,7 @@
 @implementation MBExpenditureDetailsViewController
 {
     NSString*                 _transactionType;
-    NSArray<MBTransaction* >* _expenditureListArray;
+    NSArray<Transaction* >* _expenditureListArray;
 }
 
 #pragma mark - View life cycle methods
@@ -63,11 +64,11 @@
 #pragma mark - Initial vc setups
 -(void) setUpSummaryView
 {
-    self.incomeLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.month.totalIncome]];
-    self.expenditureLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.month.totalExpenditure]];
+    self.incomeLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.month.income]];
+    self.expenditureLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.month.expense]];
     
     //calculate balance
-    double balance = self.month.totalIncome - self.month.totalExpenditure;
+    double balance = self.month.income - self.month.expense;
 	if(balance < kConstIntZero)
 		self.balanceLabel.textColor = [UIColor redColor];
 	else
@@ -81,14 +82,17 @@
 {
     MBCoreDataManager* coreDataManager = [[MBCoreDataManager alloc]init];
     
-    MBTransaction* transaction = [[MBTransaction alloc]init];
-    transaction.monthName = self.month.monthName;
+    Transaction* transaction = nil;
+    Month *month = (Month *) self.month;
+    NSString *monthName = month.monthName;
+    [transaction setMonthName:monthName];
     transaction.transactionType = _transactionType;
     
     // fetch list of all expenditure for given month
     _expenditureListArray = [coreDataManager fetchTransactionListFromCoreData:transaction];
+
     
-    [self.month setTotalExpenditure:[self calculateTotalExpenditure]];
+    [self.month setExpense:[self calculateTotalExpenditure]];
     
     [self setUpSummaryView];
     [self.expenditureListTableView reloadData];
@@ -118,7 +122,7 @@
     
     MBNewTransactionView* newTransactionView = [[MBNewTransactionView alloc]initWithNewTransactionView:self forRecordType:kExpenditureRecordType forMonthName:self.month.monthName];
     
-    newTransactionView.onPressingSaveButton = ^(MBTransaction* transaction)
+    newTransactionView.onPressingSaveButton = ^(Transaction* transaction)
     {
         transaction.monthName = weakSelf.month.monthName;
         [weakSelf saveNewTransactionRecordToDataBase:transaction];
@@ -149,13 +153,13 @@
 }
 
 #pragma mark - Helper Methods
-// Method calculates totalExpenditure
+// Method calculates expense
 -(double) calculateTotalExpenditure
 {
     double expenditure = kConstDoubleZero;
     if(_expenditureListArray.count > kConstIntZero)
     {
-        for(MBTransaction* obj in _expenditureListArray)
+        for(Transaction* obj in _expenditureListArray)
         {
             expenditure = expenditure+ obj.amount;
         }
@@ -164,7 +168,7 @@
 }
 
 // save new expenditure record to database
--(void) saveNewTransactionRecordToDataBase:(MBTransaction* )transaction
+-(void) saveNewTransactionRecordToDataBase:(Transaction* )transaction
 {
     MBCoreDataManager* coreDataManager = [[MBCoreDataManager alloc]init];
     [coreDataManager saveTransactionDetailsToCoreData:transaction];
@@ -172,7 +176,7 @@
     [self populateData];
     
     // updated MONTH entity
-    [self.month setTotalExpenditure:[self calculateTotalExpenditure]];
+    [self.month setExpense:[self calculateTotalExpenditure]];
     [coreDataManager updateMonthRecord:self.month];
     
     [self setUpSummaryView];

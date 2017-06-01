@@ -6,7 +6,8 @@
 //  Copyright © 2017 Mohini Sindhu . All rights reserved.
 //
 #import "MBNewTransactionView.h"
-#import "MBTransaction.h"
+#import "Transaction+CoreDataProperties.h"
+
 #import "MBDefine.h"
 #import "MBUtility.h"
 
@@ -66,7 +67,7 @@
 
     if([self validateTextFields])
     {
-        MBTransaction* transaction = [[MBTransaction alloc]init];
+        Transaction* transaction = [[Transaction alloc]init];
         
         // fetching text fields text
         transaction.date = self.recordDateTextField.text;

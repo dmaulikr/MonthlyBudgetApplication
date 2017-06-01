@@ -10,7 +10,8 @@
 #import "MBNewTransactionView.h"
 #import "MBDefine.h"
 #import "MBTransactionTableCell.h"
-#import "MBTransaction.h"
+#import "Transaction+CoreDataProperties.h"
+
 #import "MBCoreDataManager.h"
 
 
@@ -25,7 +26,7 @@
 
 @implementation MBIncomeDetailsViewController
 {
-    NSArray<MBTransaction* >* _creditDetailsArray;
+    NSArray<Transaction* >* _creditDetailsArray;
     NSString*                 _transactionType;
 }
 
@@ -63,10 +64,10 @@
 #pragma mark - Initial VC Setups
 -(void) setUpSummaryView
 {
-    self.incomeLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.month.totalIncome]];
-    self.expenditureLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.month.totalExpenditure]];
+    self.incomeLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.month.income]];
+    self.expenditureLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.month.expense]];
     
-    double balance = self.month.totalIncome - self.month.totalExpenditure;
+    double balance = self.month.income - self.month.expense;
     if(balance < kConstIntZero)
         self.balanceLabel.textColor = [UIColor redColor];
 	else
@@ -79,13 +80,13 @@
 -(void) populateData
 {
     MBCoreDataManager* coreDataManager = [[MBCoreDataManager alloc]init];
-    MBTransaction* transaction = [[MBTransaction alloc]init];
+    Transaction* transaction ;
     transaction.monthName = self.month.monthName;
     transaction.transactionType = _transactionType;
     
     _creditDetailsArray = [coreDataManager fetchTransactionListFromCoreData:transaction];
     
-    [self.month setTotalIncome:[self calculateTotalIncome]];
+    [self.month setIncome:[self calculateTotalIncome]];
     [self setUpSummaryView];
     [self.incomeTableView reloadData];
 }
@@ -114,7 +115,7 @@
 
     MBNewTransactionView* newTransactionView = [[MBNewTransactionView alloc]initWithNewTransactionView:self forRecordType:_transactionType forMonthName:self.month.monthName];
     
-    newTransactionView.onPressingSaveButton = ^(MBTransaction* transaction)
+    newTransactionView.onPressingSaveButton = ^(Transaction* transaction)
     {
         transaction.monthName = weakSelf.month.monthName;
         [weakSelf saveNewTransactionRecordToDataBase:transaction];
@@ -151,7 +152,7 @@
     double income = kConstDoubleZero;
     if(_creditDetailsArray.count > kConstIntZero)
     {
-        for(MBTransaction* obj in _creditDetailsArray)
+        for(Transaction* obj in _creditDetailsArray)
         {
             income = income + obj.amount;
         }
@@ -160,13 +161,13 @@
 }
 
 // method saves new Income record to Database
--(void) saveNewTransactionRecordToDataBase:(MBTransaction* )transaction
+-(void) saveNewTransactionRecordToDataBase:(Transaction* )transaction
 {
     MBCoreDataManager* coreDataManager = [[MBCoreDataManager alloc]init];
     [coreDataManager saveTransactionDetailsToCoreData:transaction];
     [self populateData];
     
-    [self.month setTotalIncome:[self calculateTotalIncome]];
+    [self.month setIncome:[self calculateTotalIncome]];
 	
     [coreDataManager updateMonthRecord:self.month];
     [self setUpSummaryView];

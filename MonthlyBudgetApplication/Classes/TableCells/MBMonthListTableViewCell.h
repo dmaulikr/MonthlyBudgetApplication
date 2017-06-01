@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MBMonth.h"
+#import "Month+CoreDataClass.h"
 
 @interface MBMonthListTableViewCell : UITableViewCell
 
@@ -15,6 +15,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *totalIncomeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *totalExpenditureLabel;
 
--(void) setUpCellAttributes:(MBMonth* )month;
+-(void) setUpCellAttributes:(Month* )month;
 
 @end

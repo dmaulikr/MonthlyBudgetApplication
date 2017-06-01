@@ -9,7 +9,7 @@
 #import "MBAddNewMonthView.h"
 #import "MBMonthListTableViewCell.h"
 #import "MBUtility.h"
-#import "MBMonth.h"
+#import "Month+CoreDataClass.h"
 #import "MBDefine.h"
 
 #define kAddNewMonthViewXIBName      @"AddNewMonthView"
@@ -121,15 +121,7 @@
     // for giving first suggestion of current month when user taps on the textfield
     _monthSuggestionArray = [[NSMutableArray alloc]init];
     [self.monthSuggestionTableView setHidden:NO];
-    NSArray* array = [[NSArray alloc]initWithObjects:[MBUtility getCurrentMonthForUserSuggestion], nil];
-
-    for(NSString* obj in array)
-    {
-        MBMonth* month = [[MBMonth alloc]init];
-        [month setMonthName:obj];
-        [_monthSuggestionArray addObject:month.monthName];
-    }
-    [self.monthSuggestionTableView reloadData];
+    [_monthSuggestionArray addObject:[MBUtility getCurrentMonthForUserSuggestion]];
 }
 
 -(void)textFieldDidChange:(id)textFieldDidChange
@@ -166,7 +158,7 @@
     if(cell == nil)
         cell = [[[NSBundle mainBundle]loadNibNamed:kMonthTableCellXIBName owner:nil options:nil]firstObject];
     
-    MBMonth* month = [[MBMonth alloc]init];
+    Month* month = [[Month alloc]init];
     month.monthName = _monthSuggestionArray[indexPath.row];
     [cell setUpCellAttributes:month];
     return cell;

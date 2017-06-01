@@ -26,7 +26,7 @@
 }
 
 #pragma mark - Set up cell UI elements
--(void) setUpCellAttribiute:(MBTransaction*) transactionDetails
+-(void) setUpCellAttribiute:(Transaction*) transactionDetails
 {
     self.detailsLabel.text = transactionDetails.details;
     self.dateLabel.text = transactionDetails.date;
