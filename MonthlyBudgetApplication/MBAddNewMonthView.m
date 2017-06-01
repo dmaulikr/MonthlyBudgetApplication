@@ -85,6 +85,12 @@
     [self removeFromSuperview];
 }
 
+// tap gesture associated method
+-(IBAction)dismissPopUpView:(id)sender
+{
+	[self endEditing:YES];
+}
+
 #pragma mark - User Entry Validation
 // method checks whether month input by user is valid or not
 -(BOOL) checkForValidMonthEntry:(NSString* )month

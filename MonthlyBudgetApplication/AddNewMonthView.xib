@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r1r-d7-qaj" userLabel="CustomAlertView">
-                    <rect key="frame" x="47" y="180" width="310" height="266"/>
+                    <rect key="frame" x="47" y="150" width="310" height="266"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD NEW MONTH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcU-a2-LYE">
                             <rect key="frame" x="50" y="25" width="210" height="30"/>
@@ -34,7 +34,7 @@
                             </constraints>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mV-4v-MBT">
                             <rect key="frame" x="157" y="226" width="153" height="35"/>
@@ -60,7 +60,7 @@
                                 <action selector="saveButtonPressed:" destination="9w9-qb-bRi" eventType="touchUpInside" id="6bN-3Y-cnh"/>
                             </connections>
                         </button>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lOK-nd-zvN">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lOK-nd-zvN">
                             <rect key="frame" x="23" y="135" width="263" height="80"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -88,9 +88,10 @@
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.08546802683636906" green="0.086314244923857864" blue="0.086314244923857864" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="r1r-d7-qaj" firstAttribute="leading" secondItem="9w9-qb-bRi" secondAttribute="leading" constant="47" id="DYU-Gq-wdb"/>
-                <constraint firstItem="r1r-d7-qaj" firstAttribute="top" secondItem="9w9-qb-bRi" secondAttribute="top" constant="180" id="NIh-93-ups"/>
+                <constraint firstItem="r1r-d7-qaj" firstAttribute="top" secondItem="9w9-qb-bRi" secondAttribute="top" constant="150" id="NIh-93-ups"/>
                 <constraint firstAttribute="trailing" secondItem="r1r-d7-qaj" secondAttribute="trailing" constant="47" id="dRK-In-WCC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -102,8 +103,14 @@
             <connections>
                 <outlet property="monthSuggestionTableView" destination="lOK-nd-zvN" id="hYU-df-xAR"/>
                 <outlet property="monthTextField" destination="kZT-TF-U3Y" id="B9y-2M-ppT"/>
+                <outletCollection property="gestureRecognizers" destination="1xY-WW-Fve" appends="YES" id="8nH-XY-bkd"/>
             </connections>
             <point key="canvasLocation" x="-436" y="62.5"/>
         </view>
+        <tapGestureRecognizer id="1xY-WW-Fve">
+            <connections>
+                <action selector="dismissPopUpView:" destination="9w9-qb-bRi" id="M2V-dS-wLI"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>
