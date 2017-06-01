@@ -83,7 +83,7 @@
 {
     // UI Elements
     self.tabBarController.navigationItem.title = [self getNavigationControllerTitle];
-    self.monthNameLabel.text = [self.month.monthName uppercaseString];
+    self.monthNameLabel.text = [self.month.description uppercaseString];
 
     [self populateData];
 
