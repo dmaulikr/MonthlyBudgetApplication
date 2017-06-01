@@ -49,6 +49,17 @@
     [self initialVCSetUp];
 }
 
+-(void) viewWillDisappear:(BOOL)animated
+{
+	// method to remove subview
+	[super viewWillDisappear:animated];
+	for (UIView* obj in self.view.subviews)
+	{
+		if(obj.tag == kTransactionViewTag)
+			[obj removeFromSuperview];
+	}
+}
+
 #pragma mark - Initial VC Setups
 -(void) setUpSummaryView
 {
@@ -58,7 +69,9 @@
     double balance = self.month.totalIncome - self.month.totalExpenditure;
     if(balance < kConstIntZero)
         self.balanceLabel.textColor = [UIColor redColor];
-   
+	else
+		self.balanceLabel.textColor = [UIColor blueColor];
+	
     self.balanceLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:balance]];
 }
 

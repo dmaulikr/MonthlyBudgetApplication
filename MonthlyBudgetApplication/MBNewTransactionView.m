@@ -91,7 +91,7 @@
 // tap gesture associated method
 -(IBAction)dismissPopUpView:(id)sender
 {
-    [self removeFromSuperview];
+    [self endEditing:YES];
     
 }
 

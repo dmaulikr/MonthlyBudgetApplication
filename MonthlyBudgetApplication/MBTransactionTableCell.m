@@ -29,7 +29,7 @@
 {
     self.detailsLabel.text = transactionDetails.details;
     self.dateLabel.text = transactionDetails.date;
-    self.amountLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:transactionDetails.amount]];
+    self.amountLabel.text = [NSString stringWithFormat:@"%@%@",NSLocalizedString(@"Rs. ",nil),[NSNumber numberWithDouble:transactionDetails.amount]];
 }
 
 @end

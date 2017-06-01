@@ -41,6 +41,18 @@
     [self initialVCSetUp];
 }
 
+-(void) viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+	// method to remove subview
+	[super viewWillDisappear:animated];
+	for (UIView* obj in self.view.subviews)
+	{
+		if(obj.tag == kTransactionViewTag)
+			[obj removeFromSuperview];
+	}
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -55,9 +67,11 @@
     
     //calculate balance
     double balance = self.month.totalIncome - self.month.totalExpenditure;
-    if(balance < kConstIntZero)
-        self.balanceLabel.textColor = [UIColor redColor];
-    
+	if(balance < kConstIntZero)
+		self.balanceLabel.textColor = [UIColor redColor];
+	else
+		self.balanceLabel.textColor = [UIColor blueColor];
+	
     self.balanceLabel.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:balance]];
 }
 

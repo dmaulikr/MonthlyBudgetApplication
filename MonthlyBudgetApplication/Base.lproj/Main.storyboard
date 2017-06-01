@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KnU-bz-YwO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KnU-bz-YwO">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,25 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MonthListTableCell" rowHeight="99" id="7aB-aU-ReM" customClass="MonthListTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="375" height="99"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7aB-aU-ReM" id="4lJ-HY-GEI">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Month name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrn-1A-sfE">
-                                            <rect key="frame" x="0.0" y="27" width="375" height="63"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
-                                            <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="wWu-Na-a4l" id="WLK-se-Vk4"/>
                             <outlet property="delegate" destination="wWu-Na-a4l" id="czv-hw-XoL"/>
@@ -84,7 +65,7 @@
                                             <constraint firstAttribute="width" constant="100" id="Dhp-pP-4Hf"/>
                                             <constraint firstAttribute="height" constant="23" id="qH1-0K-2gJ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -94,7 +75,7 @@
                                             <constraint firstAttribute="width" constant="100" id="AQQ-Dj-YRb"/>
                                             <constraint firstAttribute="height" constant="23" id="xA3-uV-aT1"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -104,7 +85,7 @@
                                             <constraint firstAttribute="width" constant="100" id="Adf-8t-loG"/>
                                             <constraint firstAttribute="height" constant="23" id="GLD-zm-6vA"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -114,7 +95,7 @@
                                             <constraint firstAttribute="height" constant="21" id="m30-WI-CDd"/>
                                             <constraint firstAttribute="width" constant="100" id="sd1-sa-Wgh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
                                         <color key="textColor" red="0.14243783130000001" green="0.58794019669999997" blue="0.29677606010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -124,7 +105,7 @@
                                             <constraint firstAttribute="width" constant="100" id="B38-Ab-UFc"/>
                                             <constraint firstAttribute="height" constant="21" id="G9P-5w-HV2"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
                                         <color key="textColor" red="0.98181040639999995" green="0.1124227686" blue="0.100637957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -134,7 +115,7 @@
                                             <constraint firstAttribute="width" constant="100" id="RRO-op-tSB"/>
                                             <constraint firstAttribute="height" constant="21" id="RX2-tC-nse"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
                                         <color key="textColor" red="0.14243783129154328" green="0.58794019670050757" blue="0.29677606008588686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -216,7 +197,7 @@
                                             <constraint firstAttribute="height" constant="23" id="9oZ-tp-nbF"/>
                                             <constraint firstAttribute="width" constant="100" id="GXK-H9-0Og"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -226,7 +207,7 @@
                                             <constraint firstAttribute="width" constant="100" id="BMt-NF-IgQ"/>
                                             <constraint firstAttribute="height" constant="23" id="XYw-oq-fm2"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -236,7 +217,7 @@
                                             <constraint firstAttribute="height" constant="23" id="jbe-M1-RIE"/>
                                             <constraint firstAttribute="width" constant="100" id="zb5-XX-mzW"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -246,7 +227,7 @@
                                             <constraint firstAttribute="height" constant="21" id="Ay2-I5-EEi"/>
                                             <constraint firstAttribute="width" constant="100" id="LnQ-JT-ice"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
                                         <color key="textColor" red="0.14243783130000001" green="0.58794019669999997" blue="0.29677606010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -256,7 +237,7 @@
                                             <constraint firstAttribute="width" constant="100" id="ZyJ-jE-ab4"/>
                                             <constraint firstAttribute="height" constant="21" id="vp8-1f-TSi"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
                                         <color key="textColor" red="0.98181040639999995" green="0.1124227686" blue="0.100637957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -266,7 +247,7 @@
                                             <constraint firstAttribute="height" constant="21" id="5ns-cq-uJ1"/>
                                             <constraint firstAttribute="width" constant="100" id="cOT-gX-Kk1"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
                                         <color key="textColor" red="0.14243783130000001" green="0.58794019669999997" blue="0.29677606010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>

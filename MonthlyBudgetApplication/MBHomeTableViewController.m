@@ -49,7 +49,7 @@
 -(void) initialTableVcSetup
 {
     self.month = [[MBMonth alloc]init];
-    
+	[self.noDataAvailableLabel setHidden:YES];
     // add right button at Navigation Bar
     UIBarButtonItem* rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightBarButtonPressedForAddingNewMonth)];
     
@@ -64,7 +64,13 @@
     // fetch list of month from Database
     MBCoreDataManager* obj = [[MBCoreDataManager alloc]init];
     _monthArray = [obj fetchMonthListFromCoreData];
-    
+	
+	if(_monthArray.count == kConstIntZero)
+	{
+		[self.noDataAvailableLabel setHidden:NO];
+		[self.monthListTableView setHidden:YES];
+	}
+		
     [self.tableView reloadData];
 }
 
