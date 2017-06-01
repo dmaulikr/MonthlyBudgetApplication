@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "MBMonth.h"
 
-@interface MonthListTableViewCell : UITableViewCell
+@interface MBMonthListTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *monthNameLabel;
+
 -(void) setUpCellAttributes:(MBMonth* )month;
 
 @end

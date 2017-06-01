@@ -12,7 +12,7 @@
 
 @implementation MBTransaction
 
--(MBTransaction *) initWithTransaction:(MBTransaction* )transaction
+-(MBTransaction *) initWithTransaction:(Transaction* )transaction
 {
     self = [super init];
     if(self)

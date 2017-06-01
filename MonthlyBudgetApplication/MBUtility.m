@@ -7,6 +7,7 @@
 //
 
 #import "MBUtility.h"
+#import "MBDefine.h"
 
 @implementation MBUtility
 {
@@ -34,5 +35,21 @@
     return currentMonth;
 }
 
++(void) setUpAnimationOnViewPopUp:(UIView* )view
+{
+    [UIView animateWithDuration:kAnimationDurationConstant
+                     animations:
+     ^{
+         view.transform = CGAffineTransformMakeScale(kAnimationTransformationConstant,kAnimationTransformationConstant);
+     }
+     ];
+}
 
++(void) setViewFrameonViewController:(UIView* )view onVieController:(UIViewController* )vc
+{
+    view.transform = CGAffineTransformMakeScale(kAnimationTransformationConstant,kAnimationTransformationConstant);
+    view.center = CGPointMake(vc.view.frame.size.width/kDevideByTwoConstant,
+                              vc.view.frame.size.height/kDevideByTwoConstant);
+    view.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:kViewBackgroundAlphaConstant];
+}
 @end

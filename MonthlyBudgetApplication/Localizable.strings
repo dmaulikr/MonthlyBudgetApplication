@@ -5,3 +5,12 @@
   Created by Mohini Sindhu  on 30/05/17.
   Copyright © 2017 Mohini Sindhu . All rights reserved.
 */
+
+// Month Valid Strings
+"Please enter a valid month" = "Please enter a valid month";
+
+//New Transaction Details View
+"ADD NEW EXPENDITURE" = "ADD NEW EXPENDITURE";
+"please enter transaction details" = "please enter transaction details";
+"please enter transaction amount" = "please enter transaction amount";
+"please enter transaction date" = "please enter transaction date";

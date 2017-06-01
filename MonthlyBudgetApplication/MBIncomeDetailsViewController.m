@@ -7,7 +7,7 @@
 //
 
 #import "MBIncomeDetailsViewController.h"
-#import "NewTransactionView.h"
+#import "MBNewTransactionView.h"
 #import "MBDefine.h"
 #import "MBTransactionTableCell.h"
 #import "MBTransaction.h"
@@ -77,7 +77,7 @@
 
 -(void) rightBarButtonPressedForAddingNewIncome
 {
-    NewTransactionView* newTransactionView = [[NewTransactionView alloc]initWithNewTransactionView:self forRecordType:_transactionType];
+    MBNewTransactionView* newTransactionView = [[MBNewTransactionView alloc]initWithNewTransactionView:self forRecordType:_transactionType];
     newTransactionView.onPressingSaveButton = ^(MBTransaction* transaction)
     {
         transaction.monthName = self.month.monthName;

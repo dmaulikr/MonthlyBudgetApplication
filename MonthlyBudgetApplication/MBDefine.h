@@ -17,6 +17,7 @@
 //Numeric constants
 #define kConstIntZero 0
 #define kConstDoubleZero 0.0
+#define kDevideByTwoConstant 2
 
 //Entity Keys
 #define kMonthEntityKey @"Month"
@@ -39,4 +40,23 @@
 
 // General
 #define kTextColorKey       @"textColor"
+
+//month Name
+#define kMonthJanuary   @"january"
+#define kMonthFebuary   @"febuary"
+#define kMonthMarch     @"march"
+#define kMonthApril     @"april"
+#define kMonthMay       @"may"
+#define kMonthJune      @"june"
+#define kMonthJuly      @"july"
+#define kMonthAugust    @"august"
+#define kMonthSepetmber @"september"
+#define kMonthOctober   @"october"
+#define kMonthNovember  @"november"
+#define kMonthDecember  @"december"
+
+//custom view
+#define  kAnimationTransformationConstant 1.0f
+#define kAnimationDurationConstant        0.5
+#define kViewBackgroundAlphaConstant      0.3
 @end

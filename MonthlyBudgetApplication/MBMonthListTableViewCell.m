@@ -6,21 +6,24 @@
 //  Copyright © 2017 Mohini Sindhu . All rights reserved.
 //
 
-#import "MonthListTableViewCell.h"
+#import "MBMonthListTableViewCell.h"
 
-@implementation MonthListTableViewCell
+@implementation MBMonthListTableViewCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     [super awakeFromNib];
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
 
+#pragma mark - setup cell UI elements
 -(void) setUpCellAttributes:(MBMonth* )month
 {
     self.monthNameLabel.text = month.monthName;

@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "MBDefine.h"
 
+#define kToolBarFontSize 15.0f
+#define kToolBarFontType @"AmericanTypewriter"
+
 @interface AppDelegate ()
 
 @end
@@ -19,6 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	[self setNavigationBarAppearance];
+    [self setToolBarAppearance];
 	// Override point for customization after application launch.
 	return YES;
 }
@@ -97,7 +101,8 @@
 
 #pragma mark - Core Data Saving support
 
-- (void)saveContext {
+- (void)saveContext
+{
     NSManagedObjectContext *context = self.persistentContainer.viewContext;
     NSError *error = nil;
     if ([context hasChanges] && ![context save:&error])
@@ -109,6 +114,7 @@
     }
 }
 
+
 #pragma mark - initial App Setting methods
 // method sets up the navigation bar appearance through out the app
 - (void) setNavigationBarAppearance
@@ -117,14 +123,17 @@
 	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 	[[UINavigationBar appearance] setTranslucent:FALSE];
 	[[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+}
+
+// method sets up tool bar appearance through out the application
+-(void) setToolBarAppearance
+{
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     [[UITabBar appearance] setBarTintColor:kAppMainColor];
-    [[UITabBar appearance] setTranslucent:false];
+    [[UITabBar appearance] setTranslucent:FALSE];
     [[UITabBarItem appearance] setTitleTextAttributes:@{
-                                                        NSFontAttributeName:[UIFont fontWithName:@"AmericanTypewriter" size:20.0f]
+                                                        NSFontAttributeName:[UIFont fontWithName:kToolBarFontType size:kToolBarFontSize]
                                                         } forState:UIControlStateNormal];
-  
-
-    
 }
+
 @end

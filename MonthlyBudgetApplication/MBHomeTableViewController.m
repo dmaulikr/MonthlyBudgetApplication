@@ -9,8 +9,8 @@
 #import "MBHomeTableViewController.h"
 #import "MBUtility.h"
 #import "MBCoreDataManager.h"
-#import "MonthListTableViewCell.h"
-#import "AddNewMonthView.h"
+#import "MBMonthListTableViewCell.h"
+#import "MBAddNewMonthView.h"
 #import "MBExpenditureDetailsViewController.h"
 #import "MBIncomeDetailsViewController.h"
 
@@ -65,7 +65,7 @@
 -(void) rightBarButtonPressedForAddingNewMonth
 {
 
-    AddNewMonthView* addNewMonthView = [[AddNewMonthView alloc]initWithAddNewMonthView:self];
+    MBAddNewMonthView* addNewMonthView = [[MBAddNewMonthView alloc]initWithAddNewMonthView:self];
 
     addNewMonthView.onPressingSaveButton = ^(NSString* string)
     {
@@ -109,7 +109,7 @@
 
 -(UITableViewCell* )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-            MonthListTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kMonthListTableViewCellIdentifier];
+            MBMonthListTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kMonthListTableViewCellIdentifier];
     if(cell == nil)
     {
         cell = [[[NSBundle mainBundle]loadNibNamed:kMonthListTableXIBName owner:nil options:nil] firstObject];

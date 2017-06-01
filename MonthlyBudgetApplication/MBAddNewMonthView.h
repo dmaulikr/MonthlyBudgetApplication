@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddNewMonthView : UIView<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface MBAddNewMonthView : UIView<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITextField *monthTextField;
 @property (weak, nonatomic) IBOutlet UITableView *monthSuggestionTableView;
@@ -17,6 +17,7 @@
 
 - (IBAction)saveButtonPressed:(id)sender;
 - (IBAction)cancelButtonPressed:(id)sender;
+
 -(instancetype) initWithAddNewMonthView:(UIViewController* )vc;
 
 @end

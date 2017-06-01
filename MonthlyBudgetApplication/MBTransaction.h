@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Transaction+CoreDataProperties.h"
+
 
 @interface MBTransaction : NSObject
 
@@ -16,5 +18,5 @@
 @property (nonatomic,strong) NSString* transactionType;
 @property (nonatomic,strong) NSString* monthName;
 
--(MBTransaction *) initWithTransaction:(MBTransaction* )transaction;
+-(MBTransaction *) initWithTransaction:(Transaction* )transaction;
 @end

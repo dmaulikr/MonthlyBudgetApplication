@@ -10,17 +10,21 @@
 
 @implementation MBTransactionTableCell
 
-- (void)awakeFromNib {
+#pragma mark - NIB lifecycle methods
+- (void)awakeFromNib
+{
     [super awakeFromNib];
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
 
+#pragma mark - Set up cell UI elements
 -(void) setUpCellAttribiute:(MBTransaction*) transactionDetails
 {
     self.detailsLabel.text = transactionDetails.details;
