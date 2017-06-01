@@ -98,8 +98,6 @@
     _transactionType = kExpenditureRecordType;
     
     [self populateData];
-    [self setUpSummaryView];
-    
     
     // adds right bar button to navigation bar
     UIBarButtonItem* rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightBarButtonPressedForAddingNewIncome)];

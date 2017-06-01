@@ -93,7 +93,6 @@
 -(void) initialVCSetUp
 {
     _transactionType = kIncomeRecordType;
-    [self setUpSummaryView];
     [self populateData];
     
     //Navigation bar with right bar button item
@@ -162,6 +161,7 @@
     [self populateData];
     
     [self.month setTotalIncome:[self calculateTotalIncome]];
+	
     [coreDataManager updateMonthRecord:self.month];
     [self setUpSummaryView];
 }
