@@ -100,7 +100,7 @@
 	
 	// UI Elements
 	self.tabBarController.navigationItem.title = NSLocalizedString(@"Your Expenses",nil);
-	self.monthNameLabel.text = self.month.monthName;
+	self.monthNameLabel.text = [self.month.monthName uppercaseString];
 
     [self populateData];
     
