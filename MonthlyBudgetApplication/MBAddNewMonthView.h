@@ -10,8 +10,9 @@
 
 @interface MBAddNewMonthView : UIView<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UITextField *monthTextField;
-@property (weak, nonatomic) IBOutlet UITableView *monthSuggestionTableView;
+@property (weak,nonatomic) IBOutlet UITextField *monthTextField;
+@property (weak,nonatomic) IBOutlet UITableView *monthSuggestionTableView;
+@property (strong,nonatomic) IBOutlet UITapGestureRecognizer *tapGestureOnView;
 
 @property (strong,nonatomic) void (^onPressingSaveButton)(NSString* text);
 

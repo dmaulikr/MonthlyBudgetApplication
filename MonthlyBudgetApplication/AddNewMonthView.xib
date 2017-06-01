@@ -103,6 +103,7 @@
             <connections>
                 <outlet property="monthSuggestionTableView" destination="lOK-nd-zvN" id="hYU-df-xAR"/>
                 <outlet property="monthTextField" destination="kZT-TF-U3Y" id="B9y-2M-ppT"/>
+                <outlet property="tapGestureOnView" destination="exo-Hm-kiN" id="3An-eB-xoS"/>
             </connections>
             <point key="canvasLocation" x="-436" y="62.5"/>
         </view>

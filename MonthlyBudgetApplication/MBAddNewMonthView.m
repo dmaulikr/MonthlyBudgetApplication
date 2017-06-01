@@ -48,6 +48,7 @@
 	[_ownSuperView.navigationItem.rightBarButtonItem setEnabled:NO];
     
     [self.monthSuggestionTableView setHidden:YES];
+    [self manageTapGestureOnView];
 	
     [self.monthTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     
@@ -56,6 +57,15 @@
     self.monthTextField.delegate  = self;
     self.monthSuggestionTableView.delegate = self;
     self.monthSuggestionTableView.dataSource = self;
+}
+
+// method to add tap gesture on view
+-(void) manageTapGestureOnView
+{
+    self.tapGestureOnView = [[UITapGestureRecognizer alloc]
+                             initWithTarget:self action:@selector(dismissPopUpView:)];
+    self.tapGestureOnView.cancelsTouchesInView = NO;
+    [self addGestureRecognizer:self.tapGestureOnView];
 }
 
 #pragma mark - Actions on NIB
@@ -165,11 +175,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.monthTextField.text = _monthSuggestionArray[indexPath.row];
-}
-
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	[self endEditing:YES];
 }
 
 @end
