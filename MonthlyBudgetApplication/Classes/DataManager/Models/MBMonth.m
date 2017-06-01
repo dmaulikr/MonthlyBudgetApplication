@@ -7,21 +7,20 @@
 //
 
 #import "MBMonth.h"
-#import "MBDefine.h"
 
 @implementation MBMonth
 
--(MBMonth *) initWithMonth:(Month* )month
+- (MBMonth *)initWithMonth:(Month *)month
 {
-	self = [super init];
-	if(self)
-	{
-		self.monthName = month.monthName;
+    self = [super init];
+    if (self)
+    {
+        self.monthName = month.monthName;
         self.totalExpenditure = month.expense;
         self.totalIncome = month.income;
-		self.year = month.year;
-		self.uuid = month.uuid;
-	}
-	return self;
+        self.year = month.year;
+        self.uuid = month.uuid;
+    }
+    return self;
 }
 @end

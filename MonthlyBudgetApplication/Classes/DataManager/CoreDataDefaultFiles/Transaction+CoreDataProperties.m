@@ -11,8 +11,9 @@
 
 @implementation Transaction (CoreDataProperties)
 
-+ (NSFetchRequest<Transaction *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"Transaction"];
++ (NSFetchRequest<Transaction *> *)fetchRequest
+{
+    return [[NSFetchRequest alloc] initWithEntityName:@"Transaction"];
 }
 
 @dynamic amount;

@@ -10,7 +10,7 @@
 
 @implementation NSString (Utils)
 
--(NSString *) add:(NSObject *)str
+- (NSString *)add:(NSObject *)str
 {
     return [NSString stringWithFormat:@"%@%@", self, str];
 }

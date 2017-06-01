@@ -7,14 +7,13 @@
 //
 
 #import "MBTransaction.h"
-#import "MBDefine.h"
 
 @implementation MBTransaction
 
--(MBTransaction *) initWithTransaction:(Transaction* )transaction
+- (MBTransaction *)initWithTransaction:(Transaction *)transaction
 {
     self = [super init];
-    if(self)
+    if (self)
     {
         self.details = transaction.details;
         self.transactionType = transaction.transactionType;
@@ -26,14 +25,15 @@
     return self;
 }
 
--(void)setDateFromString:(NSString *)str
+- (void)setDateFromString:(NSString *)str
 {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd MMMM yyyy"];
     self.date = [dateFormat dateFromString:str];
 }
 
--(NSString *)formattedDate{
+- (NSString *)formattedDate
+{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd MMMM yyyy"];
     return [dateFormatter stringFromDate:self.date];

@@ -8,10 +8,6 @@
 
 #import "MBIncomeDetailsViewController.h"
 #import "MBNewTransactionView.h"
-#import "MBDefine.h"
-#import "MBTransactionTableCell.h"
-#import "MBTransaction.h"
-#import "MBCoreDataManager.h"
 
 
 #define kTransactiontableCellIdentifier @"TransactionCell"
@@ -25,15 +21,17 @@
 
 @implementation MBIncomeDetailsViewController
 {
-    NSArray<MBTransaction* >* _transactions;
+    NSArray<MBTransaction * > *_transactions;
 
 }
 
-- (NSString *)getNavigationControllerTitle {
-    return NSLocalizedString(@"Your Income",nil);
+- (NSString *)getNavigationControllerTitle
+{
+    return NSLocalizedString(@"Your Income", nil);
 }
 
-- (NSString *)getTransactionTypeForVC {
+- (NSString *)getTransactionTypeForVC
+{
     return @"Credit";
 }
 

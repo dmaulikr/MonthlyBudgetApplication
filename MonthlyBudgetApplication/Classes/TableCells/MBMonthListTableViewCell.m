@@ -7,7 +7,6 @@
 //
 
 #import "MBMonthListTableViewCell.h"
-#import "MBUtility.h"
 
 @implementation MBMonthListTableViewCell
 
@@ -25,17 +24,18 @@
 }
 
 #pragma mark - setup cell UI elements
--(void)setUpCellAttributesWithMonth:(MBMonth* )month
+
+- (void)setUpCellAttributesWithMonth:(MBMonth *)month
 {
-    self.monthNameLabel.text = 	month.description;
-	
-    self.totalIncomeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Total Income : %.02lf",nil), month.totalIncome ];
-    self.totalExpenditureLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Total Expenditure : %.02lf",nil), month.totalExpenditure ];
+    self.monthNameLabel.text = month.description;
+
+    self.totalIncomeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Total Income : %.02lf", nil), month.totalIncome];
+    self.totalExpenditureLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Total Expenditure : %.02lf", nil), month.totalExpenditure];
 }
 
--(void) setUpCellAttributesWithInterval:(MBInterval* )interval
+- (void)setUpCellAttributesWithInterval:(MBInterval *)interval
 {
-    self.monthNameLabel.text = 	interval.description;
+    self.monthNameLabel.text = interval.description;
 }
 
 @end

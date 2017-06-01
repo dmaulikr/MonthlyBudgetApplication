@@ -16,11 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<Month *> *)fetchRequest;
 
-@property (nonatomic) double expense;
-@property (nonatomic) double income;
-@property (nullable, nonatomic, copy) NSString *monthName;
-@property (nullable, nonatomic, copy) NSString *uuid;
-@property (nullable, nonatomic, copy) NSString *year;
+@property(nonatomic) double expense;
+@property(nonatomic) double income;
+@property(nullable, nonatomic, copy) NSString *monthName;
+@property(nullable, nonatomic, copy) NSString *uuid;
+@property(nullable, nonatomic, copy) NSString *year;
 
 @end
 

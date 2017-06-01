@@ -12,17 +12,19 @@
 
 @interface MBNewTransactionView : UIView
 
-@property (weak, nonatomic) IBOutlet UILabel *popUpTitleLabel;
-@property (weak, nonatomic) IBOutlet UITextField *transactionDetailsTextField;
-@property (weak, nonatomic) IBOutlet UITextField *recordDateTextField;
-@property (weak, nonatomic) IBOutlet UITextField *recordAmountTextField;
+@property(weak, nonatomic) IBOutlet UILabel *popUpTitleLabel;
+@property(weak, nonatomic) IBOutlet UITextField *transactionDetailsTextField;
+@property(weak, nonatomic) IBOutlet UITextField *recordDateTextField;
+@property(weak, nonatomic) IBOutlet UITextField *recordAmountTextField;
 
-@property (strong,nonatomic) void (^onPressingSaveButton) (MBTransaction* transaction);
+@property(strong, nonatomic) void (^onPressingSaveButton)(MBTransaction *transaction);
 
 - (IBAction)saveButtonPressed:(id)sender;
-- (IBAction)cancelButtonPressed:(id)sender;
--(IBAction)dismissPopUpView:(id)sender;
 
--(instancetype ) initWithNewTransactionView:(UIViewController* )vc forRecordType:(NSString* )recordType forMonthName:(NSString* )monthName;
+- (IBAction)cancelButtonPressed:(id)sender;
+
+- (IBAction)dismissPopUpView:(id)sender;
+
+- (instancetype)initWithNewTransactionView:(UIViewController *)vc forRecordType:(NSString *)recordType forMonthName:(NSString *)monthName;
 
 @end

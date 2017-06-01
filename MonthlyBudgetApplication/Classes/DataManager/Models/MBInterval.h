@@ -7,10 +7,10 @@
 
 
 @interface MBInterval : NSObject
-@property (strong,nonatomic) NSString* monthName;
-@property (strong, nonatomic) NSString *year;
+@property(strong, nonatomic) NSString *monthName;
+@property(strong, nonatomic) NSString *year;
 
--(MBInterval *)initWithMonthName:(NSString *)monthName andYear:(NSString *)year;
+- (MBInterval *)initWithMonthName:(NSString *)monthName andYear:(NSString *)year;
 
 - (NSComparisonResult)compare:(MBInterval *)obj;
 @end

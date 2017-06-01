@@ -15,7 +15,6 @@
 #import "MBIncomeDetailsViewController.h"
 #import "MBDefine.h"
 #import "NSString+Utils.h"
-#import "MBInterval.h"
 
 #define kMonthListTableViewCellIdentifier @"MonthTableCell"
 #define kMonthListTableXIBName           @"MonthTableCell"
@@ -27,10 +26,11 @@
 
 @implementation MBHomeTableViewController
 {
-    NSArray<MBMonth *>* _monthArray;
+    NSArray<MBMonth *> *_monthArray;
 }
 
 #pragma mark - View life cycle methods
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -41,70 +41,73 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)viewWillAppear:(BOOL)animated
+
+- (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self initialTableVcSetup];
 }
 
 #pragma mark - InitialViewControllerSetup
--(void) initialTableVcSetup
+
+- (void)initialTableVcSetup
 {
-    self.month = [[MBMonth alloc]init];
-	
+    self.month = [[MBMonth alloc] init];
+
     // add right button at Navigation Bar
-    UIBarButtonItem* rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightBarButtonPressedForAddingNewMonth)];
-    
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightBarButtonPressedForAddingNewMonth)];
+
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-    
+
     [self populateData];
 }
 
 // method populates data in the tableview
--(void) populateData
+- (void)populateData
 {
     // fetch list of month from Database
-    MBCoreDataManager* obj = [[MBCoreDataManager alloc]init];
+    MBCoreDataManager *obj = [[MBCoreDataManager alloc] init];
     _monthArray = [obj fetchMonthListFromCoreData];
 
     [self.tableView reloadData];
 }
 
 // Navigation right bar button Action
--(void) rightBarButtonPressedForAddingNewMonth
+- (void)rightBarButtonPressedForAddingNewMonth
 {
     __weak typeof(self) weakSelf = self;
-    
-    MBAddNewMonthView* addNewMonthView = [[MBAddNewMonthView alloc]initWithAddNewMonthView:self];
-    
-    addNewMonthView.onPressingSaveButton = ^(MBInterval* interval)
+
+    MBAddNewMonthView *addNewMonthView = [[MBAddNewMonthView alloc] initWithAddNewMonthView:self];
+
+    addNewMonthView.onPressingSaveButton = ^(MBInterval *interval)
     {
         [weakSelf saveMonthToDatabase:interval];
     };
 }
 
 // method saves new month to database
--(void) saveMonthToDatabase:(MBInterval* )interval
+- (void)saveMonthToDatabase:(MBInterval *)interval
 {
-    if([self validateMonthInputedByUser:interval])
+    if ([self validateMonthInputedByUser:interval])
     {
         // save valid month to data base
-        MBCoreDataManager* obj = [[MBCoreDataManager alloc]init];
+        MBCoreDataManager *obj = [[MBCoreDataManager alloc] init];
         [obj saveMonthToCoreData:interval];
         [self populateData];
     }
 }
 
 #pragma mark - Validation Method
+
 // method validates month Inputed by user
--(BOOL) validateMonthInputedByUser:(MBInterval* )interval
+- (BOOL)validateMonthInputedByUser:(MBInterval *)interval
 {
-    for(MBMonth* month in _monthArray)
+    for (MBMonth *month in _monthArray)
     {
-        
-        if([interval.monthName isEqualToString:month.monthName ] && [interval.year isEqualToString:month.year])
+
+        if ([interval.monthName isEqualToString:month.monthName] && [interval.year isEqualToString:month.year])
         {
-            [MBUtility promptMessageOnScreen:[interval.description add:NSLocalizedString(@" already added by you,try and edit its details",nil)] sender:self];
+            [MBUtility promptMessageOnScreen:[interval.description add:NSLocalizedString(@" already added by you,try and edit its details", nil)] sender:self];
             return false;
         }
     }
@@ -112,40 +115,42 @@
 }
 
 #pragma mark - Table view data source and delegates
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _monthArray.count;
 }
 
--(UITableViewCell* )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MBMonthListTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kMonthListTableViewCellIdentifier];
-    
-    if(cell == nil)
-        cell = [[[NSBundle mainBundle]loadNibNamed:kMonthListTableXIBName owner:nil options:nil] firstObject];
+    MBMonthListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kMonthListTableViewCellIdentifier];
+
+    if (cell == nil)
+        cell = [[[NSBundle mainBundle] loadNibNamed:kMonthListTableXIBName owner:nil options:nil] firstObject];
 
     [cell setUpCellAttributesWithMonth:_monthArray[indexPath.row]];
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:kSegueHomeToMonthDetailsVC sender:indexPath];
 }
 
 #pragma mark - Navigation methods
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSIndexPath* indexpath = (NSIndexPath* )sender;
-    
-    if([segue.identifier isEqualToString:kSegueHomeToMonthDetailsVC])
+    NSIndexPath *indexpath = (NSIndexPath *) sender;
+
+    if ([segue.identifier isEqualToString:kSegueHomeToMonthDetailsVC])
     {
-        MBExpenditureDetailsViewController* expenditureVc = ((UITabBarController*)segue.destinationViewController).viewControllers[kConstIntZero];
-        
-        MBIncomeDetailsViewController* incomeVC = ((UITabBarController*)segue.destinationViewController).viewControllers[kOneConstant];
-        
-        
-        if(_monthArray.count> kConstIntZero && _monthArray[indexpath.row])
+        MBExpenditureDetailsViewController *expenditureVc = ((UITabBarController *) segue.destinationViewController).viewControllers[kConstIntZero];
+
+        MBIncomeDetailsViewController *incomeVC = ((UITabBarController *) segue.destinationViewController).viewControllers[kOneConstant];
+
+
+        if (_monthArray.count > kConstIntZero && _monthArray[indexpath.row])
         {
             MBMonth *month = _monthArray[indexpath.row];
             expenditureVc.month = month;

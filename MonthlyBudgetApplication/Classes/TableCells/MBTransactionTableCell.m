@@ -12,6 +12,7 @@
 @implementation MBTransactionTableCell
 
 #pragma mark - NIB lifecycle methods
+
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -26,15 +27,16 @@
 }
 
 #pragma mark - Set up cell UI elements
--(void) setUpCellAttribiute:(MBTransaction*) transactionDetails
+
+- (void)setUpCellAttribiute:(MBTransaction *)transactionDetails
 {
     self.detailsLabel.text = transactionDetails.details;
     self.dateLabel.text = transactionDetails.formattedDate;
-    self.amountLabel.text = [NSString stringWithFormat:@"%@%@",NSLocalizedString(@"Rs. ",nil),[NSNumber numberWithDouble:transactionDetails.amount]];
-	
-	// set up amount label color for expenditure as red
-	if([transactionDetails.transactionType isEqualToString:kExpenditureRecordType])
-		self.amountLabel.textColor = [UIColor redColor];
+    self.amountLabel.text = [NSString stringWithFormat:@"%@%@", NSLocalizedString(@"Rs. ", nil), [NSNumber numberWithDouble:transactionDetails.amount]];
+
+    // set up amount label color for expenditure as red
+    if ([transactionDetails.transactionType isEqualToString:kExpenditureRecordType])
+        self.amountLabel.textColor = [UIColor redColor];
 }
 
 @end

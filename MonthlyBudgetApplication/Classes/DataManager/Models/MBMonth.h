@@ -12,10 +12,12 @@
 
 @interface MBMonth : MBInterval
 
-@property (assign) double totalIncome;
-@property (assign) double totalExpenditure;
+@property(assign) double totalIncome;
+@property(assign) double totalExpenditure;
+
+// Primary Key for each month Entry
 @property(nonatomic, strong) NSString *uuid;
 
--(MBMonth *)initWithMonth:(Month* )month;
+- (MBMonth *)initWithMonth:(Month *)month;
 
 @end

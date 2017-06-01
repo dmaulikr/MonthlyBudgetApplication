@@ -6,35 +6,34 @@
 //  Copyright © 2017 Mohini Sindhu . All rights reserved.
 //
 #import "MBNewTransactionView.h"
-#import "MBTransaction.h"
-#import "MBDefine.h"
 #import "MBUtility.h"
 
 #define kNewTransactionViewXIBName  @"NewTransactionView"
 
 @implementation MBNewTransactionView
 {
-    UIViewController*  _onSuperView;
-    NSString*          _transactionType;
-    NSString*          _monthName;
+    UIViewController *_onSuperView;
+    NSString *_transactionType;
+    NSString *_monthName;
 }
 
 #pragma mark - Initial NIB setup
--(instancetype ) initWithNewTransactionView:(UIViewController* )vc forRecordType:(NSString* )recordType forMonthName:(NSString* )monthName
+
+- (instancetype)initWithNewTransactionView:(UIViewController *)vc forRecordType:(NSString *)recordType forMonthName:(NSString *)monthName
 {
     self = [super init];
-    if(self)
+    if (self)
     {
-        self = [[[NSBundle mainBundle] loadNibNamed:kNewTransactionViewXIBName owner:self options:nil]firstObject];
-		
+        self = [[[NSBundle mainBundle] loadNibNamed:kNewTransactionViewXIBName owner:self options:nil] firstObject];
+
         _onSuperView = vc;
         _transactionType = recordType;
         _monthName = monthName;
 
-         [self setUpClassElemnets];
+        [self setUpClassElemnets];
         // method sets up frame of view on view controller
         [MBUtility setViewFrameonViewController:self onVieController:vc];
-        
+
         //method invokes animation on view popup
         [MBUtility setUpAnimationOnViewPopUp:self];
     }
@@ -42,42 +41,44 @@
 }
 
 #pragma mark - initial view set up
+
 // method setsup class elements
--(void) setUpClassElemnets
+- (void)setUpClassElemnets
 {
     [_onSuperView.tabBarController.navigationItem.rightBarButtonItem setEnabled:NO];
-    
+
     [_onSuperView.view addSubview:self];
-    
+
     // changing NIB title
-    if([_transactionType isEqualToString:kExpenditureRecordType])
+    if ([_transactionType isEqualToString:kExpenditureRecordType])
         self.popUpTitleLabel.text = NSLocalizedString(@"ADD NEW EXPENDITURE", nil);
-    
+
     // date text field input view
-    MBDatePickerView* datePickerView = [[MBDatePickerView  alloc]initWithDatePicker:self.recordDateTextField forMonthName:_monthName];
-                                        
+    MBDatePickerView *datePickerView = [[MBDatePickerView alloc] initWithDatePicker:self.recordDateTextField forMonthName:_monthName];
+
     self.recordDateTextField.inputView = datePickerView;
 }
 
 #pragma mark - Actions on NIB
+
 - (IBAction)saveButtonPressed:(id)sender
 {
     [_onSuperView.tabBarController.navigationItem.rightBarButtonItem setEnabled:YES];
 
-    if([self validateTextFields])
+    if ([self validateTextFields])
     {
-        MBTransaction* transaction = [[MBTransaction alloc]init];
-        
+        MBTransaction *transaction = [[MBTransaction alloc] init];
+
         // fetching text fields text
         [transaction setDateFromString:self.recordDateTextField.text];
         transaction.transactionType = _transactionType;
         transaction.amount = self.recordAmountTextField.text.doubleValue;
         transaction.details = self.transactionDetailsTextField.text;
-        
-         [self removeFromSuperview];
-        
+
+        [self removeFromSuperview];
+
         // sending transaction model on main vc
-        if(self.onPressingSaveButton)
+        if (self.onPressingSaveButton)
             self.onPressingSaveButton(transaction);
     }
 }
@@ -89,30 +90,38 @@
 }
 
 // tap gesture associated method
--(IBAction)dismissPopUpView:(id)sender
+- (IBAction)dismissPopUpView:(id)sender
 {
     [self endEditing:YES];
 }
 
 #pragma mark - TextField Validation Metho
--(BOOL) validateTextFields
+
+- (BOOL)validateTextFields
 {
-    if(!self.transactionDetailsTextField.text.length)
+    if (!self.transactionDetailsTextField.text.length)
     {
         [self removeFromSuperview];
-        [MBUtility promptMessageOnScreen:NSLocalizedString(@"please enter transaction details",nil) sender:_onSuperView];
+        [MBUtility promptMessageOnScreen:NSLocalizedString(@"please enter transaction details", nil) sender:_onSuperView];
         return false;
     }
-    if(!self.recordDateTextField.text.length)
+    if (!self.recordDateTextField.text.length)
     {
         [self removeFromSuperview];
-        [MBUtility promptMessageOnScreen:NSLocalizedString(@"please enter transaction date",nil) sender:_onSuperView];
+        [MBUtility promptMessageOnScreen:NSLocalizedString(@"please enter transaction date", nil) sender:_onSuperView];
         return false;
     }
-    if(!self.recordAmountTextField.text.length)
+    if (!self.recordAmountTextField.text.length)
     {
         [self removeFromSuperview];
-        [MBUtility promptMessageOnScreen:NSLocalizedString(@"please enter transaction amount",nil) sender:_onSuperView];
+        [MBUtility promptMessageOnScreen:NSLocalizedString(@"please enter transaction amount", nil) sender:_onSuperView];
+        return false;
+    }
+
+    if (self.recordAmountTextField.text.length && [self.recordAmountTextField.text integerValue] <= 0)
+    {
+        [self removeFromSuperview];
+        [MBUtility promptMessageOnScreen:NSLocalizedString(@"please enter Valid Positive amount", nil) sender:_onSuperView];
         return false;
     }
     return true;

@@ -12,10 +12,10 @@
 
 @interface MBTransactionTableCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *detailsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *amountLabel;
+@property(weak, nonatomic) IBOutlet UILabel *detailsLabel;
+@property(weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property(weak, nonatomic) IBOutlet UILabel *amountLabel;
 
--(void) setUpCellAttribiute:(MBTransaction*) transactionDetails;
+- (void)setUpCellAttribiute:(MBTransaction *)transactionDetails;
 
 @end

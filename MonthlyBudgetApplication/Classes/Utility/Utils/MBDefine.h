@@ -66,7 +66,7 @@
 #define  kAnimationTransformationConstant 1.0f
 #define kAnimationDurationConstant        0.5
 #define kViewBackgroundAlphaConstant      0.3
-#define kTransactionViewTag				  105
+#define kTransactionViewTag                  105
 
 // valid months arrray
 #define kValidMonthArray  @[kMonthJanuary,kMonthFebuary,kMonthMarch,kMonthApril,kMonthMay,kMonthJune,kMonthJuly,kMonthAugust,kMonthSepetmber,kMonthOctober,kMonthNovember,kMonthDecember]

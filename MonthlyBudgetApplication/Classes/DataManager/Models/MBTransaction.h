@@ -11,14 +11,16 @@
 
 @interface MBTransaction : NSObject
 
-@property (nonatomic,strong) NSString* details;
-@property (nonatomic,strong) NSString* transactionType;
-@property (nonatomic, strong) NSString *month_uuid;
-@property (nonatomic, strong) NSString *uuid;
-@property (nonatomic, strong) NSDate *date;
-@property (assign) double amount;
+@property(nonatomic, strong) NSString *details;
+@property(nonatomic, strong) NSString *transactionType;
+//Foreign Key for Month Table
+@property(nonatomic, strong) NSString *month_uuid;
+//Primary Key for Transactions
+@property(nonatomic, strong) NSString *uuid;
+@property(nonatomic, strong) NSDate *date;
+@property(assign) double amount;
 
--(MBTransaction *) initWithTransaction:(Transaction* )transaction;
+- (MBTransaction *)initWithTransaction:(Transaction *)transaction;
 
 - (void)setDateFromString:(NSString *)str;
 

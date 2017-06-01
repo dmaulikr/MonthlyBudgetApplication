@@ -8,10 +8,6 @@
 
 #import "MBExpenditureDetailsViewController.h"
 #import "MBNewTransactionView.h"
-#import "MBDefine.h"
-#import "MBTransaction.h"
-#import "MBCoreDataManager.h"
-#import "MBTransactionTableCell.h"
 
 #define kTransactiontableCellIdentifier @"TransactionCell"
 #define ktransactionTableCellXIBName    @"TransactionTableCell"
@@ -22,17 +18,20 @@
 
 @end
 
-@implementation MBExpenditureDetailsViewController{
-    NSArray<MBTransaction* >* _transactions;
+@implementation MBExpenditureDetailsViewController
+{
+    NSArray<MBTransaction * > *_transactions;
 
 }
 
 
-- (NSString *)getNavigationControllerTitle {
-    return NSLocalizedString(@"Your Expenses",nil);
+- (NSString *)getNavigationControllerTitle
+{
+    return NSLocalizedString(@"Your Expenses", nil);
 }
 
-- (NSString *)getTransactionTypeForVC {
+- (NSString *)getTransactionTypeForVC
+{
     return @"Debit";
 }
 

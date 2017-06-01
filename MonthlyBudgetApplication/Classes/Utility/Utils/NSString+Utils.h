@@ -10,6 +10,6 @@
 
 @interface NSString (Utils)
 
--(NSString *) add:(NSObject *)str;
+- (NSString *)add:(NSObject *)str;
 
 @end

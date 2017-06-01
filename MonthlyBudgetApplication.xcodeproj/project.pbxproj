@@ -298,7 +298,6 @@
 		15DF0CBA1EDD7C49006B6945 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
-				593727E41EE0B3A200F3B08D /* CoreDataDefaultProperties */,
 				154823DD1EDFC199000DCAE1 /* CoreDataManager */,
 				15DF0CBE1EDD7C77006B6945 /* Models */,
 			);
@@ -316,13 +315,6 @@
 				1548241E1EE08420000DCAE1 /* MBTransaction.m */,
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		593727E41EE0B3A200F3B08D /* CoreDataDefaultProperties */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = CoreDataDefaultProperties;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -13,13 +13,15 @@
 
 @interface MBUtility : NSObject
 
-+ (void)promptMessageOnScreen:(NSString *)message sender:(UIViewController*)sender;
++ (void)promptMessageOnScreen:(NSString *)message sender:(UIViewController *)sender;
 
-+(NSInteger ) getCurrentYear;
-+(NSString* ) getCurrentMonthForUserSuggestion;
++ (NSInteger)getCurrentYear;
 
-+(void) setUpAnimationOnViewPopUp:(UIView* )view;
-+(void) setViewFrameonViewController:(UIView* )view onVieController:(UIViewController* )vc;
++ (NSString *)getCurrentMonthForUserSuggestion;
+
++ (void)setUpAnimationOnViewPopUp:(UIView *)view;
+
++ (void)setViewFrameonViewController:(UIView *)view onVieController:(UIViewController *)vc;
 
 + (MBInterval *)getIntervalFromText:(NSString *)text;
 

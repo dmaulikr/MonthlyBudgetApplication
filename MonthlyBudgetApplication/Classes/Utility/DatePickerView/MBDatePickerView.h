@@ -13,6 +13,6 @@
 
 @interface MBDatePickerView : UIDatePicker
 
--(MBDatePickerView*) initWithDatePicker:(UITextField* )textFieldToEdit forMonthName:(NSString* )monthName;
+- (MBDatePickerView *)initWithDatePicker:(UITextField *)textFieldToEdit forMonthName:(NSString *)monthName;
 
 @end

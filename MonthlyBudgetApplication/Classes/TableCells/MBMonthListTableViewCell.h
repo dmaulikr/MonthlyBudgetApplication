@@ -11,11 +11,11 @@
 
 @interface MBMonthListTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *monthNameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *totalIncomeLabel;
-@property (strong, nonatomic) IBOutlet UILabel *totalExpenditureLabel;
+@property(weak, nonatomic) IBOutlet UILabel *monthNameLabel;
+@property(strong, nonatomic) IBOutlet UILabel *totalIncomeLabel;
+@property(strong, nonatomic) IBOutlet UILabel *totalExpenditureLabel;
 
--(void)setUpCellAttributesWithMonth:(MBMonth* )month;
+- (void)setUpCellAttributesWithMonth:(MBMonth *)month;
 
 - (void)setUpCellAttributesWithInterval:(MBInterval *)interval;
 @end

@@ -11,8 +11,9 @@
 
 @implementation Month (CoreDataProperties)
 
-+ (NSFetchRequest<Month *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"Month"];
++ (NSFetchRequest<Month *> *)fetchRequest
+{
+    return [[NSFetchRequest alloc] initWithEntityName:@"Month"];
 }
 
 @dynamic expense;

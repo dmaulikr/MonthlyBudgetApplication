@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "MBMonth.h"
 
-@interface MBHomeTableViewController : UITableViewController<UITextFieldDelegate>
+@interface MBHomeTableViewController : UITableViewController <UITextFieldDelegate>
 
-@property (strong,nonatomic) MBMonth* month;
+@property(strong, nonatomic) MBMonth *month;
 
-@property (strong, nonatomic) IBOutlet UITableView *monthListTableView;
-@property (weak, nonatomic) IBOutlet UILabel *noDataAvailableLabel;
+@property(strong, nonatomic) IBOutlet UITableView *monthListTableView;
+@property(weak, nonatomic) IBOutlet UILabel *noDataAvailableLabel;
 
 @end
