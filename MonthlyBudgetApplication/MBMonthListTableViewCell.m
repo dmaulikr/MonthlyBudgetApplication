@@ -7,6 +7,7 @@
 //
 
 #import "MBMonthListTableViewCell.h"
+#import "MBUtility.h"
 
 @implementation MBMonthListTableViewCell
 
@@ -26,7 +27,7 @@
 #pragma mark - setup cell UI elements
 -(void) setUpCellAttributes:(MBMonth* )month
 {
-    self.monthNameLabel.text = month.monthName;
+    self.monthNameLabel.text = 	[NSString stringWithFormat:@"%@ %@",month.monthName,[NSNumber numberWithInteger:[MBUtility getCurrentYear]]];
 	
     self.totalIncomeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Total Income : %.02lf",nil), month.totalIncome ];
     self.totalExpenditureLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Total Expenditure : %.02lf",nil), month.totalExpenditure ];

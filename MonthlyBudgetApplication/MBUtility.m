@@ -25,12 +25,20 @@
 +(NSString* ) getCurrentMonthForUserSuggestion
 {
     NSArray* _validMonths = kValidMonthArray;
-    
+	
     NSDate *currentDate = [NSDate date];
     NSCalendar* calender = [NSCalendar currentCalendar];
     
     NSInteger intMonth = [calender component:NSCalendarUnitMonth fromDate:currentDate];
-   return  _validMonths[intMonth - kOneConstant];
+    return  _validMonths[intMonth - kOneConstant];
+}
+
++(NSInteger ) getCurrentYear
+{
+	NSDate *currentDate = [NSDate date];
+	NSCalendar* calender = [NSCalendar currentCalendar];
+	NSInteger intYear = [calender component:NSCalendarUnitYear fromDate:currentDate];
+	return intYear;
 }
 
 #pragma mark - CustomView Method

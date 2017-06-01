@@ -13,6 +13,7 @@
 
 + (void)promptMessageOnScreen:(NSString *)message sender:(UIViewController*)sender;
 
++(NSInteger ) getCurrentYear;
 +(NSString* ) getCurrentMonthForUserSuggestion;
 
 +(void) setUpAnimationOnViewPopUp:(UIView* )view;

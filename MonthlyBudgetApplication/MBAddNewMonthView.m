@@ -45,7 +45,7 @@
 {
 	 _validMonths = kValidMonthArray;
 	
-    [_ownSuperView.navigationItem.rightBarButtonItem setEnabled:NO];
+	[_ownSuperView.navigationItem.rightBarButtonItem setEnabled:NO];
     
     [self.monthSuggestionTableView setHidden:YES];
 	
@@ -165,6 +165,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.monthTextField.text = _monthSuggestionArray[indexPath.row];
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	[self endEditing:YES];
 }
 
 @end
