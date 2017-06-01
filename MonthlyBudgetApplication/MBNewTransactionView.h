@@ -24,4 +24,5 @@
 -(IBAction)dismissPopUpView:(id)sender;
 
 -(instancetype ) initWithNewTransactionView:(UIViewController* )vc forRecordType:(NSString* )recordType forMonthName:(NSString* )monthName;
+
 @end

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,58 +19,57 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmq-2w-Uhy">
-                        <rect key="frame" x="0.0" y="0.0" width="160" height="45"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Salary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDq-uf-JvS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="45" id="8CD-Xj-KjP"/>
-                            <constraint firstAttribute="width" constant="160" id="rjC-yb-0Ic"/>
+                            <constraint firstAttribute="height" constant="45" id="DCU-eM-FmL"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                        <color key="textColor" red="0.78809089467005078" green="0.24349580426237369" blue="0.19944120326307163" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Rs.35.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X9-3J-ifK">
-                        <rect key="frame" x="160" y="0.0" width="215" height="45"/>
+                        <rect key="frame" x="188" y="45" width="187" height="45"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="45" id="rIE-CR-Npm"/>
+                            <constraint firstAttribute="height" constant="45" id="lHJ-21-2dX"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="14"/>
                         <color key="textColor" red="0.75774632009999998" green="0.088771129439999999" blue="0.081676923580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Geq-WM-9HZ">
-                        <rect key="frame" x="0.0" y="136" width="375" height="4"/>
-                        <color key="backgroundColor" red="0.87045186760000004" green="0.87850266700000001" blue="0.84698909519999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="0.0" y="128" width="375" height="12"/>
+                        <color key="backgroundColor" red="0.90191346409999995" green="0.90199369190000001" blue="0.90184646840000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="4" id="QoI-fL-die"/>
+                            <constraint firstAttribute="height" constant="12" id="IuX-uN-rKz"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Salary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDq-uf-JvS">
-                        <rect key="frame" x="0.0" y="45" width="375" height="45"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmq-2w-Uhy">
+                        <rect key="frame" x="8" y="45" width="180" height="45"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="45" id="pgv-yB-pw2"/>
+                            <constraint firstAttribute="width" constant="180" id="JXf-1T-f8g"/>
+                            <constraint firstAttribute="height" constant="45" id="dab-XI-smY"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
-                        <color key="textColor" red="0.78809089467005078" green="0.24349580426237369" blue="0.19944120326307163" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="pmq-2w-Uhy" firstAttribute="top" secondItem="mT1-cW-3VN" secondAttribute="top" id="0Lq-Ng-9tY"/>
-                    <constraint firstItem="7X9-3J-ifK" firstAttribute="leading" secondItem="pmq-2w-Uhy" secondAttribute="trailing" id="26f-n8-gRz"/>
-                    <constraint firstAttribute="trailing" secondItem="Geq-WM-9HZ" secondAttribute="trailing" id="44I-pz-my4"/>
-                    <constraint firstItem="uDq-uf-JvS" firstAttribute="leading" secondItem="mT1-cW-3VN" secondAttribute="leading" id="CJS-oQ-DPG"/>
-                    <constraint firstItem="pmq-2w-Uhy" firstAttribute="leading" secondItem="mT1-cW-3VN" secondAttribute="leading" id="FAD-S9-UKr"/>
-                    <constraint firstAttribute="trailing" secondItem="7X9-3J-ifK" secondAttribute="trailing" id="TIo-I6-u2a"/>
-                    <constraint firstItem="uDq-uf-JvS" firstAttribute="top" secondItem="7X9-3J-ifK" secondAttribute="bottom" id="WUZ-Ea-Zc4"/>
-                    <constraint firstAttribute="bottom" secondItem="Geq-WM-9HZ" secondAttribute="bottom" id="cYj-ad-QZU"/>
-                    <constraint firstItem="Geq-WM-9HZ" firstAttribute="leading" secondItem="mT1-cW-3VN" secondAttribute="leading" id="caq-6z-euO"/>
-                    <constraint firstAttribute="trailing" secondItem="uDq-uf-JvS" secondAttribute="trailing" id="oz1-ah-UKs"/>
-                    <constraint firstItem="7X9-3J-ifK" firstAttribute="top" secondItem="mT1-cW-3VN" secondAttribute="top" id="q2r-F2-aIy"/>
-                    <constraint firstItem="uDq-uf-JvS" firstAttribute="centerX" secondItem="mT1-cW-3VN" secondAttribute="centerX" id="qG3-Ud-OUK"/>
+                    <constraint firstAttribute="bottom" secondItem="Geq-WM-9HZ" secondAttribute="bottom" id="1Il-Uq-jkf"/>
+                    <constraint firstAttribute="trailing" secondItem="7X9-3J-ifK" secondAttribute="trailing" id="A7k-bp-9rL"/>
+                    <constraint firstItem="uDq-uf-JvS" firstAttribute="leading" secondItem="mT1-cW-3VN" secondAttribute="leading" id="GkJ-d5-OgI"/>
+                    <constraint firstAttribute="trailing" secondItem="uDq-uf-JvS" secondAttribute="trailing" id="NTC-Kj-sCi"/>
+                    <constraint firstItem="Geq-WM-9HZ" firstAttribute="leading" secondItem="mT1-cW-3VN" secondAttribute="leading" id="cMa-JS-z20"/>
+                    <constraint firstItem="uDq-uf-JvS" firstAttribute="top" secondItem="mT1-cW-3VN" secondAttribute="top" id="cs1-yO-GTa"/>
+                    <constraint firstAttribute="trailing" secondItem="Geq-WM-9HZ" secondAttribute="trailing" id="j9D-eL-XDf"/>
+                    <constraint firstItem="pmq-2w-Uhy" firstAttribute="top" secondItem="uDq-uf-JvS" secondAttribute="bottom" id="vdQ-uz-Sum"/>
+                    <constraint firstItem="7X9-3J-ifK" firstAttribute="leading" secondItem="pmq-2w-Uhy" secondAttribute="trailing" id="ysA-dD-KlA"/>
+                    <constraint firstItem="7X9-3J-ifK" firstAttribute="top" secondItem="uDq-uf-JvS" secondAttribute="bottom" id="zSq-31-hv8"/>
+                    <constraint firstItem="pmq-2w-Uhy" firstAttribute="leading" secondItem="mT1-cW-3VN" secondAttribute="leadingMargin" id="zZB-gA-mh5"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

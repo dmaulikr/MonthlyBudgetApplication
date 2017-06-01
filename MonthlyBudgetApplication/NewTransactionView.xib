@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACm-W3-XRM" customClass="AddIncomeOrExpenseRecordView">
-                    <rect key="frame" x="29" y="200" width="317" height="267"/>
+                    <rect key="frame" x="29" y="150" width="317" height="267"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD NEW INCOME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fxh-1g-gXa">
                             <rect key="frame" x="20" y="30" width="277" height="30"/>
@@ -141,8 +141,8 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="ACm-W3-XRM" secondAttribute="bottom" constant="200" id="3EE-pZ-eZU"/>
-                <constraint firstItem="ACm-W3-XRM" firstAttribute="top" secondItem="zST-ra-vJi" secondAttribute="top" constant="200" id="Kmt-ps-aCC"/>
+                <constraint firstAttribute="bottom" secondItem="ACm-W3-XRM" secondAttribute="bottom" constant="250" id="3EE-pZ-eZU"/>
+                <constraint firstItem="ACm-W3-XRM" firstAttribute="top" secondItem="zST-ra-vJi" secondAttribute="top" constant="150" id="Kmt-ps-aCC"/>
                 <constraint firstItem="ACm-W3-XRM" firstAttribute="centerX" secondItem="zST-ra-vJi" secondAttribute="centerX" id="L0P-kd-gqQ"/>
                 <constraint firstItem="ACm-W3-XRM" firstAttribute="leading" secondItem="zST-ra-vJi" secondAttribute="leading" constant="29" id="O2X-Sh-9TP"/>
                 <constraint firstAttribute="trailing" secondItem="ACm-W3-XRM" secondAttribute="trailing" constant="29" id="SAA-qo-ccc"/>
