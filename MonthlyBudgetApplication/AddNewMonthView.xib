@@ -60,7 +60,7 @@
                                 <action selector="saveButtonPressed:" destination="9w9-qb-bRi" eventType="touchUpInside" id="6bN-3Y-cnh"/>
                             </connections>
                         </button>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lOK-nd-zvN">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lOK-nd-zvN">
                             <rect key="frame" x="23" y="135" width="263" height="80"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -103,14 +103,8 @@
             <connections>
                 <outlet property="monthSuggestionTableView" destination="lOK-nd-zvN" id="hYU-df-xAR"/>
                 <outlet property="monthTextField" destination="kZT-TF-U3Y" id="B9y-2M-ppT"/>
-                <outletCollection property="gestureRecognizers" destination="1xY-WW-Fve" appends="YES" id="8nH-XY-bkd"/>
             </connections>
             <point key="canvasLocation" x="-436" y="62.5"/>
         </view>
-        <tapGestureRecognizer id="1xY-WW-Fve">
-            <connections>
-                <action selector="dismissPopUpView:" destination="9w9-qb-bRi" id="M2V-dS-wLI"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
 </document>

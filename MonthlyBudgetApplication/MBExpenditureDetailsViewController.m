@@ -44,7 +44,8 @@
 -(void) viewWillDisappear:(BOOL)animated
 {
 	[super viewWillDisappear:animated];
-	// method to remove subview
+	
+	// remove popup subview
 	[super viewWillDisappear:animated];
 	for (UIView* obj in self.view.subviews)
 	{
@@ -96,7 +97,11 @@
 -(void) initialVCSetUp
 {
     _transactionType = kExpenditureRecordType;
-    
+	
+	// UI Elements
+	self.tabBarController.navigationItem.title = NSLocalizedString(@"Your Expenses",nil);
+	self.monthNameLabel.text = self.month.monthName;
+
     [self populateData];
     
     // adds right bar button to navigation bar

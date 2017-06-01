@@ -24,3 +24,7 @@
 
 //Genral
 "Rs. " = "Rs .";
+"Your Income" = "Your Income";
+"Your Expenses" = "Your Expenses";
+"Total Income : %.02lf" = "Total Income : %.02lf";
+"Total Expenditure : %.02lf" = "Total Expenditure : %.02lf";

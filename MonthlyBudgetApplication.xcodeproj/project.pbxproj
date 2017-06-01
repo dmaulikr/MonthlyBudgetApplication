@@ -33,7 +33,6 @@
 		15DF0CB21EDD6934006B6945 /* AddNewMonthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15DF0CB11EDD6934006B6945 /* AddNewMonthView.xib */; };
 		15DF0CB91EDD787B006B6945 /* MBUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DF0CB81EDD787B006B6945 /* MBUtility.m */; };
 		15DF0CBD1EDD7C6B006B6945 /* MBCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DF0CBC1EDD7C6B006B6945 /* MBCoreDataManager.m */; };
-		15DF0CC51EDD7DCC006B6945 /* NSDictionary+MonthlyBudget.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DF0CC41EDD7DCC006B6945 /* NSDictionary+MonthlyBudget.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,8 +78,6 @@
 		15DF0CB81EDD787B006B6945 /* MBUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBUtility.m; sourceTree = "<group>"; };
 		15DF0CBB1EDD7C6B006B6945 /* MBCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCoreDataManager.h; sourceTree = "<group>"; };
 		15DF0CBC1EDD7C6B006B6945 /* MBCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCoreDataManager.m; sourceTree = "<group>"; };
-		15DF0CC31EDD7DCC006B6945 /* NSDictionary+MonthlyBudget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MonthlyBudget.h"; sourceTree = "<group>"; };
-		15DF0CC41EDD7DCC006B6945 /* NSDictionary+MonthlyBudget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MonthlyBudget.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,7 +264,6 @@
 			children = (
 				154823E01EDFCD6C000DCAE1 /* Utils */,
 				154823DE1EDFC70A000DCAE1 /* DatePickerView */,
-				15DF0CC21EDD7DA8006B6945 /* Category */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -301,15 +297,6 @@
 				1529AB241EDEE74F00259FDC /* MBTransaction.m */,
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		15DF0CC21EDD7DA8006B6945 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				15DF0CC31EDD7DCC006B6945 /* NSDictionary+MonthlyBudget.h */,
-				15DF0CC41EDD7DCC006B6945 /* NSDictionary+MonthlyBudget.m */,
-			);
-			name = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,7 +390,6 @@
 				15DF0CB91EDD787B006B6945 /* MBUtility.m in Sources */,
 				1529AB191EDECE6F00259FDC /* MBDatePickerView.m in Sources */,
 				1529AAF91EDDD4E200259FDC /* MBMonth.m in Sources */,
-				15DF0CC51EDD7DCC006B6945 /* NSDictionary+MonthlyBudget.m in Sources */,
 				1529AB111EDEBC4400259FDC /* MBIncomeDetailsViewController.m in Sources */,
 				1529AAF01EDDD43B00259FDC /* MonthlyBudgetApplication.xcdatamodeld in Sources */,
 				1529AB221EDEE63200259FDC /* MBTransactionTableCell.m in Sources */,

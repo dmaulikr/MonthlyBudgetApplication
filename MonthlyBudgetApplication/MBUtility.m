@@ -33,6 +33,7 @@
    return  _validMonths[intMonth - kOneConstant];
 }
 
+#pragma mark - CustomView Method
 // method sets the animation on pop up on view
 +(void) setUpAnimationOnViewPopUp:(UIView* )view
 {

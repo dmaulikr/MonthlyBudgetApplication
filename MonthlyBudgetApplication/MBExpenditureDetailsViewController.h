@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *incomeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *expenditureLabel;
 @property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *monthNameLabel;
 
 @property (strong,nonatomic) MBMonth* month;
 

@@ -27,8 +27,9 @@
 -(void) setUpCellAttributes:(MBMonth* )month
 {
     self.monthNameLabel.text = month.monthName;
-    self.totalIncomeLabel.text = [NSString stringWithFormat:@"Total Income : %.02lf", month.totalIncome ];
-    self.totalExpenditureLabel.text = [NSString stringWithFormat:@"Total Expenditure : %.02lf", month.totalExpenditure ];
+	
+    self.totalIncomeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Total Income : %.02lf",nil), month.totalIncome ];
+    self.totalExpenditureLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Total Expenditure : %.02lf",nil), month.totalExpenditure ];
 }
 
 @end

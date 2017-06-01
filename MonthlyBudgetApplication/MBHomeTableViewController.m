@@ -49,6 +49,7 @@
 -(void) initialTableVcSetup
 {
     self.month = [[MBMonth alloc]init];
+	
     // add right button at Navigation Bar
     UIBarButtonItem* rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightBarButtonPressedForAddingNewMonth)];
     
@@ -114,11 +115,9 @@
 }
 
 #pragma mark - Table view data source and delegates
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _monthArray.count;
-    
 }
 
 -(UITableViewCell* )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

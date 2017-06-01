@@ -93,6 +93,11 @@
 -(void) initialVCSetUp
 {
     _transactionType = kIncomeRecordType;
+	
+	//UI Elements
+	self.tabBarController.navigationItem.title = NSLocalizedString(@"Your Income",nil);
+	self.monthNameLabel.text = self.month.monthName;
+
     [self populateData];
     
     //Navigation bar with right bar button item
@@ -132,6 +137,7 @@
     return cell;
     
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return kIncomeTableViewHieghtConstant;

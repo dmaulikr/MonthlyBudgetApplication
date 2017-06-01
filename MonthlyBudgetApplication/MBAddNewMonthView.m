@@ -16,13 +16,11 @@
 #define kMonthTableCellXIBIdentifier @"MonthTableCell"
 #define kMonthTableCellXIBName       @"MonthTableCell"
 
-
-
 @implementation MBAddNewMonthView
 {
-    NSArray* _validMonths;
-    UIViewController* _ownSuperView;
-    NSMutableArray<NSString*>* _monthSuggestionArray;
+    NSArray*					_validMonths;
+    UIViewController*			_ownSuperView;
+    NSMutableArray<NSString*>*  _monthSuggestionArray;
 }
 
 #pragma mark - Initial NIB setUps
@@ -45,16 +43,16 @@
 // method initialises initial settings of class elements
 -(void) setUpClassElements
 {
-    // making + button on navigation bar of VC irresponsive
+	 _validMonths = kValidMonthArray;
+	
     [_ownSuperView.navigationItem.rightBarButtonItem setEnabled:NO];
     
     [self.monthSuggestionTableView setHidden:YES];
+	
     [self.monthTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     
     [_ownSuperView.view addSubview:self];
-    
-    _validMonths = kValidMonthArray;
-    
+	
     self.monthTextField.delegate  = self;
     self.monthSuggestionTableView.delegate = self;
     self.monthSuggestionTableView.dataSource = self;
@@ -66,13 +64,12 @@
     [_ownSuperView.navigationItem.rightBarButtonItem setEnabled:YES];
     [self removeFromSuperview];
 
-    if([self checkForValidMonthEntry:self.monthTextField.text])
+    if([self checkForValidMonthEntered:self.monthTextField.text])
     {
         // sending textfield text on main screen
         if(self.onPressingSaveButton)
             self.onPressingSaveButton(self.monthTextField.text);
-
-    }
+	}
     else
     {
         [MBUtility promptMessageOnScreen:NSLocalizedString(@"Please enter a valid month", nil) sender:_ownSuperView];
@@ -93,7 +90,7 @@
 
 #pragma mark - User Entry Validation
 // method checks whether month input by user is valid or not
--(BOOL) checkForValidMonthEntry:(NSString* )month
+-(BOOL) checkForValidMonthEntered:(NSString* )month
 {
     // checking for validity of user month input
     if(month.length)
@@ -125,7 +122,6 @@
     [self.monthSuggestionTableView reloadData];
 }
 
-
 -(void)textFieldDidChange:(id)textFieldDidChange
 {
     // to give suggestion while user types in the text field
@@ -149,7 +145,6 @@
 }
 
 #pragma  mark - Table view Delegates
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _monthSuggestionArray.count;

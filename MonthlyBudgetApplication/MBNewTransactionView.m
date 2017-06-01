@@ -26,6 +26,7 @@
     if(self)
     {
         self = [[[NSBundle mainBundle] loadNibNamed:kNewTransactionViewXIBName owner:self options:nil]firstObject];
+		
         _onSuperView = vc;
         _transactionType = recordType;
         _monthName = monthName;
@@ -40,6 +41,7 @@
     return self;
 }
 
+#pragma mark - initial view set up
 // method setsup class elements
 -(void) setUpClassElemnets
 {
@@ -49,9 +51,7 @@
     
     // changing NIB title
     if([_transactionType isEqualToString:kExpenditureRecordType])
-    {
         self.popUpTitleLabel.text = NSLocalizedString(@"ADD NEW EXPENDITURE", nil);
-    }
     
     // date text field input view
     MBDatePickerView* datePickerView = [[MBDatePickerView  alloc]initWithDatePicker:self.recordDateTextField forMonthName:_monthName];
@@ -92,7 +92,6 @@
 -(IBAction)dismissPopUpView:(id)sender
 {
     [self endEditing:YES];
-    
 }
 
 #pragma mark - TextField Validation Metho
@@ -118,4 +117,5 @@
     }
     return true;
 }
+
 @end

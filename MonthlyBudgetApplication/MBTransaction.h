@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "Transaction+CoreDataProperties.h"
 
-
 @interface MBTransaction : NSObject
 
 @property (nonatomic,strong) NSString* date;
