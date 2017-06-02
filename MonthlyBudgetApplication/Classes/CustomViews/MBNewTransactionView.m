@@ -107,6 +107,13 @@
         [MBUtility promptMessageOnScreen:NSLocalizedString(@"please enter transaction amount",nil) sender:_onSuperView];
         return false;
     }
+	
+	// case : when amount is too high
+	if([self.recordAmountTextField.text integerValue] > kTransactionMaximumLimit)
+	{
+		[MBUtility promptMessageOnScreen:NSLocalizedString(@"Amount is too high,Try and make multiple records", nil) sender:_onSuperView];
+		return  false;
+	}
     return true;
 }
 

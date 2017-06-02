@@ -72,10 +72,11 @@
 - (IBAction)saveButtonPressed:(id)sender
 {
     [_ownSuperView.navigationItem.rightBarButtonItem setEnabled:YES];
-    [self removeFromSuperview];
 
     if([self checkForValidMonthEntered:self.monthTextField.text])
     {
+		[self removeFromSuperview];
+
         // sending textfield text on main screen
         if(self.onPressingSaveButton)
             self.onPressingSaveButton(self.monthTextField.text);

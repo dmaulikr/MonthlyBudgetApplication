@@ -14,6 +14,7 @@
 "please enter transaction details" = "please enter transaction details";
 "please enter transaction amount" = "please enter transaction amount";
 "please enter transaction date" = "please enter transaction date";
+"Amount is too high,Try and make multiple records" = "Amount is too high,Try and make multiple records";
 
 //App NAme on Alert Message
 "Monthly Budget" = "Monthly Budget";
