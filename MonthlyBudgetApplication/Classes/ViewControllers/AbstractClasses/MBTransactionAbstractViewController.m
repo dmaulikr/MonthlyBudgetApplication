@@ -7,6 +7,7 @@
 #import "MBNewTransactionView.h"
 #import "MBCoreDataManager.h"
 #import "MBTransactionTableCell.h"
+#import "MBUtility.h"
 
 #define kTransactiontableCellIdentifier @"TransactionCell"
 #define ktransactionTableCellXIBName    @"TransactionTableCell"
@@ -83,7 +84,8 @@
 {
 	// UI Elements
 	self.tabBarController.navigationItem.title = [self getNavigationControllerTitle];
-	self.monthNameLabel.text = [self.month.monthName uppercaseString];
+	
+	self.monthNameLabel.text = [NSString stringWithFormat:@"%@ %@",[self.month.monthName uppercaseString],[NSNumber numberWithInteger:[MBUtility getCurrentYear]]];
 	
 	[self populateDataInTableView];
 	
