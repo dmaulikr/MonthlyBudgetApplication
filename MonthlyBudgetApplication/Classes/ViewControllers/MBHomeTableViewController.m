@@ -50,16 +50,18 @@
 {
 	self.month = [[MBMonth alloc]init];
 	
+	self.navigationItem.title = kAppNAmeConstant;
+	
 	// add right button at Navigation Bar
 	UIBarButtonItem* rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightBarButtonPressedForAddingNewMonth)];
 	
 	self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 	
-	[self populateData];
+	[self populateDataInTableView];
 }
 
 // method populates data in the tableview
--(void) populateData
+-(void) populateDataInTableView
 {
 	// fetch list of month from Database
 	MBCoreDataManager* obj = [[MBCoreDataManager alloc]init];
@@ -92,7 +94,7 @@
 		MBCoreDataManager* obj = [[MBCoreDataManager alloc]init];
 		[obj saveMonthToCoreData:self.month];
 		
-		[self populateData];
+		[self populateDataInTableView];
 	}
 }
 

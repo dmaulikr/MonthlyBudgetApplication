@@ -19,9 +19,9 @@
 
 @property (strong,nonatomic) void (^onPressingSaveButton) (MBTransaction* transaction);
 
+-(instancetype ) initWithNewTransactionView:(UIViewController* )vc forRecordType:(NSString* )recordType forMonthName:(NSString* )monthName;
+
 - (IBAction)saveButtonPressed:(id)sender;
 - (IBAction)cancelButtonPressed:(id)sender;
-
--(instancetype ) initWithNewTransactionView:(UIViewController* )vc forRecordType:(NSString* )recordType forMonthName:(NSString* )monthName;
 
 @end

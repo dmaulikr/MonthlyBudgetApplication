@@ -32,7 +32,7 @@
 		154824491EE086CC000DCAE1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 154824461EE086CC000DCAE1 /* Info.plist */; };
 		1548244B1EE08716000DCAE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548244A1EE08716000DCAE1 /* main.m */; };
 		154824551EE08A05000DCAE1 /* MonthlyBudgetApplication.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 154824531EE08A05000DCAE1 /* MonthlyBudgetApplication.xcdatamodeld */; };
-		154824621EE09E4B000DCAE1 /* TransactionAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 154824601EE09E4B000DCAE1 /* TransactionAbstractViewController.m */; };
+		154824621EE09E4B000DCAE1 /* MBTransactionAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 154824601EE09E4B000DCAE1 /* MBTransactionAbstractViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,8 +75,8 @@
 		154824461EE086CC000DCAE1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Others/Info.plist; sourceTree = "<group>"; };
 		1548244A1EE08716000DCAE1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		154824541EE08A05000DCAE1 /* MonthlyBudgetApplication.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MonthlyBudgetApplication.xcdatamodel; sourceTree = "<group>"; };
-		154824601EE09E4B000DCAE1 /* TransactionAbstractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionAbstractViewController.m; path = Classes/ViewControllers/AbstractClasses/TransactionAbstractViewController.m; sourceTree = "<group>"; };
-		154824611EE09E4B000DCAE1 /* TransactionAbstractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionAbstractViewController.h; path = Classes/ViewControllers/AbstractClasses/TransactionAbstractViewController.h; sourceTree = "<group>"; };
+		154824601EE09E4B000DCAE1 /* MBTransactionAbstractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBTransactionAbstractViewController.m; path = Classes/ViewControllers/AbstractClasses/MBTransactionAbstractViewController.m; sourceTree = "<group>"; };
+		154824611EE09E4B000DCAE1 /* MBTransactionAbstractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBTransactionAbstractViewController.h; path = Classes/ViewControllers/AbstractClasses/MBTransactionAbstractViewController.h; sourceTree = "<group>"; };
 		15DF0C831EDD60E8006B6945 /* MonthlyBudgetApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonthlyBudgetApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -96,8 +96,8 @@
 			children = (
 				154824241EE08467000DCAE1 /* MBMonthListTableViewCell.h */,
 				154824251EE08467000DCAE1 /* MBMonthListTableViewCell.m */,
-				154824261EE08467000DCAE1 /* MBTransactionTableCell.m */,
 				154824271EE08467000DCAE1 /* MBTransactionTableCell.h */,
+				154824261EE08467000DCAE1 /* MBTransactionTableCell.m */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -152,8 +152,8 @@
 		1548245F1EE09E07000DCAE1 /* AbstractClasses */ = {
 			isa = PBXGroup;
 			children = (
-				154824611EE09E4B000DCAE1 /* TransactionAbstractViewController.h */,
-				154824601EE09E4B000DCAE1 /* TransactionAbstractViewController.m */,
+				154824611EE09E4B000DCAE1 /* MBTransactionAbstractViewController.h */,
+				154824601EE09E4B000DCAE1 /* MBTransactionAbstractViewController.m */,
 			);
 			name = AbstractClasses;
 			sourceTree = "<group>";
@@ -400,7 +400,7 @@
 				154824201EE08420000DCAE1 /* MBTransaction.m in Sources */,
 				154824131EE0830A000DCAE1 /* MBHomeTableViewController.m in Sources */,
 				154824321EE0851B000DCAE1 /* AppDelegate.m in Sources */,
-				154824621EE09E4B000DCAE1 /* TransactionAbstractViewController.m in Sources */,
+				154824621EE09E4B000DCAE1 /* MBTransactionAbstractViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

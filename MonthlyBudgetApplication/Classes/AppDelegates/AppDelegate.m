@@ -115,7 +115,7 @@
 }
 
 
-#pragma mark - initial App Setting methods
+#pragma mark - initial App Setting custom methods
 // method sets up the navigation bar appearance through out the app
 - (void) setNavigationBarAppearance
 {

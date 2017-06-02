@@ -30,6 +30,10 @@
 	if(self)
 	{
 		_textField = textFieldToEdit;
+		
+		// set initial value to textfield
+		[self setDateForTextFiled:[NSDate date]];
+		
 		[self setInitialSetUps];
 		[self setRangeForPickerView:monthName];
 		[self addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
@@ -40,8 +44,8 @@
 // method does initial set up of UIDatePicker view
 -(void) setInitialSetUps
 {
-	[self setDate:[NSDate date]]; //this returns today's date
-	self.datePickerMode = UIDatePickerModeDate; // this lets picker view show only dates
+	[self setDate:[NSDate date]]; // returns today's date
+	self.datePickerMode = UIDatePickerModeDate; // picker view show only dates
 }
 
 // method sets Range of picker view for which date needs to be displayed
@@ -64,17 +68,16 @@
 	
 	[self setMaximumDate:theMaximumDate];
 	[self setMinimumDate:theMinimumDate];
+	
 }
 
 #pragma mark - Actions on UIDatePicker
 -(void) datePickerValueChanged:(UIDatePicker*) sender
 {
-	NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-	[outputFormatter setDateFormat:kDateFormat]; // format in which we want date to be dispalyed
-	_textField.text = [outputFormatter stringFromDate:self.date];
+	[self setDateForTextFiled:self.date];
 }
 
-#pragma mark - Method to retrieve dates for a month
+#pragma mark - Helper Method
 // method gets the maximum date of a given month
 -(NSString* ) maximumDateForMonth:(NSString* )currentMonth
 {
@@ -90,6 +93,13 @@
 	
 	//case : month have last date 30
 	return k30LastDateConstant;
+}
+
+-(void) setDateForTextFiled:(NSDate* )date
+{
+	NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+	[outputFormatter setDateFormat:kDateFormat]; // format in which we want date to be dispalyed
+	_textField.text = [outputFormatter stringFromDate:date];
 }
 
 @end

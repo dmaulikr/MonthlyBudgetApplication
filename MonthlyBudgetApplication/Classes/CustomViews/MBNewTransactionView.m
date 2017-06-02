@@ -99,19 +99,11 @@
 {
     if(!self.transactionDetailsTextField.text.length)
     {
-        [self removeFromSuperview];
         [MBUtility promptMessageOnScreen:NSLocalizedString(@"please enter transaction details",nil) sender:_onSuperView];
-        return false;
-    }
-    if(!self.recordDateTextField.text.length)
-    {
-        [self removeFromSuperview];
-        [MBUtility promptMessageOnScreen:NSLocalizedString(@"please enter transaction date",nil) sender:_onSuperView];
         return false;
     }
     if(!self.recordAmountTextField.text.length)
     {
-        [self removeFromSuperview];
         [MBUtility promptMessageOnScreen:NSLocalizedString(@"please enter transaction amount",nil) sender:_onSuperView];
         return false;
     }

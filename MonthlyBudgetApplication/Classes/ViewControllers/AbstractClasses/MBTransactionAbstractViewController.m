@@ -3,7 +3,7 @@
 // Copyright (c) 2017 Mohini Sindhu . All rights reserved.
 //
 
-#import "TransactionAbstractViewController.h"
+#import "MBTransactionAbstractViewController.h"
 #import "MBNewTransactionView.h"
 #import "MBCoreDataManager.h"
 #import "MBTransactionTableCell.h"
@@ -12,7 +12,7 @@
 #define ktransactionTableCellXIBName    @"TransactionTableCell"
 #define kExpenditureTableViewHieghtConstant 100
 
-@implementation TransactionAbstractViewController
+@implementation MBTransactionAbstractViewController
 {
 	NSArray<MBTransaction* >* _transactionList;
 }
@@ -21,6 +21,7 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+	self.navigationController.navigationBar.topItem.title = kEmptyStringConstant;
 	// Do any additional setup after loading the view.
 }
 
@@ -60,7 +61,7 @@
 }
 
 // method populates data in expenditure table view
--(void) populateData
+-(void) populateDataInTableView
 {
 	MBCoreDataManager* coreDataManager = [[MBCoreDataManager alloc]init];
 	
@@ -84,7 +85,7 @@
 	self.tabBarController.navigationItem.title = [self getNavigationControllerTitle];
 	self.monthNameLabel.text = [self.month.monthName uppercaseString];
 	
-	[self populateData];
+	[self populateDataInTableView];
 	
 	// adds right bar button to navigation bar
 	UIBarButtonItem* rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightBarButtonPressedForAddingNewTransaction)];
@@ -164,7 +165,7 @@
 	MBCoreDataManager* coreDataManager = [[MBCoreDataManager alloc]init];
 	[coreDataManager saveTransactionDetailsToCoreData:transaction];
 	
-	[self populateData];
+	[self populateDataInTableView];
 	
 	// updated MONTH entity
 	[self updateTransactionData];

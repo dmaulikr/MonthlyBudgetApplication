@@ -14,12 +14,15 @@
 @interface MBCoreDataManager : NSObject
 
 // MONTH entity methods
--(NSArray*)fetchMonthListFromCoreData;
 - (void)saveMonthToCoreData:(MBMonth* )month;
+
+-(NSArray*)fetchMonthListFromCoreData;
+
 -(void ) updateMonthRecord : (MBMonth * )monthToBeUpdated;
 
 //TRANSACTION Entity methods
 -(void) saveTransactionDetailsToCoreData:(MBTransaction* )transaction;
+
 -(NSArray* ) fetchTransactionListFromCoreData:(MBTransaction* )transaction;
 
 @end

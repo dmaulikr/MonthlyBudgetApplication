@@ -41,7 +41,8 @@
 #define kIncomeRecordType      @"Credit"
 
 // General
-#define kTextColorKey       @"textColor"
+#define kTextColorKey        @"textColor"
+#define kEmptyStringConstant @""
 
 //month Name
 #define kMonthJanuary   @"january"

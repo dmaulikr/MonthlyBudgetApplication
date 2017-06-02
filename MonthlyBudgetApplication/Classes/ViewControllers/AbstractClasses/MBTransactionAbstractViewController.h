@@ -8,7 +8,7 @@
 
 /* Class is the base class for EXPENTITURE VC and INCOME VC .They both will override it*/
 
-@interface TransactionAbstractViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface MBTransactionAbstractViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *transactionTableView;
 

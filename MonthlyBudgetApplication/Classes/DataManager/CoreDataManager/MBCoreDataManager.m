@@ -17,10 +17,10 @@
 @implementation MBCoreDataManager
 
 // get NSManaged Context
-- (NSManagedObjectContext *)managedObjectContext
+- (NSManagedObjectContext* )managedObjectContext
 {
-    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    NSManagedObjectContext *context = [appDelegate.persistentContainer viewContext];
+    AppDelegate * appDelegate = (AppDelegate* )[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext* context = [appDelegate.persistentContainer viewContext];
     return context;
 }
 
@@ -28,13 +28,13 @@
 // method saves month details to the database
 - (void)saveMonthToCoreData:(MBMonth* )monthInputedByUser
 {
-    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObjectContext* context = [self managedObjectContext];
     NSEntityDescription *monthEntityDescription = [NSEntityDescription entityForName:kMonthEntityKey inManagedObjectContext:context];
-    NSManagedObject *newMonth = [[NSManagedObject alloc] initWithEntity:monthEntityDescription insertIntoManagedObjectContext:context];
+    NSManagedObject* newMonth = [[NSManagedObject alloc] initWithEntity:monthEntityDescription insertIntoManagedObjectContext:context];
     
     [newMonth setValue:monthInputedByUser.monthName forKey:kMonthNameKey];
     
-    NSError *error = nil;
+    NSError* error = nil;
     // Save the object to persistent store
     if (![context save:&error])
     {
@@ -51,7 +51,7 @@
     NSArray* array = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     if(array.count > kConstIntZero)
     {
-        NSMutableArray <MBMonth *>*arr = [[NSMutableArray alloc]init];
+        NSMutableArray <MBMonth* >*arr = [[NSMutableArray alloc]init];
         
         for(MBMonth* obj in array)// iterating over array to get list of all months
         {

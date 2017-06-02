@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KnU-bz-YwO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KnU-bz-YwO">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -65,7 +65,7 @@
                                             <constraint firstAttribute="width" constant="100" id="Dhp-pP-4Hf"/>
                                             <constraint firstAttribute="height" constant="23" id="qH1-0K-2gJ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -75,7 +75,7 @@
                                             <constraint firstAttribute="width" constant="100" id="AQQ-Dj-YRb"/>
                                             <constraint firstAttribute="height" constant="23" id="xA3-uV-aT1"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -85,7 +85,7 @@
                                             <constraint firstAttribute="width" constant="100" id="Adf-8t-loG"/>
                                             <constraint firstAttribute="height" constant="23" id="GLD-zm-6vA"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -95,7 +95,7 @@
                                             <constraint firstAttribute="height" constant="21" id="m30-WI-CDd"/>
                                             <constraint firstAttribute="width" constant="100" id="sd1-sa-Wgh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="14"/>
                                         <color key="textColor" red="0.14243783130000001" green="0.58794019669999997" blue="0.29677606010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -105,7 +105,7 @@
                                             <constraint firstAttribute="width" constant="100" id="B38-Ab-UFc"/>
                                             <constraint firstAttribute="height" constant="21" id="G9P-5w-HV2"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="14"/>
                                         <color key="textColor" red="0.98181040639999995" green="0.1124227686" blue="0.100637957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -115,7 +115,7 @@
                                             <constraint firstAttribute="width" constant="100" id="RRO-op-tSB"/>
                                             <constraint firstAttribute="height" constant="21" id="RX2-tC-nse"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="14"/>
                                         <color key="textColor" red="0.14243783129154328" green="0.58794019670050757" blue="0.29677606008588686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -181,8 +181,8 @@
                         <outlet property="balanceLabel" destination="kLc-kV-6mx" id="rJ2-4v-7hy"/>
                         <outlet property="expenditureLabel" destination="Ffe-nf-KWh" id="txc-5h-gVQ"/>
                         <outlet property="incomeLabel" destination="5Dw-4z-jM7" id="HBd-Yb-iM8"/>
-                        <outlet property="transactionTableView" destination="FfQ-bf-44V" id="IAb-dS-Kyh"/>
                         <outlet property="monthNameLabel" destination="dD8-8B-PAs" id="B2a-2V-tgg"/>
+                        <outlet property="transactionTableView" destination="FfQ-bf-44V" id="IAb-dS-Kyh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9tM-90-cyd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -210,7 +210,7 @@
                                             <constraint firstAttribute="height" constant="23" id="9oZ-tp-nbF"/>
                                             <constraint firstAttribute="width" constant="100" id="GXK-H9-0Og"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -220,7 +220,7 @@
                                             <constraint firstAttribute="width" constant="100" id="BMt-NF-IgQ"/>
                                             <constraint firstAttribute="height" constant="23" id="XYw-oq-fm2"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -230,7 +230,7 @@
                                             <constraint firstAttribute="height" constant="23" id="jbe-M1-RIE"/>
                                             <constraint firstAttribute="width" constant="100" id="zb5-XX-mzW"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -240,7 +240,7 @@
                                             <constraint firstAttribute="height" constant="21" id="Ay2-I5-EEi"/>
                                             <constraint firstAttribute="width" constant="100" id="LnQ-JT-ice"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="14"/>
                                         <color key="textColor" red="0.14243783130000001" green="0.58794019669999997" blue="0.29677606010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -250,7 +250,7 @@
                                             <constraint firstAttribute="width" constant="100" id="ZyJ-jE-ab4"/>
                                             <constraint firstAttribute="height" constant="21" id="vp8-1f-TSi"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="14"/>
                                         <color key="textColor" red="0.98181040639999995" green="0.1124227686" blue="0.100637957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -260,7 +260,7 @@
                                             <constraint firstAttribute="height" constant="21" id="5ns-cq-uJ1"/>
                                             <constraint firstAttribute="width" constant="100" id="cOT-gX-Kk1"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="14"/>
                                         <color key="textColor" red="0.14243783130000001" green="0.58794019669999997" blue="0.29677606010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -335,9 +335,9 @@
                     <connections>
                         <outlet property="balanceLabel" destination="XAY-uV-1DI" id="WNO-qG-5Yu"/>
                         <outlet property="expenditureLabel" destination="Ok9-Wq-pOd" id="Pyd-tw-yM3"/>
-                        <outlet property="transactionTableView" destination="IfM-XL-wrt" id="0q3-mi-O9x"/>
                         <outlet property="incomeLabel" destination="Fjl-nz-AbH" id="cSH-b6-2Rm"/>
                         <outlet property="monthNameLabel" destination="doA-ns-WZ4" id="GtP-EA-Dgf"/>
+                        <outlet property="transactionTableView" destination="IfM-XL-wrt" id="0q3-mi-O9x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rc7-zh-oEv" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TransactionAbstractViewController.h"
+#import "MBTransactionAbstractViewController.h"
 
-@interface MBIncomeDetailsViewController : TransactionAbstractViewController
+@interface MBIncomeDetailsViewController : MBTransactionAbstractViewController
 
 @end
