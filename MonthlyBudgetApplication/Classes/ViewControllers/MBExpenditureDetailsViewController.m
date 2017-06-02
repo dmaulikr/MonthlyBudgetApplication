@@ -7,16 +7,7 @@
 //
 
 #import "MBExpenditureDetailsViewController.h"
-#import "MBNewTransactionView.h"
 #import "MBDefine.h"
-#import "MBTransaction.h"
-#import "MBCoreDataManager.h"
-#import "MBTransactionTableCell.h"
-
-#define kTransactiontableCellIdentifier @"TransactionCell"
-#define ktransactionTableCellXIBName    @"TransactionTableCell"
-
-#define kExpenditureTableViewHieghtConstant 100
 
 @interface MBExpenditureDetailsViewController ()
 
@@ -24,14 +15,15 @@
 
 @implementation MBExpenditureDetailsViewController
 
-
-- (NSString *)getNavigationControllerTitle {
+#pragma mark - Override Parent Class methods
+- (NSString *)getNavigationControllerTitle
+{
     return NSLocalizedString(@"Your Expenses",nil);
 }
 
-- (NSString *)getTransactionTypeForVC {
-    return @"Debit";
+- (NSString *)getTransactionTypeForVC
+{
+    return kExpenditureRecordType;
 }
-
 
 @end

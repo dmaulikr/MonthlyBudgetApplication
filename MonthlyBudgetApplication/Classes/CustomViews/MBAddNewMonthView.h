@@ -16,9 +16,9 @@
 
 @property (strong,nonatomic) void (^onPressingSaveButton)(NSString* text);
 
+-(instancetype) initWithAddNewMonthView:(UIViewController* )vc;
+
 - (IBAction)saveButtonPressed:(id)sender;
 - (IBAction)cancelButtonPressed:(id)sender;
-
--(instancetype) initWithAddNewMonthView:(UIViewController* )vc;
 
 @end

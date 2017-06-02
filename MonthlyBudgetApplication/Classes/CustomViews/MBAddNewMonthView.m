@@ -119,8 +119,9 @@
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     // for giving first suggestion of current month when user taps on the textfield
+	[self.monthSuggestionTableView setHidden:NO];
+
     _monthSuggestionArray = [[NSMutableArray alloc]init];
-    [self.monthSuggestionTableView setHidden:NO];
     NSArray* array = [[NSArray alloc]initWithObjects:[MBUtility getCurrentMonthForUserSuggestion], nil];
 
     for(NSString* obj in array)
@@ -134,7 +135,7 @@
 
 -(void)textFieldDidChange:(id)textFieldDidChange
 {
-    // to give suggestion while user types in the text field
+    // to give month suggestions while user types in the text field
     NSString *prefix = [self.monthTextField.text lowercaseString];
     if (prefix.length>kConstIntZero)
     {
@@ -168,7 +169,9 @@
     
     MBMonth* month = [[MBMonth alloc]init];
     month.monthName = _monthSuggestionArray[indexPath.row];
+	
     [cell setUpCellAttributes:month];
+	
     return cell;
 }
 

@@ -21,7 +21,6 @@
 
 - (IBAction)saveButtonPressed:(id)sender;
 - (IBAction)cancelButtonPressed:(id)sender;
--(IBAction)dismissPopUpView:(id)sender;
 
 -(instancetype ) initWithNewTransactionView:(UIViewController* )vc forRecordType:(NSString* )recordType forMonthName:(NSString* )monthName;
 

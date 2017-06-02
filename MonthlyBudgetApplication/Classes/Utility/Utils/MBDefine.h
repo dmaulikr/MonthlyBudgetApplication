@@ -15,10 +15,10 @@
 #define kAppMainColor [UIColor colorWithRed:0.871 green:0.345 blue:0.388 alpha:1.0]
 
 //Numeric constants
-#define kConstIntZero 0
-#define kConstDoubleZero 0.0
-#define kDevideByTwoConstant 2
-#define kOneConstant        1
+#define kConstIntZero			0
+#define kConstDoubleZero		0.0
+#define kDevideByTwoConstant	2
+#define kOneConstant			1
 
 //Entity Keys
 #define kMonthEntityKey         @"Month"

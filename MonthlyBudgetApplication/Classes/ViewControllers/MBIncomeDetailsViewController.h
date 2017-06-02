@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MBMonth.h"
 #import "TransactionAbstractViewController.h"
 
 @interface MBIncomeDetailsViewController : TransactionAbstractViewController

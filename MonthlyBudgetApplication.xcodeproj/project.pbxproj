@@ -105,8 +105,8 @@
 		1529AAFE1EDDE92700259FDC /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				1548242A1EE084E8000DCAE1 /* MBAddNewMonthView.m */,
 				1548242B1EE084E8000DCAE1 /* MBAddNewMonthView.h */,
+				1548242A1EE084E8000DCAE1 /* MBAddNewMonthView.m */,
 				1548242C1EE084E8000DCAE1 /* MBNewTransactionView.h */,
 				1548242D1EE084E8000DCAE1 /* MBNewTransactionView.m */,
 			);
@@ -152,8 +152,8 @@
 		1548245F1EE09E07000DCAE1 /* AbstractClasses */ = {
 			isa = PBXGroup;
 			children = (
-				154824601EE09E4B000DCAE1 /* TransactionAbstractViewController.m */,
 				154824611EE09E4B000DCAE1 /* TransactionAbstractViewController.h */,
+				154824601EE09E4B000DCAE1 /* TransactionAbstractViewController.m */,
 			);
 			name = AbstractClasses;
 			sourceTree = "<group>";
@@ -248,12 +248,12 @@
 			isa = PBXGroup;
 			children = (
 				1548245F1EE09E07000DCAE1 /* AbstractClasses */,
-				1548240B1EE0830A000DCAE1 /* MBExpenditureDetailsViewController.m */,
-				1548240C1EE0830A000DCAE1 /* MBIncomeDetailsViewController.m */,
 				1548240D1EE0830A000DCAE1 /* MBExpenditureDetailsViewController.h */,
+				1548240B1EE0830A000DCAE1 /* MBExpenditureDetailsViewController.m */,
+				154824101EE0830A000DCAE1 /* MBHomeTableViewController.h */,
 				1548240E1EE0830A000DCAE1 /* MBHomeTableViewController.m */,
 				1548240F1EE0830A000DCAE1 /* MBIncomeDetailsViewController.h */,
-				154824101EE0830A000DCAE1 /* MBHomeTableViewController.h */,
+				1548240C1EE0830A000DCAE1 /* MBIncomeDetailsViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -299,9 +299,9 @@
 		15DF0CBE1EDD7C77006B6945 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1548241D1EE08420000DCAE1 /* MBMonth.h */,
 				1548241B1EE08420000DCAE1 /* MBMonth.m */,
 				1548241C1EE08420000DCAE1 /* MBTransaction.h */,
-				1548241D1EE08420000DCAE1 /* MBMonth.h */,
 				1548241E1EE08420000DCAE1 /* MBTransaction.m */,
 			);
 			name = Models;
